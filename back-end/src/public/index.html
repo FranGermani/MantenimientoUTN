@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Cookies</title>
+</head>
+<body>
+    <h1>Ejemplo de Cookies en Express</h1>
+    <button id="setCookieButton">Establecer Cookie</button>
+    <button id="getCookieButton">Obtener Cookie</button>
+    <div id="cookieOutput"></div>
+
+    <script>
+        document.getElementById('setCookieButton').onclick = function() {
+            fetch('/setcookie')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cookieOutput').innerText = data;
+                });
+        };
+
+        document.getElementById('getCookieButton').onclick = function() {
+            fetch('/getcookie')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cookieOutput').innerText = data;
+                });
+        };
+    </script>
+</body>
+</html>

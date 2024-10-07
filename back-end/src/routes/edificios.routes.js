@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Router } from 'express';
 import { pool } from '../db.js'; // Asegúrate de que la ruta sea correcta
 
@@ -15,3 +16,21 @@ router.get('/edificio', async (req, res) => {
 });
 
 export default router;
+=======
+import { Router } from "express";
+import {getEdificio, getEdificios, createEdificio, updateEdificio, deleteEdificio} from '../controllers/edificios.controller.js'
+
+const router = Router()
+
+router.get('/edificios', getEdificios)
+
+router.get('/edificios/:id', getEdificio)
+
+router.post('/edificios', createEdificio)
+
+router.put('/edificios', updateEdificio)
+
+router.delete('/edificios', deleteEdificio)
+
+export default router
+>>>>>>> 5ccb2529453dfa152c29defb53748b25cdb6dd13
