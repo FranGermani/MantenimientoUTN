@@ -1,10 +1,8 @@
-// controllers/ubicacionController.js
 import { pool } from '../db.js';
 
-// Obtener todas las ubicaciones
 export const getUbicaciones = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM ubicacion'); // Asegúrate de que la tabla se llame 'ubicacion'
+        const [rows] = await pool.query('SELECT * FROM ubicacion');
         res.json(rows);
     } catch (err) {
         console.error('Error al obtener ubicaciones:', err);
@@ -12,4 +10,3 @@ export const getUbicaciones = async (req, res) => {
     }
 };
 
-// Aquí puedes agregar más métodos como crear, actualizar y eliminar ubicaciones

@@ -1,10 +1,8 @@
-// controllers/pisoController.js
 import { pool } from '../db.js';
 
-// Obtener todos los pisos
 export const getPisos = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM pisos'); // Asegúrate de que la tabla se llame 'pisos'
+        const [rows] = await pool.query('SELECT * FROM pisos');
         res.json(rows);
     } catch (err) {
         console.error('Error al obtener pisos:', err);
@@ -12,4 +10,3 @@ export const getPisos = async (req, res) => {
     }
 };
 
-// Aquí puedes agregar más métodos como crear, actualizar y eliminar pisos

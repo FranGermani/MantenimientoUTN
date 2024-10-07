@@ -1,10 +1,8 @@
-// routes/sectores.routes.js
 import express from 'express';
-import { getSectores } from '../controllers/sector.controller.js'; // Importar el controlador
+import { getSectores } from '../controllers/sector.controller.js'; 
 
 const router = express.Router();
 
-// Ruta para obtener todos los sectores
-router.get('/sector', getSectores); // Cambia la ruta si lo deseas
+router.get('/sector', getSectores); 
 
 export default router;
