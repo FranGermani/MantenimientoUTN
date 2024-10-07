@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // index.js
 import express from 'express';
 import cors from 'cors';
@@ -33,16 +32,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-=======
-import express from 'express'
-import edificiosRoutes from './routes/edificios.routes.js'
-import indexRoutes from './routes/index.routes.js'
-
-const app = express()
-
-app.use(indexRoutes);
-app.use('/api', edificiosRoutes);
-
-app.listen(3000)
-console.log('server running from port 3000')
->>>>>>> 5ccb2529453dfa152c29defb53748b25cdb6dd13

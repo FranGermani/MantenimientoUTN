@@ -1,12 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "sape",
   "version": "1.0.0",
-=======
-  "name": "back-end",
-  "version": "1.0.0",
-  "description": "",
->>>>>>> 5ccb2529453dfa152c29defb53748b25cdb6dd13
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -16,19 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "cors": "^2.8.5",
-=======
->>>>>>> 5ccb2529453dfa152c29defb53748b25cdb6dd13
     "express": "^4.21.0",
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
-<<<<<<< HEAD
   },
   "description": ""
-=======
-  }
->>>>>>> 5ccb2529453dfa152c29defb53748b25cdb6dd13
 }
