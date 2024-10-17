@@ -1,5 +1,5 @@
 // controllers/sector.controller.js
-import { pool } from '../db.js';
+import { pool } from '../../config/db.js';
 
 // Función para obtener todos los sectores
 export const getSectores = async (req, res) => {

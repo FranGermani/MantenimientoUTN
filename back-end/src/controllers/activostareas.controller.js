@@ -1,5 +1,5 @@
 // controllers/activotareas.controller.js
-import { pool } from '../db.js'; // Asegúrate de que la ruta a tu archivo de conexión a la base de datos es correcta
+import { pool } from '../../config/db.js'; // Asegúrate de que la ruta a tu archivo de conexión a la base de datos es correcta
 
 // Obtener todas las tareas de activo
 export const getactivotareas = async (req, res) => {

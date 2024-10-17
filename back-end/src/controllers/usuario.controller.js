@@ -1,4 +1,4 @@
-import { pool } from '../db.js'; // Asegúrate de tener la conexión a la base de datos
+import { pool } from '../../config/db.js'; // Asegúrate de tener la conexión a la base de datos
 
 // Obtener todos los usuarios
 export const getUsers = async (req, res) => {

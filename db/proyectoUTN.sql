@@ -17,6 +17,7 @@
 
 --
 -- Table structure for table `activo`
+
 CREATE DATABASE mantenimiento_utn;
 
 USE mantenimiento_utn;
@@ -79,613 +80,738 @@ INSERT INTO `activo_tarea` (`id_activo`, `id_tarea`) VALUES
 
 -- Activo 1
 
-(1, 1),  -- 
-(1, 7),  -- 
-(1, 21),  -- 
-(1, 37),  -- 
-(1, null),  -- 
-(1, null),  -- 
-(1, null), -- 
-(1, 86), -- 
-(1, 87), --
-(1, 88), -- 
-(1, 115), --
-(1, 90), -- 
-(1, 91), -- 
-(1, 92), -- 
-(1, 93), -- 
-(1,94),
-(1,76),
-(1,null),
-(1,95),
-(1,96),
+(1, 1), -- Relevar marca.
+(1, 7), -- Relevar modelo.
+(1, 21), -- Relevar potencia.
+(1, 37), -- Relevar cantidad de lámparas por equipo.
+(1, null), --
+(1, null), --
+(1, null), --
+(1, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(1, 87), -- Tomar fotografía.
+(1, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(1, 115), -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(1, 90), -- Control de louver.
+(1, 91), -- Verificación de funcionamiento de la totalidad de las lámparas.
+(1, 92), -- Verificación de estados de zócalos y/o portalámparas.
+(1, 93), -- Limpieza de luminaria y lámpara.
+(1, 94), -- Verificar correcto montaje y sujeción.
+(1, 76), -- Verificar correcto funcionamiento del equipo luego de finalizada la actividad.
+(1, null), --
+(1, 95), -- Complete la documentación de mantenimiento.
+(1, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 
 -- Activo 2
 
-(2, 1),  -- 
-(2, 7),  -- 
-(2, 21),  -- 
-(2, 97),  -- 
-(2, null),  -- 
-(2, null),  -- 
-(2, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(2, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(2, 87), -- Verificar correcto estado de cableado eléctrico, tomacorriente y conexiones eléctricas.
-(2, 88), -- Verificar correcta y firme fijación a pared o estructura de ambas unidades.
-(2, 115), -- Verificar existencia y correcto montaje de protecciones mecánicas.
-(2, 98), -- Verificar carga de gas y NO de fugas.
-(2, 99), -- Realice limpieza de filtros.
-(2, 60), -- Realice limpieza completa de ambas unidades.
-(2, 100), -- Conecte nuevamente a la red eléctrica y realice una prueba de correcto funcionamiento.
-(2, 68), -- Complete la documentación de mantenimiento.
-(2,77),
-(2,78),
-(2,95),
-(2,96),
+(2, 1), -- Relevar marca.
+(2, 7), -- Relevar modelo.
+(2, 21), -- Relevar potencia.
+(2, 97), -- Frío - Calor - Frío/Calor.
+(2, null), --
+(2, null), --
+(2, null), --
+(2, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(2, 87), -- Tomar fotografía.
+(2, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(2, 115), -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(2, 98), -- Verificar correcto estado de cableado eléctrico, tomacorriente y conexiones eléctricas.
+(2, 99), -- Verificar correcta y firme fijación a la pared o estructura de ambas unidades.
+(2, 60), -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(2, 100), -- Verificar carga de gas y no de fugas.
+(2, 68), -- Realizar limpieza de filtros.
+(2, 77), -- Realizar limpieza completa de ambas unidades.
+(2, 78), -- Conectar nuevamente a la red eléctrica y realizar una prueba de correcto funcionamiento.
+(2, 95), -- Complete la documentación de mantenimiento.
+(2, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 -- Activo 3
-(3, 1),  -- Relevar Marca
-(3, 7),  -- Relevar Modelo
-(3, 22),  -- Relevar Potencia
-(3, null),  -- Relevar cantidad de lámparas por equipo.
-(3, null),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(3, null),  -- Tomar Fotografía
-(3, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(3, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(3, 87), -- Control de louver.
-(3, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(3, 89), -- Verificación de estados de zócalos y/o portalámparas.
-(3, 101), -- Limpieza de luminaria y lámpara.
-(3, 102), -- Verificar correcto montaje y sujeción.
-(3, 69), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(3, 57), -- Complete la documentación de mantenimiento.
-(3,null),
-(3,null),
-(3,null),
-(3,95),
-(3,96),
+(3, 1), -- Relevar marca.
+(3, 7), -- Relevar modelo.
+(3, 22), -- Relevar potencia/tamaño.
+(3, null), --
+(3, null), --
+(3, null), --
+(3, null), --
+(3, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(3, 87), -- Tomar fotografía.
+(3, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(3, 89), -- Señalice el área de trabajo.
+(3, 101), -- Verificar correcto funcionamiento de válvulas. 
+(3, 102), -- Verificar falta de pérdidas.
+(3, 69), -- Realizar limpieza del equipo.
+(3, 57), -- Realizar verificación de correcto funcionamiento.
+(3, null), --
+(3, null), --
+(3, null), --
+(3, 95), -- Complete la documentación de mantenimiento.
+(3, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 -- Activo 4
-(4, 2),  -- Relevar Marca
-(4, 8),  -- Relevar Modelo
-(4, 103),  -- Relevar Potencia
-(4, 39),  -- Frío - Calor - Frío/Calor.
-(4, 47),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(4, 54),  -- Tomar Fotografía
-(4, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(4, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(4, 87), -- Verificar correcto estado de cableado eléctrico, tomacorriente y conexiones eléctricas.
-(4, 88), -- Verificar correcta y firme fijación a pared o estructura de ambas unidades.
-(4, 89), -- Verificar existencia y correcto montaje de protecciones mecánicas.
-(4, 104), -- Verificar carga de gas y NO de fugas.
-(4, 105), -- Realice limpieza de filtros.
-(4, 61), -- Realice limpieza completa de ambas unidades.
-(4, 58), -- Conecte nuevamente a la red eléctrica y realice una prueba de correcto funcionamiento.
-(4, 69), -- Complete la documentación de mantenimiento.
-(4, 57),
-(4, null),
-(4, 95),
-(4, 96),
+(4, 2), -- Relevar material.
+(4, 8), -- Número de hojas.
+(4, 103), -- Con vidrio/Sin vidrio/ Tipo.
+(4, 39), -- Corrediza/De abrir.
+(4, 47), -- Marca/Modelo/Tipo de cerradura.
+(4, 54), -- Marca/Modelo/Tipo de bisagras.
+(4, null), --
+(4, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(4, 87), -- Tomar fotografía.
+(4, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(4, 89), -- Señalice el área de trabajo.
+(4, 104), -- Verificar estado general.
+(4, 105), -- Verificar y lubricar bisagras y/o correderas.
+(4, 61), -- Verificar y lubricar cerraduras.
+(4, 58), -- Verificar correcta sujeción de vidrios.
+(4, 69), -- Realizar limpieza del equipo.
+(4, 57), -- Realizar verificación de correcto funcionamiento.
+(4, null), --
+(4, 95), -- Complete la documentación de mantenimiento.
+(4, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 
 -- Activo 5
-(5, 2),  -- Relevar Marca
-(5, 8),  -- Relevar Modelo
-(5, 23),  -- Relevar Potencia
-(5, 39),  -- Relevar cantidad de lámparas por equipo.
-(5, 47),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(5, null),  -- Tomar Fotografía
-(5, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(5, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(5, 87), -- Control de louver.
-(5, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(5, 89), -- Verificación de estados de zócalos y/o portalámparas.
-(5, 104), -- Limpieza de luminaria y lámpara.
-(5, 106), -- Verificar correcto montaje y sujeción.
-(5, 61), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(5, 58), -- Complete la documentación de mantenimiento.
-(5, 69),
-(5, 57),
-(5, null),
-(5, 95),
-(5, 96),
+(5, 2), -- Relevar material.
+(5, 8), -- Número de hojas.
+(5, 23), -- Tipo de vidrio.
+(5, 39), -- Corrediza/De abrir.
+(5, 47), -- Marca/Modelo/Tipo de cerradura.
+(5, null), --
+(5, null), --
+(5, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento. 
+(5, 87), -- Tomar fotografía.
+(5, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(5, 89), -- Señalice el área de trabajo.
+(5, 104), -- Verificar estado general.
+(5, 106), -- Verificar y lubricar bisagras y/o correderas y/o enrolladores.
+(5, 61), -- Verificar y lubricar cerraduras.
+(5, 58), -- Verificar correcta sujeción de vidrios.
+(5, 69), -- Realizar limpieza del equipo.
+(5, 57), -- Realizar verificación de correcto funcionamiento.
+(5, null), --
+(5, 95), -- Complete la documentación de mantenimiento.
+(5, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 -- Activo 6
 
-(6, 1),  -- Relevar Marca
-(6, 7),  -- Relevar Modelo
-(6, 22),  -- Relevar Potencia
-(6, null),  -- Relevar cantidad de lámparas por equipo.
-(6, null),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(6, null),  -- Tomar Fotografía
-(6, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(6, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(6, 87), -- Control de louver.
-(6, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(6, 89), -- Verificación de estados de zócalos y/o portalámparas.
-(6, 107), -- Limpieza de luminaria y lámpara.
-(6, 98), -- Verificar correcto montaje y sujeción.
-(6, null), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(6, null), -- Complete la documentación de mantenimiento.
-(6, 69),
-(6, 57),
-(6, null),
-(6, 95),
-(6, 96),
+(6, 1), -- Relevar marca.
+(6, 7), -- Relevar modelo.
+(6, 22), -- Relevar potencia/tamaño.
+(6, null), --
+(6, null), --
+(6, null), --
+(6, null), --
+(6, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(6, 87), -- Tomar fotografía.
+(6, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(6, 89), -- Señalice el área de trabajo.
+(6, 107), -- Verificar correcta y firme fijación a pared o estructura.
+(6, 98), -- Verificar correcto estado de cableado eléctrico, tomacorriente y conexiones eléctricas.
+(6, null), --
+(6, null), --
+(6, 69), -- Realizar limpieza del equipo.
+(6, 57), -- Realizar verificación de correcto funcionamiento.
+(6, null), --
+(6, 95), -- Complete la documentación de mantenimiento.
+(6, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 7
-(7, 1),  -- Relevar Marca
-(7, 3),  -- Relevar Modelo
-(7, 5),  -- Relevar Potencia
-(7, null),  -- Relevar cantidad de lámparas por equipo.
-(7, null),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(7, null),  -- Tomar Fotografía
-(7, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(7, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(7, 87), -- Control de louver.
-(7, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(7, 89), -- Verificación de estados de zócalos y/o portalámparas.
-(7, 107), -- Limpieza de luminaria y lámpara.
-(7, 108), -- Verificar correcto montaje y sujeción.
-(7, null), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(7, null), -- Complete la documentación de mantenimiento.
-(7, 69),
-(7, null),
-(7, null),
-(7, 95),
-(7, 96),
+(7, 1), -- Relevar marca.
+(7, 9), -- Relevar tamaño.
+(7, 24), -- Relevar tipo.
+(7, null), --
+(7, null), --
+(7, null), --
+(7, null), --
+(7, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(7, 87), -- Tomar fotografía.
+(7, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(7, 89), -- Señalice el área de trabajo.
+(7, 107), -- Verificar correcta y firme fijación a pared o estructura.
+(7, 108), -- Verificar estado de carga. Lectura de manómetro de presión y fecha de vencimiento.
+(7, null), --
+(7, null), --
+(7, 69), -- Realizar limpieza del equipo.
+(7, null), --
+(7, null), --
+(7, 95), -- Complete la documentación de mantenimiento.
+(7, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 
 -- Activo 8
-(8, 2),  -- Relevar Marca
-(8, null),  -- Relevar Modelo
-(8, null),  -- Relevar Potencia
-(8, null),  -- Relevar cantidad de lámparas por equipo.
-(8, null),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(8, null),  -- Tomar Fotografía
-(8, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(8, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(8, 87), -- Control de louver.
-(8, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(8, 89), -- Verificación de estados de zócalos y/o portalámparas.
-(8, 109), -- Limpieza de luminaria y lámpara.
-(8, 110), -- Verificar correcto montaje y sujeción.
-(8, null), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(8, null), -- Complete la documentación de mantenimiento.
-(8, 69),
-(8, null),
-(8, null),
-(8, 95),
-(8, 96),
+(8, 2), -- Relevar material.
+(8, null), --
+(8, null), --
+(8, null), --
+(8, null), --
+(8, null), --
+(8, null), --
+(8, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(8, 87), -- Tomar fotografía.
+(8, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(8, 89), -- Señalice el área de trabajo.
+(8, 109), -- Verificar correcta y firme fijación de baranda a pared o estructura.
+(8, 110), -- Verificar el buen estado general.
+(8, null), --
+(8, null), --
+(8, 69), -- Realizar limpieza del equipo.
+(8, null), --
+(8, null), --
+(8, 95), -- Complete la documentación de mantenimiento.
+(8, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 9
-(9, 3),  -- Relevar Marca
-(9, 10),  -- Relevar Modelo
-(9, 25),  -- Relevar Potencia
-(9, null),  -- Relevar cantidad de lámparas por equipo.
-(9, null),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(9, null),  -- Tomar Fotografía
-(9, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(9, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(9, 87), -- Control de louver.
-(9, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(9, 115), -- Verificación de estados de zócalos y/o portalámparas.
-(9, 107), -- Limpieza de luminaria y lámpara.
-(9, 110), -- Verificar correcto montaje y sujeción.
-(9, 111), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(9, 112), -- Complete la documentación de mantenimiento.
-(9, 70),
-(9, 113),
-(9, 114),
-(9, 95),
-(9, 96),
+(9, 3), -- Relevar tamaño de gabinete.
+(9, 10), -- Cerradura Sí/No.
+(9, 25), -- De columna/Empotrado.
+(9, null), --
+(9, null), --
+(9, null), --
+(9, null), --
+(9, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(9, 87), -- Tomar fotografía.
+(9, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(9, 115), -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(9, 107), -- Verificar correcta y firme fijación a pared o estructura.
+(9, 110), -- Verificar el buen estado general.
+(9, 111), -- Verificar firme montaje de componentes.
+(9, 112), -- Verificar correcto montaje de la protección contra choque eléctrico.
+(9, 70), -- Verificar correcto funcionamiento de puertas y cerraduras.
+(9, 113), -- Verificar correcto ajuste de conexiones eléctricas. Verificar NO de señales de sobrecalentamiento de los componentes.
+(9, 114), -- Realizar limpieza del equipo. NO utilice elementos húmedos ni líquidos. Para retirar polvos, utilice un equipo de aspiración.
+(9, 95), -- Complete la documentación de mantenimiento.
+(9, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 10
-(10, 1),  -- Relevar Marca
-(10, 11),  -- Relevar Modelo
-(10, null),  -- Relevar Potencia
-(10, null),  -- Relevar cantidad de lámparas por equipo.
-(10, null),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(10, null),  -- Tomar Fotografía
-(10, null), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(10, 86), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(10, 87), -- Control de louver.
-(10, 88), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(10, 89), -- Verificación de estados de zócalos y/o portalámparas.
-(10, 107), -- Limpieza de luminaria y lámpara.
-(10, 102), -- Verificar correcto montaje y sujeción.
-(10, null), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(10, null), -- Complete la documentación de mantenimiento.
-(10, 114),
-(10, 57),
+(10, 1),  -- Relevar marca.
+(10, 11),  -- Mochila empotrada/exterior.
+(10, null),  -- 
+(10, null),  -- 
+(10, null),  -- 
+(10, null),  -- 
+(10, null), -- 
+(10, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(10, 87), -- Tomar fotografía.
+(10, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(10, 89), -- Señalice el área de trabajo.
+(10, 107), -- Verificar correcta y firme fijación a pared o estructura.
+(10, 102), -- Verificar falta de pérdidas.
+(10, null), --
+(10, null), -- 
+(10, 114), -- Realizar limpieza del equipo. NO utilice elementos húmedos ni líquidos. Para retirar polvos, utilice un equipo de aspiración.
+(10, 57), -- Realizar verificación de correcto funcionamiento.
 (10, null),
-(10, 95),
-(10, 96),
+(10, 95), -- Complete la documentación de mantenimiento.
+(10, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 11
 
 (11, 2),  -- Relevar Material
 (11, 9),  -- Relevar Tamaño
-(11, 3),  -- Relevar cantidas de piletas
-(11, 4),  -- Relevar tipo de canilla
-(11, 8),  -- Agua Fria/Caliente
-(11, 9),  -- Tomar Fotografía
-(11, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(11, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(11, 12), -- Control de louver.
-(11, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(11, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(11, 15), -- Limpieza de luminaria y lámpara.
-(11, 16), -- Verificar correcto montaje y sujeción.
-(11, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(11, 19), -- Complete la documentación de mantenimiento.
+(11, 26),  -- Relevar cantidad de piletas
+(11, 40),  -- Relevar tipo de canilla
+(11, 48),  -- Agua fria/Caliente
+(11, null),  --
+(11, null), -- 
+(11, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento
+(11, 87), -- Tomar fotografía
+(11, 88), -- Al finalizar la actividad deje el area limpia ordenada y segura
+(11, 89), -- Señalice el area de trabajo
+(11, 99), -- Verificar correcta y firme fijacion a pared o estructura
+(11, 102), -- Verificar falta de perdidas
+(11, null),  -- 
+(11, null),  -- 
+(11, 69),  -- Realizar limpieza del equipo
+(11, 57),  -- Realice verificacion de correcto funcionamiento
+(11, null),  -- 
+(11, 95),  -- Complete la documentacion de mantenimiento
+(11, 96),  -- Al finalizar la actividad deje el area y equipo limpios, ordenados y seguros
 
 -- Activo 12
 (12, 1),  -- Relevar Marca
-(12, 2),  -- Relevar Modelo
-(12, 3),  -- Relevar Potencia
-(12, 4),  -- Relevar cantidad de lámparas por equipo.
-(12, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(12, 9),  -- Tomar Fotografía
-(12, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(12, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(12, 12), -- Control de louver.
-(12, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(12, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(12, 15), -- Limpieza de luminaria y lámpara.
-(12, 16), -- Verificar correcto montaje y sujeción.
-(12, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(12, 19), -- Complete la documentación de mantenimiento.
+(12, 7),  -- Relevar Modelo
+(12, 27),  -- Montaje: Pared/Techo/Móvil
+(12, 41),  -- Relevar cantidad y material de palas
+(12, 49),  -- Relevar tipo y marca de controlador
+(12, null),  -- 
+(12, null), -- 
+(12, 86), -- Relevar cualquier otro que considere relevante para el mantenimiento
+(12, 87), -- Tomar fotografía
+(12, 88), -- Al finalizar la actividad deje el area limpia, ordenada y segura
+(12, 89), -- Señalice el area de trabajo
+(12, 99), -- Verificar correcta y firme fijacion a pared o estructura
+(12, 116), -- Verificar estado general
+(12, 62), -- Verificar correcto estado de cableado electrico, toma corriente y conexiones electricas
+(12, 60), -- Verificar existencia y correcto montaje de protecciones mecanicas.
+(12, 69), -- Realizar limpieza del equipo
+(12, 57), -- Realice verificacion de correcto mantenimiento
+(12, null), -- 
+(12, 95), -- Complete la documentacion de mantenimiento
+(12, 96), -- Al finalizar la actividad deje el area y equipo limpios, ordenados y seguros
 
 -- Activo 13
-(13, 1),  -- Relevar Marca
-(13, 2),  -- Relevar Modelo
-(13, 3),  -- Relevar Potencia
-(13, 4),  -- Relevar cantidad de lámparas por equipo.
-(13, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(13, 9),  -- Tomar Fotografía
-(13, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(13, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(13, 12), -- Control de louver.
-(13, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(13, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(13, 15), -- Limpieza de luminaria y lámpara.
-(13, 16), -- Verificar correcto montaje y sujeción.
-(13, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(13, 19), -- Complete la documentación de mantenimiento.
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
+(13, null),  -- 
 
 -- Activo 14
 (14, 1),  -- Relevar Marca
-(14, 2),  -- Relevar Modelo
-(14, 3),  -- Relevar Potencia
-(14, 4),  -- Relevar cantidad de lámparas por equipo.
-(14, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(14, 9),  -- Tomar Fotografía
-(14, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(14, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(14, 12), -- Control de louver.
-(14, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(14, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(14, 15), -- Limpieza de luminaria y lámpara.
-(14, 16), -- Verificar correcto montaje y sujeción.
-(14, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(14, 19), -- Complete la documentación de mantenimiento.
+(14, 8),  -- Numero de hojas
+(14, 103),  -- Con vidrio/Sin vidrio/Tipo
+(14, 39),  -- Corrediza/De abrir
+(14, 47),  -- Marca/Modelo/Tipo de cerradura.
+(14, 54),  -- Marca/ Modelo/ Tipo de visagra
+(14, null), -- 
+(14, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento
+(14, 87), -- Tomar fotografia
+(14, 88), -- Al finalizar la actividad deje el area limpia, ordenada y segura
+(14, 89), -- Señalice el area de trabajo
+(14, 107), -- Verificar correcta y firme fijacion a pared o estructura
+(14, 116), -- Verificar estado general
+(14, 117), -- Verificar correcto montaje de protecciones mecanicas
+(14, 61), -- Verifique y lubrique cerraduras.
+(14, 58), -- Verifique correcta sujeccion de vidrios
+(14, 57), -- Realice verificacion de correcto funcionamiento
+(14, 69), -- Realizar limpieza del equipo
+(14, 95), -- Complete la documentacion de mantenimiento
+(14, 96), -- Al finalizar la actividad deje el area y equipo limpio, ordenados y seguros
 
 -- Activo 15
 (15, 1),  -- Relevar Marca
-(15, 2),  -- Relevar Modelo
-(15, 3),  -- Relevar Potencia
-(15, 4),  -- Relevar cantidad de lámparas por equipo.
-(15, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(15, 9),  -- Tomar Fotografía
-(15, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(15, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(15, 12), -- Control de louver.
-(15, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(15, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(15, 15), -- Limpieza de luminaria y lámpara.
-(15, 16), -- Verificar correcto montaje y sujeción.
-(15, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(15, 19), -- Complete la documentación de mantenimiento.
+(15, 7),  -- Relevar Modelo
+(15, 28),  -- Relevar tipo de accionamiento
+(15, 42),  -- Tipo de puerta
+(15, 50),  -- Puerta manual/Automatica
+(15, null),  -- 
+(15, null), -- 
+(15, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento
+(15, 87), -- Tomar fotografias
+(15, 88), -- Al finalizar la actividad deje el area limpia, ordenada y segura
+(15, 89), -- Señalice el area de trabajo
+(15, null), -- 
+(15, 116), -- Verificar estado general
+(15, 60), -- Verifique existencia y correcto montaje de protecciones mecanicas.
+(15, null), -- 
+(15, 69), -- Realizar limpieza del equipo
+(15, 57), -- Realice verificacion de correcto funcionamiento
+(15, 82), -- En caso de detectar anomalias contactar al servicio tecnico autorizado
+(15, 95), -- Complete la documentacion de mantenimiento
+(15, 96), -- Al finalizar la actividad deje el area y equipo limpio, ordenados y seguros
 
 -- Activo 16
 (16, 1),  -- Relevar Marca
-(16, 2),  -- Relevar Modelo
-(16, 3),  -- Relevar Potencia
-(16, 4),  -- Relevar cantidad de lámparas por equipo.
-(16, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(16, 9),  -- Tomar Fotografía
-(16, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(16, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(16, 12), -- Control de louver.
-(16, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(16, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(16, 15), -- Limpieza de luminaria y lámpara.
-(16, 16), -- Verificar correcto montaje y sujeción.
-(16, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(16, 19), -- Complete la documentación de mantenimiento.
+(16, 7),  -- Relevar Modelo
+(16, 2),  -- Relevar Material
+(16, 28),  -- Relevar tipo de accionamiento.
+(16, 51),  -- Relevar dimensiones
+(16, null),  -- 
+(16, null), -- 
+(16, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento
+(16, 87), -- Tomar fotografias
+(16, 88), -- Al finalizar la actividad deje el area limpia, ordenada y segura
+(16, 89), -- Señalice el area de trabajo
+(16, 99), -- Verificar correcta y firme fijacion a pared o estructura
+(16, 116), -- Verificar estado general
+(16, 117), -- Verifique correcto montaje de protecciones mecanicas
+(16, 62), -- Verificar correcto estado de cableado electrico, toma corriente y conexiones electricas
+(16, 69), -- Realizar limpieza del equipo
+(16, 57), -- Realice verificacion de correcto funcionamiento
+(16, null), -- 
+(16, 95), -- Complete la documentacion de mantenimiento
+(16, 96), --  Al finalizar la actividad deje el area y equipo limpio, ordenados y seguros
 
 -- Activo 17
-(17, 1),  -- Relevar Marca
-(17, 2),  -- Relevar Modelo
-(17, 3),  -- Relevar Potencia
-(17, 4),  -- Relevar cantidad de lámparas por equipo.
-(17, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(17, 9),  -- Tomar Fotografía
-(17, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(17, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(17, 12), -- Control de louver.
-(17, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(17, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(17, 15), -- Limpieza de luminaria y lámpara.
-(17, 16), -- Verificar correcto montaje y sujeción.
-(17, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(17, 19), -- Complete la documentación de mantenimiento.
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
+(17, null),  -- 
 
 -- Activo 18
-(18, 1),  -- Relevar Marca
-(18, 2),  -- Relevar Modelo
-(18, 3),  -- Relevar Potencia
-(18, 4),  -- Relevar cantidad de lámparas por equipo.
-(18, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(18, 9),  -- Tomar Fotografía
-(18, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(18, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(18, 12), -- Control de louver.
-(18, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(18, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(18, 15), -- Limpieza de luminaria y lámpara.
-(18, 16), -- Verificar correcto montaje y sujeción.
-(18, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(18, 19), -- Complete la documentación de mantenimiento.
+(18, 1), -- Relevar marca.
+(18, 7), -- Relevar modelo.
+(18, 29), -- Eléctrico/Gas (Tipo de gas).
+(18, 21), -- Relevar potencia.
+(18, null), -- (Sin tarea).
+(18, null), -- (Sin tarea).
+(18, null), -- (Sin tarea).
+(18, 86), -- Relevar cualquier otro dato relevante para el mantenimiento.
+(18, 87), -- Tomar fotografía.
+(18, 88), -- Al finalizar, dejar el área limpia, ordenada y segura.
+(18, 89), -- Señalizar el área de trabajo.
+(18, 107), -- Verificar estado de carga, lectura de manómetro de presión y fecha de vencimiento.
+(18, 104), -- Lubricar bisagras y/o correderas.
+(18, 60), -- Verificar montaje de protecciones contra choque eléctrico.
+(18, 62), -- Verificar estado de cableado eléctrico, tomacorrientes y conexiones eléctricas.
+(18, 102), -- Con vidrio/Sin vidrio/Tipo.
+(18, 69), -- Realizar limpieza del equipo.
+(18, null), -- (Sin tarea).
+(18, 95), -- Completar documentación de mantenimiento.
+(18, 96), -- Frío/Calor/Frío-Calor.
 
 -- Activo 19
-(19, 1),  -- Relevar Marca
-(19, 2),  -- Relevar Modelo
-(19, 3),  -- Relevar Potencia
-(19, 4),  -- Relevar cantidad de lámparas por equipo.
-(19, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(19, 9),  -- Tomar Fotografía
-(19, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(19, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(19, 12), -- Control de louver.
-(19, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(19, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(19, 15), -- Limpieza de luminaria y lámpara.
-(19, 16), -- Verificar correcto montaje y sujeción.
-(19, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(19, 19), -- Complete la documentación de mantenimiento.
+(19, 1), -- Relevar marca
+(19, 7), -- Relevar modelo
+(19, 29), -- Eléctrico/Gas - Tipo de gas
+(19, 21), -- Relevar potencia
+(19, 52), -- Tiro balanceado Si/No
+(19, null),
+(19, null),
+(19, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento
+(19, 87), -- Tomar fotografía
+(19, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura
+(19, 89), -- Señalice el área de trabajo
+(19, 99), -- Verificar correcta y firme fijación a la pared o estructura de ambas unidades
+(19, 116), -- Verificar estado general
+(19, 117), -- Verificar correcto montaje de protecciones mecánicas
+(19, 62), -- Verifique limpieza de canaletas. Debe encontrarse libre de obstrucciones y apta para la correcta descarga de agua
+(19, 102), -- Verificar falta de pérdidas
+(19, 69), -- Realice limpieza de filtros
+(19, null),
+(19, 95), -- Complete la documentación de mantenimiento
+(19, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros
+
 
 -- Activo 20
-(20, 1),  -- Relevar Marca
-(20, 2),  -- Relevar Modelo
-(20, 3),  -- Relevar Potencia
-(20, 4),  -- Relevar cantidad de lámparas por equipo.
-(20, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(20, 9),  -- Tomar Fotografía
-(20, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(20, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(20, 12), -- Control de louver.
-(20, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(20, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(20, 15), -- Limpieza de luminaria y lámpara.
-(20, 16), -- Verificar correcto montaje y sujeción.
-(20, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(20, 19), -- Complete la documentación de mantenimiento.
+(20, 1),  -- Relevar marca.
+(20, 7),  -- Relevar modelo.
+(20, 29),  -- Eléctrico/Gas - Tipo de gas.
+(20, 21),  -- Relevar potencia.
+(20, null),  --
+(20, null),  -- 
+(20, null), -- 
+(20, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(20, 87), -- Tomar fotografía.
+(20, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(20, 89), -- Señalice el área de trabajo.
+(20, null), -- 
+(20, 116), -- Verificar estado general.
+(20, 117), -- Verificar correcto montaje de protecciones mecánicas.
+(20, null), -- 
+(20, 72), -- Realizar limpieza externa del equipo.
+(20, 57), -- Realizar verificación de correcto funcionamiento.
+(20, 82), -- ¡¡¡EN CASO DE DETECTAR ANOMALÍAS, CONTACTAR AL SERVICIO TÉCNICO AUTORIZADO. SI ESTAS ANOMALÍAS SON CRÍTICAS, DETENGA EL USO DEL EQUIPO!!!
+(20, 95), -- Complete la documentación de mantenimiento.
+(20, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
-(21, 1),  -- Relevar Marca
-(21, 2),  -- Relevar Modelo
-(21, 3),  -- Relevar Potencia
-(21, 4),  -- Relevar cantidad de lámparas por equipo.
-(21, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(21, 9),  -- Tomar Fotografía
-(21, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(21, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(21, 12), -- Control de louver.
-(21, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(21, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(21, 15), -- Limpieza de luminaria y lámpara.
-(21, 16), -- Verificar correcto montaje y sujeción.
-(21, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(21, 19), -- Complete la documentación de mantenimiento.
+-- Activo 21
+(21, 2),  -- 
+(21, 12),  -- 
+(21, null),  -- 
+(21, null),  -- 
+(21, null),  -- 
+(21, null),  -- 
+(21, null), -- 
+(21, 86), -- 
+(21, 87), -- 
+(21, 88), -- 
+(21, 89), -- 
+(21, 66), -- 
+(21, 104), -- 
+(21, 118), -- Verificar correcta sujeccion de coberturas, canaletas, cumbreras, cenefas y otros
+(21, 63), -- 
+(21, 73), -- 
+(21, 119), -- Verifique que las descargas de canaletas permitan un flujo libre y se encuentren conectadas correctamente en extremos y uniones
+(21, null), -- 
+(21, 95), -- 
+(21, 96), --  
 
 -- Activo 22
-(22, 1),  -- Relevar Marca
-(22, 2),  -- Relevar Modelo
-(22, 3),  -- Relevar Potencia
-(22, 4),  -- Relevar cantidad de lámparas por equipo.
-(22, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(22, 9),  -- Tomar Fotografía
-(22, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(22, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(22, 12), -- Control de louver.
-(22, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(22, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(22, 15), -- Limpieza de luminaria y lámpara.
-(22, 16), -- Verificar correcto montaje y sujeción.
-(22, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(22, 19), -- Complete la documentación de mantenimiento.
+(22, null),  -- 
+(22, null),  -- 
+(22, null),  -- 
+(22, null),  -- 
+(22, null),  -- 
+(22, null),  -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
+(22, null), -- 
 
 -- Activo 23
-(23, 1),  -- Relevar Marca
-(23, 2),  -- Relevar Modelo
-(23, 3),  -- Relevar Potencia
-(23, 4),  -- Relevar cantidad de lámparas por equipo.
-(23, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(23, 9),  -- Tomar Fotografía
-(23, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(23, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(23, 12), -- Control de louver.
-(23, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(23, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(23, 15), -- Limpieza de luminaria y lámpara.
-(23, 16), -- Verificar correcto montaje y sujeción.
-(23, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(23, 19), -- Complete la documentación de mantenimiento.
+(23, 2),  -- 
+(23, 14),  -- 
+(23, null),  -- 
+(23, 46),  -- 
+(23, null),  -- 
+(23, null),  -- 
+(23, null), -- 
+(23, 86), -- 
+(23, 87), -- 
+(23, 88), -- 
+(23, 89), -- 
+(23, 66), -- 
+(23, 116), -- 
+(23, 107), -- 
+(23, 117), -- 
+(23, null), -- 
+(23, null), -- 
+(23, 69), -- 
+(23, 95), -- 
+(23, 96), -- 
 
 -- Activo 24
-(24, 1),  -- Relevar Marca
-(24, 2),  -- Relevar Modelo
-(24, 3),  -- Relevar Potencia
-(24, 4),  -- Relevar cantidad de lámparas por equipo.
-(24, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(24, 9),  -- Tomar Fotografía
-(24, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(24, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(24, 12), -- Control de louver.
-(24, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(24, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(24, 15), -- Limpieza de luminaria y lámpara.
-(24, 16), -- Verificar correcto montaje y sujeción.
-(24, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(24, 19), -- Complete la documentación de mantenimiento.
+(24, 1),  -- 
+(24, 7),  -- 
+(24, 31),  -- 
+(24, null),  -- 
+(24, null),  -- 
+(24, null),  -- 
+(24, null), -- 
+(24, 86), -- 
+(24, 87), -- 
+(24, 88), -- 
+(24, 115), -- 
+(24, 66), -- 
+(24, 116), -- 
+(24, 107), -- 
+(24, 117), -- 
+(24, 69), -- 
+(24, 57), -- 
+(24, 82), -- 
+(24, 95), -- 
+(24, 96), -- 
 
 -- Activo 25
-(25, 1),  -- Relevar Marca
-(25, 2),  -- Relevar Modelo
-(25, 3),  -- Relevar Potencia
-(25, 4),  -- Relevar cantidad de lámparas por equipo.
-(25, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(25, 9),  -- Tomar Fotografía
-(25, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(25, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(25, 12), -- Control de louver.
-(25, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(25, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(25, 15), -- Limpieza de luminaria y lámpara.
-(25, 16), -- Verificar correcto montaje y sujeción.
-(25, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(25, 19), -- Complete la documentación de mantenimiento.
+(25, 2),  -- 
+(25, 15),  -- 
+(25, null),  -- 
+(25, null),  -- 
+(25, null),  -- 
+(25, null),  -- 
+(25, null), -- 
+(25, 86), -- 
+(25, 87), -- 
+(25, 88), -- 
+(25, 115), -- 
+(25, null), -- 
+(25, 116), -- 
+(25, 107), -- 
+(25, 117), -- 
+(25, 69), -- 
+(25, 57), -- 
+(25, null), -- 
+(25, 95), -- 
+(25, 96), -- 
 
 -- Activo 26
-(26, 1),  -- Relevar Marca
-(26, 2),  -- Relevar Modelo
-(26, 3),  -- Relevar Potencia
-(26, 4),  -- Relevar cantidad de lámparas por equipo.
-(26, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(26, 9),  -- Tomar Fotografía
-(26, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(26, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(26, 12), -- Control de louver.
-(26, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(26, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(26, 15), -- Limpieza de luminaria y lámpara.
-(26, 16), -- Verificar correcto montaje y sujeción.
-(26, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(26, 19), -- Complete la documentación de mantenimiento.
+(26, 4),  -- 
+(26, 16),  -- 
+(26, 32),  -- 
+(26, null),  -- 
+(26, null),  -- 
+(26, null),  -- 
+(26, null), -- 
+(26, 86), -- 
+(26, 87), -- 
+(26, 88), -- 
+(26, 115), -- 
+(26, null), -- 
+(26, 116), -- 
+(26, null), -- 
+(26, 117), -- 
+(26, 69), -- 
+(26, 57), -- 
+(26, 82), -- 
+(26, 95), -- 
+(26, 96), -- 
 
 -- Activo 27
-(27, 1),  -- Relevar Marca
-(27, 2),  -- Relevar Modelo
-(27, 3),  -- Relevar Potencia
-(27, 4),  -- Relevar cantidad de lámparas por equipo.
-(27, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(27, 9),  -- Tomar Fotografía
-(27, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(27, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(27, 12), -- Control de louver.
-(27, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(27, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(27, 15), -- Limpieza de luminaria y lámpara.
-(27, 16), -- Verificar correcto montaje y sujeción.
-(27, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(27, 19), -- Complete la documentación de mantenimiento.
+(27, 1),  -- 
+(27, 2),  -- 
+(27, 3),  -- 
+(27, 4),  -- 
+(27, 8),  -- 
+(27, 9),  -- 
+(27, 10), -- 
+(27, 11), -- 
+(27, 12), -- 
+(27, 13), -- 
+(27, 14), -- 
+(27, 15), -- 
+(27, 16), -- 
+(27, 17), -- 
+(27, 19), -- 
+(27, 19), -- 
+(27, 19), -- 
+(27, 19), -- 
+(27, 19), -- 
+(27, 19), -- 
 
 -- Activo 28
-(28, 1),  -- Relevar Marca
-(28, 2),  -- Relevar Modelo
-(28, 3),  -- Relevar Potencia
-(28, 4),  -- Relevar cantidad de lámparas por equipo.
-(28, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(28, 9),  -- Tomar Fotografía
-(28, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(28, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(28, 12), -- Control de louver.
-(28, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(28, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(28, 15), -- Limpieza de luminaria y lámpara.
-(28, 16), -- Verificar correcto montaje y sujeción.
-(28, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(28, 19), -- Complete la documentación de mantenimiento.
+(28, 1),  -- 
+(28, 2),  -- 
+(28, 3),  -- 
+(28, 4),  -- 
+(28, 8),  -- 
+(28, 9),  -- 
+(28, 10), -- 
+(28, 11), -- 
+(28, 12), -- 
+(28, 13), -- 
+(28, 14), -- 
+(28, 15), -- 
+(28, 16), -- 
+(28, 17), -- 
+(28, 19), -- 
+(28, 19), -- 
+(28, 19), -- 
+(28, 19), -- 
+(28, 19), -- 
+(28, 19), -- 
 
 -- Activo 29
-(29, 1),  -- Relevar Marca
-(29, 2),  -- Relevar Modelo
-(29, 3),  -- Relevar Potencia
-(29, 4),  -- Relevar cantidad de lámparas por equipo.
-(29, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(29, 9),  -- Tomar Fotografía
-(29, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(29, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(29, 12), -- Control de louver.
-(29, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(29, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(29, 15), -- Limpieza de luminaria y lámpara.
-(29, 16), -- Verificar correcto montaje y sujeción.
-(29, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(29, 19), -- Complete la documentación de mantenimiento.
+(29, 1),  -- 
+(29, 2),  -- 
+(29, 3),  -- 
+(29, 4),  -- 
+(29, 8),  -- 
+(29, 9),  -- 
+(29, 10), -- 
+(29, 11), -- 
+(29, 12), -- 
+(29, 13), -- 
+(29, 14), -- 
+(29, 15), -- 
+(29, 16), -- 
+(29, 17), -- 
+(29, 19), -- 
+(29, 19), -- 
+(29, 19), -- 
+(29, 19), -- 
+(29, 19), -- 
+(29, 19), -- 
 
 -- Activo 30
-(30, 1),  -- Relevar Marca
-(30, 2),  -- Relevar Modelo
-(30, 3),  -- Relevar Potencia
-(30, 4),  -- Relevar cantidad de lámparas por equipo.
-(30, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(30, 9),  -- Tomar Fotografía
-(30, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(30, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(30, 12), -- Control de louver.
-(30, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(30, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(30, 15), -- Limpieza de luminaria y lámpara.
-(30, 16), -- Verificar correcto montaje y sujeción.
-(30, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(30, 19), -- Complete la documentación de mantenimiento.
+(30, 1),  -- 
+(30, 2),  -- 
+(30, 3),  -- 
+(30, 4),  -- 
+(30, 8),  -- 
+(30, 9),  -- 
+(30, 10), -- 
+(30, 11), -- 
+(30, 12), -- 
+(30, 13), -- 
+(30, 14), -- 
+(30, 15), -- 
+(30, 16), -- 
+(30, 17), -- 
+(30, 19), -- 
+(30, 19), -- 
+(30, 19), -- 
+(30, 19), -- 
+(30, 19), -- 
+(30, 19), -- 
 
-(31, 1),  -- Relevar Marca
-(31, 2),  -- Relevar Modelo
-(31, 3),  -- Relevar Potencia
-(31, 4),  -- Relevar cantidad de lámparas por equipo.
-(31, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(31, 9),  -- Tomar Fotografía
-(31, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(31, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(31, 12), -- Control de louver.
-(31, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(31, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(31, 15), -- Limpieza de luminaria y lámpara.
-(31, 16), -- Verificar correcto montaje y sujeción.
-(31, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(31, 19), -- Complete la documentación de mantenimiento.
+-- Activo 31
+(31, 1),  -- 
+(31, 2),  -- 
+(31, 3),  -- 
+(31, 4),  -- 
+(31, 8),  -- 
+(31, 9),  -- 
+(31, 10), -- 
+(31, 11), -- 
+(31, 12), -- 
+(31, 13), -- 
+(31, 14), -- 
+(31, 15), -- 
+(31, 16), -- 
+(31, 17), -- 
+(31, 19), -- 
+(31, 19), -- 
+(31, 19), -- 
+(31, 19), -- 
+(31, 19), -- 
+(31, 19), -- 
 
 -- Activo 32
-(32, 1),  -- Relevar Marca
-(32, 2),  -- Relevar Modelo
-(32, 3),  -- Relevar Potencia
-(32, 4),  -- Relevar cantidad de lámparas por equipo.
-(32, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(32, 9),  -- Tomar Fotografía
-(32, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(32, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(32, 12), -- Control de louver.
-(32, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(32, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(32, 15), -- Limpieza de luminaria y lámpara.
-(32, 16), -- Verificar correcto montaje y sujeción.
-(32, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(32, 19), -- Complete la documentación de mantenimiento.
+(32, 1),  -- 
+(32, 2),  -- 
+(32, 3),  -- 
+(32, 4),  -- 
+(32, 8),  -- 
+(32, 9),  -- 
+(32, 10), -- 
+(32, 11), -- 
+(32, 12), -- 
+(32, 13), -- 
+(32, 14), -- 
+(32, 15), -- 
+(32, 16), -- 
+(32, 17), -- 
+(32, 19), -- 
+(32, 19), -- 
+(32, 19), -- 
+(32, 19), -- 
+(32, 19), -- 
+(32, 19), -- 
 
 -- Activo 33
-(33, 1),  -- Relevar Marca
-(33, 2),  -- Relevar Modelo
-(33, 3),  -- Relevar Potencia
-(33, 4),  -- Relevar cantidad de lámparas por equipo.
-(33, 8),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
-(33, 9),  -- Tomar Fotografía
-(33, 10), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
-(33, 11), -- Señalice el área de Trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
-(33, 12), -- Control de louver.
-(33, 13), -- Verificación de funcionamiento de la totalidad de las lámparas.
-(33, 14), -- Verificación de estados de zócalos y/o portalámparas.
-(33, 15), -- Limpieza de luminaria y lámpara.
-(33, 16), -- Verificar correcto montaje y sujeción.
-(33, 17), -- Verifique correcto funcionamiento del equipo luego de finalizada la actividad.
-(33, 19); -- Complete la documentación de mantenimiento.
+(33, 1),  -- 
+(33, 2),  -- 
+(33, 3),  -- 
+(33, 4),  -- 
+(33, 8),  -- 
+(33, 9),  -- 
+(33, 10), -- 
+(33, 11), -- 
+(33, 12), -- 
+(33, 13), -- 
+(33, 14), -- 
+(33, 15), -- 
+(33, 16), -- 
+(33, 17), -- 
+(33, 19), -- 
+(33, 19), -- 
+(33, 19), -- 
+(33, 19), -- 
+(33, 19), -- 
+(33, 19); -- 
+
 
 /*!40000 ALTER TABLE `activo_tarea` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -952,7 +1078,11 @@ INSERT INTO `tareas` (`descripcion`) VALUES
 ('Verificar correcto montaje de la proteccion contra choque electrico'),
 ('Verificar correcto ajuste de conexiones electricas. Verificar NO de señales de sobrecalentamiento de los componentes'),
 ('Realizar limpieza del equipo. NO utilize elementos humedos ni liquidos. Para retirar polvos, utilize un equipo de aspiracion'),
-('Señalice el area de trabajo. desconecte la energia electrica - verificar no existencia de tension electrica');
+('Señalice el area de trabajo. desconecte la energia electrica - verificar no existencia de tension electrica'),
+('Verificar estado general'),
+('Verificar correcto montaje de protecciones mecanicas'),
+('Verificar correcta sujeccion de coberturas, canaletas, cumbreras, cenefas y otros'),
+('Verifique que las descargas de canaletas permitan un flujo libre y se encuentren conectadas correctamente en extremos y uniones');
 
 LOCK TABLES `tareas` WRITE;
 /*!40000 ALTER TABLE `tareas` DISABLE KEYS */;

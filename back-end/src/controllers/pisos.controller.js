@@ -1,5 +1,5 @@
 // controllers/pisoController.js
-import { pool } from '../db.js';
+import { pool } from '../../config/db.js';
 
 // Obtener todos los pisos
 export const getPisos = async (req, res) => {

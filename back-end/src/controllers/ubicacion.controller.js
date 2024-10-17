@@ -1,5 +1,5 @@
 // controllers/ubicacionController.js
-import { pool } from '../db.js';
+import { pool } from '../../config/db.js';
 
 // Obtener todas las ubicaciones
 export const getUbicaciones = async (req, res) => {
