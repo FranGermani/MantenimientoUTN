@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root', // Esto permite que el servicio esté disponible en toda la aplicación
 })
 export class DataService {
-  private apiUrl = 'http://localhost:5000/api/edificio'; // URL de tu API en Node.js
+  private apiUrl = 'https://api.example.com/data'; // Reemplaza con tu URL de API
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
