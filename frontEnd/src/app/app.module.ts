@@ -2,24 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { HeaderComponent } from './components/landing-page/header/header.component';
+import { BodyComponent } from './components/landing-page/body/body.component';
+import { FooterComponent } from './components/landing-page/footer/footer.component';
+import { RegisterComponent } from './components/landing-page/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
+    HeaderComponent,
+    BodyComponent,
+    FooterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, // Asegúrate de incluir esto
+    HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent],
