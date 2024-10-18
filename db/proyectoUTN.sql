@@ -16,8 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `activo`
-
+-- Table structure for table `activo`usuario
 CREATE DATABASE mantenimiento_utn;
 
 USE mantenimiento_utn;
@@ -549,268 +548,358 @@ INSERT INTO `activo_tarea` (`id_activo`, `id_tarea`) VALUES
 (21, 96), --  
 
 -- Activo 22
+(22, 30),  -- Cantidad de bajadas.
+(22, 45),  -- Bajadas internas/externas.
+(22, 53),  -- Material de bajadas.
 (22, null),  -- 
 (22, null),  -- 
-(22, null),  -- 
-(22, null),  -- 
-(22, null),  -- 
-(22, null),  -- 
+(22, 86), -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(22, 87), -- Tomar fotografía.
+(22, 88), -- Al finalizar la actividad deje el área limpia, ordenada y segura.
 (22, null), -- 
 (22, null), -- 
 (22, null), -- 
 (22, null), -- 
 (22, null), -- 
 (22, null), -- 
-(22, null), -- 
-(22, null), -- 
-(22, null), -- 
-(22, null), -- 
-(22, null), -- 
-(22, null), -- 
-(22, null), -- 
-(22, null), -- 
+(22, 95), -- Complete la documentación de mantenimiento.
+(22, 96), -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 23
-(23, 2),  -- 
-(23, 14),  -- 
+(23, 2),  -- Relevar material.
+(23, 14),  -- Acceso desde el interior Sí/No.
 (23, null),  -- 
-(23, 46),  -- 
+(23, 46),  -- Baranda Sí/No.
 (23, null),  -- 
 (23, null),  -- 
-(23, null), -- 
-(23, 86), -- 
-(23, 87), -- 
-(23, 88), -- 
-(23, 89), -- 
-(23, 66), -- 
-(23, 116), -- 
-(23, 107), -- 
-(23, 117), -- 
-(23, null), -- 
-(23, null), -- 
-(23, 69), -- 
-(23, 95), -- 
-(23, 96), -- 
+(23, null),  -- 
+(23, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(23, 87),  -- Tomar fotografía.
+(23, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(23, 89),  -- Señalice el área de trabajo.
+(23, 66),  -- Utilice los Elementos de Protección Personal para trabajos en altura.
+(23, 116),  -- Verificar estado general.
+(23, 107),  -- Verificar correcta y firme fijación a pared o estructura.
+(23, 117),  -- Verificar correcto montaje de protecciones mecánicas.
+(23, null),  -- 
+(23, null),  -- 
+(23, 69),  -- Realizar limpieza del equipo.
+(23, 95),  -- Complete la documentación de mantenimiento.
+(23, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 24
-(24, 1),  -- 
-(24, 7),  -- 
-(24, 31),  -- 
+(24, 1),  -- Relevar marca.
+(24, 7),  -- Relevar modelo.
+(24, 31),  -- Relevar cantidad y potencia.
 (24, null),  -- 
 (24, null),  -- 
 (24, null),  -- 
-(24, null), -- 
-(24, 86), -- 
-(24, 87), -- 
-(24, 88), -- 
-(24, 115), -- 
-(24, 66), -- 
-(24, 116), -- 
-(24, 107), -- 
-(24, 117), -- 
-(24, 69), -- 
-(24, 57), -- 
-(24, 82), -- 
-(24, 95), -- 
-(24, 96), -- 
+(24, null),  -- 
+(24, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(24, 87),  -- Tomar fotografía.
+(24, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(24, 115),  -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(24, 66),  -- Utilice los Elementos de Protección Personal para trabajos en altura.
+(24, 116),  -- Verificar estado general.
+(24, 107),  -- Verificar correcta y firme fijación a pared o estructura.
+(24, 117),  -- Verificar correcto montaje de protecciones mecánicas.
+(24, 69),  -- Realizar limpieza del equipo.
+(24, 57),  -- Realizar verificación de correcto funcionamiento.
+(24, 82),  -- ¡¡¡EN CASO DE DETECTAR ANOMALÍAS, CONTACTAR AL SERVICIO TÉCNICO AUTORIZADO. SI ESTAS ANOMALÍAS SON CRÍTICAS, DETENGA EL USO DEL EQUIPO!!!
+(24, 95),  -- Complete la documentación de mantenimiento.
+(24, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 25
-(25, 2),  -- 
-(25, 15),  -- 
+(25, 2),  -- Relevar material.
+(25, 15),  -- Relevar tipo (Abrir/Corredizo/Levadizo/Otro).
 (25, null),  -- 
 (25, null),  -- 
 (25, null),  -- 
 (25, null),  -- 
-(25, null), -- 
-(25, 86), -- 
-(25, 87), -- 
-(25, 88), -- 
-(25, 115), -- 
-(25, null), -- 
-(25, 116), -- 
-(25, 107), -- 
-(25, 117), -- 
-(25, 69), -- 
-(25, 57), -- 
-(25, null), -- 
-(25, 95), -- 
-(25, 96), -- 
+(25, null),  -- 
+(25, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(25, 87),  -- Tomar fotografía.
+(25, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(25, 115),  -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(25, null),  -- 
+(25, 116),  -- Verificar estado general.
+(25, 107),  -- Verificar correcta y firme fijación a pared o estructura.
+(25, 117),  -- Verificar correcto montaje de protecciones mecánicas.
+(25, 69),  -- Realizar limpieza del equipo.
+(25, 57),  -- Realizar verificación de correcto funcionamiento.
+(25, null),  -- 
+(25, 95),  -- Complete la documentación de mantenimiento.
+(25, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 26
-(26, 4),  -- 
-(26, 16),  -- 
-(26, 32),  -- 
+(26, 4),  -- Relevar marca de máquina primaria y alternador.
+(26, 16),  -- Relevar modelos.
+(26, 32),  -- Relevar potencia y características eléctricas principales.
 (26, null),  -- 
 (26, null),  -- 
 (26, null),  -- 
-(26, null), -- 
-(26, 86), -- 
-(26, 87), -- 
-(26, 88), -- 
-(26, 115), -- 
-(26, null), -- 
-(26, 116), -- 
-(26, null), -- 
-(26, 117), -- 
-(26, 69), -- 
-(26, 57), -- 
-(26, 82), -- 
-(26, 95), -- 
-(26, 96), -- 
+(26, null),  -- 
+(26, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(26, 87),  -- Tomar fotografía.
+(26, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(26, 115),  -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(26, null),  -- 
+(26, 116),  -- Verificar estado general.
+(26, null),  -- 
+(26, 117),  -- Verificar correcto montaje de protecciones mecánicas.
+(26, 69),  -- Realizar limpieza del equipo.
+(26, 57),  -- Realizar verificación de correcto funcionamiento.
+(26, 82),  -- ¡¡¡EN CASO DE DETECTAR ANOMALÍAS, CONTACTAR AL SERVICIO TÉCNICO AUTORIZADO. SI ESTAS ANOMALÍAS SON CRÍTICAS, DETENGA EL USO DEL EQUIPO!!!
+(26, 95),  -- Complete la documentación de mantenimiento.
+(26, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 
 -- Activo 27
-(27, 1),  -- 
-(27, 2),  -- 
-(27, 3),  -- 
-(27, 4),  -- 
-(27, 8),  -- 
-(27, 9),  -- 
-(27, 10), -- 
-(27, 11), -- 
-(27, 12), -- 
-(27, 13), -- 
-(27, 14), -- 
-(27, 15), -- 
-(27, 16), -- 
-(27, 17), -- 
-(27, 19), -- 
-(27, 19), -- 
-(27, 19), -- 
-(27, 19), -- 
-(27, 19), -- 
-(27, 19), -- 
+(27, 1),  -- Relevar marca.
+(27, 7),  -- Relevar modelo.
+(27, 24),  -- Relevar tipo.
+(27, null),  -- 
+(27, null),  -- 
+(27, null),  -- 
+(27, null),  -- 
+(27, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(27, 87),  -- Tomar fotografía.
+(27, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(27, 115),  -- Señalice el área de trabajo. Desconecte la energía eléctrica - verificar no existencia de tensión eléctrica.
+(27, null),  -- 
+(27, 104),  -- Verificar estado general.
+(27, null),  -- 
+(27, 60),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(27, 114),  -- Realizar limpieza de los equipos.
+(27, 57),  -- Realizar verificación de correcto funcionamiento.
+(27, 82),  -- ¡¡¡EN CASO DE DETECTAR ANOMALÍAS, CONTACTAR AL SERVICIO TÉCNICO AUTORIZADO. SI ESTAS ANOMALÍAS SON CRÍTICAS, DETENGA EL USO DEL EQUIPO!!!
+(27, 95),  -- Complete la documentación de mantenimiento.
+(27, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 
 -- Activo 28
-(28, 1),  -- 
-(28, 2),  -- 
-(28, 3),  -- 
-(28, 4),  -- 
-(28, 8),  -- 
-(28, 9),  -- 
-(28, 10), -- 
-(28, 11), -- 
-(28, 12), -- 
-(28, 13), -- 
-(28, 14), -- 
-(28, 15), -- 
-(28, 16), -- 
-(28, 17), -- 
-(28, 19), -- 
-(28, 19), -- 
-(28, 19), -- 
-(28, 19), -- 
-(28, 19), -- 
-(28, 19), -- 
+(28, 1),  -- Relevar Marca.
+(28, 7),  -- Relevar Modelo.
+(28, 24),  -- Relevar Tipo/Material.
+(28, 43),  -- Relevar Capacidad.
+(28, null),  -- 
+(28, null),  -- 
+(28, null),  -- 
+(28, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(28, 87),  -- Tomar Fotografía.
+(28, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(28, 89),  -- Señalice el área de Trabajo.
+(28, 66),  -- Utilice los Elementos de Protección Personal para trabajos en altura.
+(28, 116),  -- Verificar estado general.
+(28, 71),  -- Verificar NO existencia de perdidas.
+(28, 117),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(28, 75),  -- Realice limpieza interna y externa de los equipos.
+(28, 57),  -- Realice verificación de correcto funcionamiento.
+(28, null),  -- 
+(28, 95),  -- Complete la documentación de mantenimiento.
+(28, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
 
 -- Activo 29
-(29, 1),  -- 
-(29, 2),  -- 
-(29, 3),  -- 
-(29, 4),  -- 
-(29, 8),  -- 
-(29, 9),  -- 
-(29, 10), -- 
-(29, 11), -- 
-(29, 12), -- 
-(29, 13), -- 
-(29, 14), -- 
-(29, 15), -- 
-(29, 16), -- 
-(29, 17), -- 
-(29, 19), -- 
-(29, 19), -- 
-(29, 19), -- 
-(29, 19), -- 
-(29, 19), -- 
-(29, 19), -- 
+(29, 2),  -- Relevar Material.
+(29, 17),  -- Relevar Dimensiones.
+(29, 34),  -- Tipo de Tapa. Ciega/Rejilla/Otra.
+(29, null),  -- 
+(29, null),  -- 
+(29, null),  -- 
+(29, null),  -- 
+(29, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(29, 87),  -- Tomar Fotografía.
+(29, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(29, 89),  -- Señalice el área de Trabajo.
+(29, null),  -- 
+(29, 116),  -- Verificar estado general.
+(29, 71),  -- Verificar NO existencia de perdidas.
+(29, 117),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(29, 75),  -- Realice limpieza interna y externa de los equipos.
+(29, 57),  -- Realice verificación de correcto funcionamiento.
+(29, null),  -- 
+(29, 95),  -- Complete la documentación de mantenimiento.
+(29, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 30
-(30, 1),  -- 
-(30, 2),  -- 
-(30, 3),  -- 
-(30, 4),  -- 
-(30, 8),  -- 
-(30, 9),  -- 
-(30, 10), -- 
-(30, 11), -- 
-(30, 12), -- 
-(30, 13), -- 
-(30, 14), -- 
-(30, 15), -- 
-(30, 16), -- 
-(30, 17), -- 
-(30, 19), -- 
-(30, 19), -- 
-(30, 19), -- 
-(30, 19), -- 
-(30, 19), -- 
-(30, 19), -- 
+(30, 5),  -- Relevar Tipo de Piso.
+(30, 18),  -- Relevar Tipo de Techo.
+(30, 35),  -- Abiertas/Cerradas.
+(30, 44),  -- Tiene Iluminación sobre Estructura.
+(30, null),  -- 
+(30, null),  -- 
+(30, null),  -- 
+(30, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(30, 87),  -- Tomar Fotografía.
+(30, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(30, 89),  -- Señalice el área de Trabajo.
+(30, 66),  -- Utilice los Elementos de Protección Personal para trabajos en altura.
+(30, 116),  -- Verificar estado general.
+(30, null),  -- 
+(30, 117),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(30, 69),  -- Realice limpieza de los equipos.
+(30, null),  --
+(30, null),  -- 
+(30, 95),  -- Complete la documentación de mantenimiento.
+(30, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 31
-(31, 1),  -- 
-(31, 2),  -- 
-(31, 3),  -- 
-(31, 4),  -- 
-(31, 8),  -- 
-(31, 9),  -- 
-(31, 10), -- 
-(31, 11), -- 
-(31, 12), -- 
-(31, 13), -- 
-(31, 14), -- 
-(31, 15), -- 
-(31, 16), -- 
-(31, 17), -- 
-(31, 19), -- 
-(31, 19), -- 
-(31, 19), -- 
-(31, 19), -- 
-(31, 19), -- 
-(31, 19), -- 
+(31, 1),  -- Relevar Marca.
+(31, 2),  -- Relevar Modelo.
+(31, null),  -- 
+(31, null),  -- 
+(31, null),  -- 
+(31, null),  -- 
+(31, null),  -- 
+(31, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(31, 87),  -- Tomar Fotografía.
+(31, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(31, 89),  -- Señalice el área de Trabajo.
+(31, null),  -- 
+(31, 116),  -- Verificar estado general.
+(31, null),  -- 
+(31, 117),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(31, 69),  -- Realice limpieza de los equipos.
+(31, 57),  -- Realice verificación de correcto funcionamiento.
+(31, null),  -- 
+(31, 95),  -- Complete la documentación de mantenimiento.
+(31, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 32
-(32, 1),  -- 
-(32, 2),  -- 
-(32, 3),  -- 
-(32, 4),  -- 
-(32, 8),  -- 
-(32, 9),  -- 
-(32, 10), -- 
-(32, 11), -- 
-(32, 12), -- 
-(32, 13), -- 
-(32, 14), -- 
-(32, 15), -- 
-(32, 16), -- 
-(32, 17), -- 
-(32, 19), -- 
-(32, 19), -- 
-(32, 19), -- 
-(32, 19), -- 
-(32, 19), -- 
-(32, 19), -- 
+(32, 1),  -- Relevar Material de Paredes.
+(32, 2),  -- Relevar Material de Piso.
+(32, 3),  -- Relevar Material de Techo.
+(32, null),  -- 
+(32, null),  -- 
+(32, null),  -- 
+(32, null),  -- 
+(32, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(32, 87),  -- Tomar Fotografía.
+(32, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(32, 89),  -- Señalice el área de Trabajo.
+(32, 116),  -- Verificar estado general.
+(32, 82),  -- ATENCIÓN: ESTA MISMA OT SERÁ UTILIZADA PARA LAS 4 ACTIVIDADES MENSUALES.
+(32, 7),  -- Realice limpieza, ordenamiento y/o emprolijamiento del área.
+(32, 74),  -- Actividad 1 de 4 Mensual. Indique Fecha.
+(32, 74),  -- Actividad 2 de 4 Mensual. Indique Fecha.
+(32, 74),  -- Actividad 3 de 4 Mensual. Indique Fecha.
+(32, 74),  -- Actividad 4 de 4 Mensual. Indique Fecha.
+(32, 95),  -- Complete la documentación de mantenimiento.
+(32, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
 
 -- Activo 33
-(33, 1),  -- 
-(33, 2),  -- 
-(33, 3),  -- 
-(33, 4),  -- 
-(33, 8),  -- 
-(33, 9),  -- 
-(33, 10), -- 
-(33, 11), -- 
-(33, 12), -- 
-(33, 13), -- 
-(33, 14), -- 
-(33, 15), -- 
-(33, 16), -- 
-(33, 17), -- 
-(33, 19), -- 
-(33, 19), -- 
-(33, 19), -- 
-(33, 19), -- 
-(33, 19), -- 
-(33, 19); -- 
+(33, 1),  -- Relevar Marca.
+(33, 2),  -- Relevar Modelo.
+(33, 3),  -- Relevar Material.
+(33, null),  -- 
+(33, null),  -- 
+(33, null),  --
+(33, null),  -- 
+(33, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(33, 87),  -- Tomar Fotografía.
+(33, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(33, 89),  -- Señalice el área de Trabajo.
+(33, null),  -- 
+(33, 116),  -- Verificar estado general.
+(33, 71),  -- Verificar NO existencia de pérdidas.
+(33, null),  -- 
+(33, 69),  -- Realice limpieza de los equipos.
+(33, 57),  -- Realice verificación de correcto funcionamiento.
+(33, null),  -- 
+(33, 95),  -- Complete la documentación de mantenimiento.
+(33, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
+-- Activo 34
+(34, 1),  -- Relevar Material.
+(34, 2),  -- Tipo. Caracol/Marinera/Convencional.
+(34, null),  -- 
+(34, null),  -- 
+(34, null),  -- 
+(34, null),  -- 
+(34, null),  -- 
+(34, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(34, 87),  -- Tomar fotografía.
+(34, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(34, 89),  -- Señalice el área de trabajo.
+(34, null),  -- 
+(34, 116),  -- Verificar estado general.
+(34, null),  -- 
+(34, 60),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(34, 69),  -- Realice limpieza de los equipos.
+(34, null),  -- 
+(34, null),  -- 
+(34, 95),  -- Complete la documentación de mantenimiento.
+(34, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
+-- Activo 35
+(35, 1),  -- Relevar Marca.
+(35, 2),  -- Relevar Modelo.
+(35, 3),  -- Relevar Potencia.
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  -- 
+(35, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(35, 87),  -- Tomar fotografía.
+(35, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  -- 
+(35, null),  --
+(35, null),  --
+(35, 95),  -- Complete la documentación de mantenimiento.
+(35, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
+-- Activo 36
+(36, 1),  -- Relevar Material.
+(36, 2),  -- Relevar Dimensiones.
+(36, 3),  -- Tipo de Tapa. Ciega/Rejilla/Otra.
+(36, null),  -- 
+(36, null),  -- 
+(36, null),  -- 
+(36, null),  -- 
+(36, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(36, 87),  -- Tomar fotografía.
+(36, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(36, 89),  -- Señalice el área de trabajo.
+(36, null),  -- 
+(36, 116),  -- Verificar estado general.
+(36, 71),  -- Verificar NO existencia de pérdidas.
+(36, 60),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(36, 75),  -- Realice limpieza interna y externa de los equipos.
+(36, 57),  -- Realice verificación de correcto funcionamiento.
+(36, null),  -- 
+(36, 95),  -- Complete la documentación de mantenimiento.
+(36, 96),  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
+-- Activo 37
+(37, 1),  -- Relevar Material.
+(37, 2),  -- Relevar Dimensiones.
+(37, 3),  -- Tipo de Tapa. Ciega/Rejilla/Otra.
+(37, null),  -- 
+(37, null),  -- 
+(37, null),  -- 
+(37, null),  -- 
+(37, 86),  -- Relevar cualquier otro dato que considere relevante para el mantenimiento.
+(37, 87),  -- Tomar fotografía.
+(37, 88),  -- Al finalizar la actividad deje el área limpia, ordenada y segura.
+(37, 89),  -- Señalice el área de trabajo.
+(37, null),  -- 
+(37, 116),  -- Verificar estado general.
+(37, 71),  -- Verificar NO existencia de pérdidas.
+(37, 60),  -- Verificar existencia y correcto montaje de protecciones mecánicas.
+(37, 75),  -- Realice limpieza interna y externa de los equipos.
+(37, 57),  -- Realice verificación de correcto funcionamiento.
+(37, null),  -- 
+(37, 95),  -- Complete la documentación de mantenimiento.
+(37, 96);  -- Al finalizar la actividad deje el área y equipo limpios, ordenados y seguros.
+
+
+
 
 
 /*!40000 ALTER TABLE `activo_tarea` ENABLE KEYS */;
@@ -1122,11 +1211,15 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `usuario` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) NOT NULL,
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1135,7 +1228,15 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (10,'Juan'),(20,'Pablo'),(30,'Pedro'),(40,'Ana'),(50,'Carlos'),(60,'Ruben');
+
+INSERT INTO `usuario` (`nombre`, `email`, `password`) VALUES
+('Juan', 'juan@gmail.com', 'juan123'),
+('Pablo', 'pablo@example.com', 'password456'),
+('Pedro', 'pedro@example.com', 'password789'),
+('Ana', 'ana@example.com', 'password321'),
+('Carlos', 'carlos@example.com', 'password654'),
+('Ruben', 'ruben@example.com', 'password987');
+
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1147,5 +1248,6 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
 
 -- Dump completed on 2024-09-26 21:55:50

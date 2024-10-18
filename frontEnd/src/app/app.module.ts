@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/landing-page/header/header.component';
 import { BodyComponent } from './components/landing-page/body/body.component';
 import { FooterComponent } from './components/landing-page/footer/footer.component';
 import { RegisterComponent } from './components/landing-page/register/register.component';
+import { PanelComponent } from './components/panel/panel/panel.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import { RegisterComponent } from './components/landing-page/register/register.c
     BodyComponent,
     FooterComponent,
     RegisterComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule, 
+    AppRoutingModule, 
+    FormsModule,
+    ReactiveFormsModule 
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

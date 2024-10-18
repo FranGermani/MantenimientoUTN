@@ -39,7 +39,7 @@ p{line-height: 1.5;}
   
 
 
-/* Apilar columnas en pantallas pequeñas */
+
 @media (max-width: 768px) {
     .footer-left,
     .footer-right {
@@ -79,7 +79,7 @@ p{line-height: 1.5;}
     padding-top: 10px;
   }
   
-  /* Centrar contenido en pantallas pequeñas */
+  
   @media (max-width: 768px) {
     .footer-bottom {
       flex-direction: column;

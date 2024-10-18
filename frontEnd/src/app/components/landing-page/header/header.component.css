@@ -1,4 +1,4 @@
-/* Estructura básica del contenedor de header */
+
 .header-container {
     background-color: #0d5478;
     padding: 20px;
@@ -9,7 +9,7 @@
   }
 
 
-  /* Contenido centrado horizontalmente con flexbox */
+ 
   .header-content {
     display: flex;
     justify-content: space-between;
@@ -18,12 +18,12 @@
     margin: 0 auto;
   }
   
-  /* Estilo del logo */
+  
   .header-logo {
     max-width: 50px;
   }
   
-  /* Estilo del menú de navegación */
+  
   .header-nav ul {
     display: flex;
     list-style: none;
@@ -46,7 +46,7 @@
     color: #76acbc;
   }
   
-  /* Botones de login e inscripción */
+  
   .header-buttons {
     display: flex;
     align-items: center;

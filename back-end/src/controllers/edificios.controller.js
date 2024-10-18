@@ -1,4 +1,4 @@
-import { pool } from '../db.js';
+import { pool } from '../../config/db.js';
 
 // Obtener todos los edificios
 export const getEdificios = async (req, res) => {
