@@ -1,16 +1,17 @@
-import { Router } from "express";
-import {getEdificio, getEdificios, createEdificio, updateEdificio, deleteEdificio} from '../controllers/edificios.controller.js'
+import { Router } from 'express';
+import { pool } from '../../config/db.js'; // Asegúrate de que la ruta sea correcta
 
-const router = Router()
+const router = Router();
 
-router.get('/edificios', getEdificios)
+// GET /api/edificio - Obtener todos los edificios
+router.get('/edificio', async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM edificio WHERE activo = 1'); // Cambia la consulta si necesitas filtrar
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error retrieving edificios' });
+    }
+});
 
-router.get('/edificios/:id', getEdificio)
-
-router.post('/edificios', createEdificio)
-
-router.put('/edificios', updateEdificio)
-
-router.delete('/edificios', deleteEdificio)
-
-export default router
+export default router;
