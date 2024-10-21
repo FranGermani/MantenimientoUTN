@@ -4,6 +4,7 @@
     padding: 20px;
     font-family:'Roboto', Helvetica, Arial, Lucida, sans-serif;
     font-weight: bold; 
+    border-top: 3px solid #00000049;
 }
   
 p{line-height: 1.5;}

@@ -10,7 +10,8 @@ import { FooterComponent } from './components/landing-page/footer/footer.compone
 import { RegisterComponent } from './components/landing-page/register/register.component';
 import { PanelComponent } from './components/panel/panel/panel.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
+  
 @NgModule({
   declarations: [
     AppComponent,

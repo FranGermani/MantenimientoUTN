@@ -1,4 +1,4 @@
-import { pool } from '../../config/db.js'; // Asegúrate de tener la conexión a la base de datos
+import { pool } from '../../config/db.js'; // Asegúrate de que la conexión esté bien importada
 
 // Obtener todos los usuarios
 export const getUsers = async (req, res) => {
@@ -7,26 +7,26 @@ export const getUsers = async (req, res) => {
         res.json(rows);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: 'Internal Server Error', error: err.message });
     }
 };
 
 // Crear un nuevo usuario
 export const createUser = async (req, res) => {
-    const { nombre } = req.body; // Solo se necesita el campo nombre
+    const { nombre, email, password } = req.body; // Asegúrate de recibir todos los campos necesarios
     try {
-        const [result] = await pool.query('INSERT INTO usuario (nombre) VALUES (?)', [nombre]);
+        const [result] = await pool.query('INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)', [nombre, email, password]);
         res.status(201).json({ id: result.insertId, nombre });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: 'Internal Server Error', error: err.message });
     }
 };
 
 // Actualizar un usuario existente
 export const updateUser = async (req, res) => {
     const { id } = req.params;
-    const { nombre } = req.body; // Solo se actualiza el campo nombre
+    const { nombre } = req.body; 
     try {
         const [result] = await pool.query('UPDATE usuario SET nombre = ? WHERE id_usuario = ?', [nombre, id]);
         if (result.affectedRows === 0) {
@@ -35,7 +35,7 @@ export const updateUser = async (req, res) => {
         res.json({ id, nombre });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: 'Internal Server Error', error: err.message });
     }
 };
 
@@ -50,6 +50,6 @@ export const deleteUser = async (req, res) => {
         res.status(204).send(); // No content
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: 'Internal Server Error', error: err.message });
     }
 };
