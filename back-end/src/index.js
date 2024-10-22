@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
 import express from 'express';
 import cors from 'cors';
 import { pool } from '../config/db.js';
@@ -11,13 +10,13 @@ import userRoutes from './routes/usuario.routes.js';
 import activoTareas from './routes/activostareas.routes.js';
 import tareasRoutes from './routes/tareas.routes.js';
 import loginRoutes from './routes/login.routes.js'; 
-
+import edificiosRoutes from './routes/edificios.routes.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: 'http://localhost:4200', //origin:'http:localhost:/d+$/,
+    origin: 'http://localhost:4200',
     credentials: true
   }));              
 app.use(express.json());       
@@ -29,6 +28,7 @@ app.use('/api', userRoutes);
 app.use('/api', activoTareas); 
 app.use('/api', tareasRoutes); 
 app.use('/api', loginRoutes); 
+app.use('/api', edificiosRoutes); 
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

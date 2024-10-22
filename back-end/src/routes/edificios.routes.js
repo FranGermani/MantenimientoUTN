@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import { pool } from '../../config/db.js'; // Asegúrate de que la ruta sea correcta
+import { pool } from '../../config/db.js';
 
 const router = Router();
 
-// GET /api/edificio - Obtener todos los edificios
 router.get('/edificio', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM edificio WHERE activo = 1'); // Cambia la consulta si necesitas filtrar
+        const [rows] = await pool.query('SELECT * FROM edificio WHERE activo = 1');
         res.json(rows);
     } catch (err) {
         console.error(err);

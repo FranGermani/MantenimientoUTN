@@ -1,12 +1,8 @@
-// routes/ubicacionRoutes.js
 import express from 'express';
-import { getUbicaciones } from '../controllers/ubicacion.controller.js'; // Asegúrate de que la ruta sea correcta
+import { getUbicaciones } from '../controllers/ubicacion.controller.js'; // Importa el controlador
 
 const router = express.Router();
 
-// Ruta para obtener todas las ubicaciones
-router.get('/ubicaciones', getUbicaciones);
-
-// Aquí puedes agregar más rutas para crear, actualizar y eliminar ubicaciones
+router.get('/ubicacion', getUbicaciones);
 
 export default router;

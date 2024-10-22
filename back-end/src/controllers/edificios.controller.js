@@ -1,6 +1,5 @@
 import { pool } from '../../config/db.js';
 
-// Obtener todos los edificios
 export const getEdificios = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM edificio');
@@ -11,7 +10,6 @@ export const getEdificios = async (req, res) => {
     }
 };
 
-// Obtener un edificio por ID
 export const getEdificio = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM edificio WHERE id_edificio = ?', [req.params.id]);
@@ -29,9 +27,8 @@ export const getEdificio = async (req, res) => {
     }
 };
 
-// Crear un nuevo edificio
 export const createEdificio = async (req, res) => {
-    const { nombre, direccion, capacidad } = req.body; // Suponiendo que tienes estos campos
+    const { nombre, direccion, capacidad } = req.body;
 
     try {
         const [result] = await pool.query(
@@ -39,7 +36,6 @@ export const createEdificio = async (req, res) => {
             [nombre, direccion, capacidad]
         );
 
-        // Retornar el edificio creado
         res.status(201).json({ id: result.insertId, nombre, direccion, capacidad });
     } catch (err) {
         console.error(err);
@@ -47,10 +43,9 @@ export const createEdificio = async (req, res) => {
     }
 };
 
-// Actualizar un edificio
 export const updateEdificio = async (req, res) => {
-    const { id } = req.params; // ID del edificio a actualizar
-    const { nombre, direccion, capacidad } = req.body; // Nuevos datos para el edificio
+    const { id } = req.params;
+    const { nombre, direccion, capacidad } = req.body;
 
     try {
         const [result] = await pool.query(
@@ -69,9 +64,8 @@ export const updateEdificio = async (req, res) => {
     }
 };
 
-// Eliminar un edificio
 export const deleteEdificio = async (req, res) => {
-    const { id } = req.params; // ID del edificio a eliminar
+    const { id } = req.params;
 
     try {
         const [result] = await pool.query('DELETE FROM edificio WHERE id_edificio = ?', [id]);

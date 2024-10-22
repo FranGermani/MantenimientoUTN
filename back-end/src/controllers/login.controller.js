@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { pool } from '../../config/db.js';
-import bcrypt from 'bcrypt';  // Asegúrate de importar bcrypt
+import bcrypt from 'bcrypt';
 
 export const registro = async (req, res) => {
     const { nombre, email, password } = req.body; 
@@ -9,16 +9,13 @@ export const registro = async (req, res) => {
     }
     
     try {
-        // Verificar si el usuario ya existe
         const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [email]);
         if (rows.length > 0) {
             return res.status(400).json({ message: 'El usuario ya existe' });
         }
 
-        // Hashear la contraseña antes de guardarla
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Inserción en la base de datos
         await pool.query('INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)', [nombre, email, hashedPassword]);
         res.status(201).json({ message: 'Usuario registrado exitosamente' });
     } catch (error) {
@@ -31,7 +28,6 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Obtener el usuario por email
         const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [email]);
         if (rows.length === 0) {
             return res.status(401).json({ error: 'Usuario no encontrado' });
@@ -39,7 +35,6 @@ export const login = async (req, res) => {
 
         const user = rows[0];
 
-        // Comparar la contraseña ingresada con la contraseña hasheada
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ error: 'Contraseña incorrecta' });
@@ -52,7 +47,6 @@ export const login = async (req, res) => {
 
         const token = jwt.sign({ id: user.id_usuario, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
         
-        // Enviar el token como cookie o en la respuesta
         res.cookie('auth-token', token, { httpOnly: true, sameSite: 'lax' });
         res.json({ message: 'Inicio de sesión exitoso', token });
 
@@ -61,8 +55,6 @@ export const login = async (req, res) => {
         res.status(500).json({ error: 'Error al iniciar sesión', details: error.message });
     }
 };
-
-// Agrega esta línea en login.controller.js
 
 export const protect = (req, res, next) => {
     const token = req.cookies['auth-token'] || req.headers['authorization'];
@@ -75,8 +67,8 @@ export const protect = (req, res, next) => {
         if (err) {
             return res.status(401).json({ error: 'Token inválido' });
         }
-        req.user = decoded; // Guardar el usuario decodificado en la solicitud
-        next(); // Llama al siguiente middleware o ruta
+        req.user = decoded; 
+        next(); 
     });
 };
 
