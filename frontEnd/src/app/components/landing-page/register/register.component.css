@@ -1,5 +1,3 @@
-/* Estructura básica del contenedor de login */
-
 .register-container {
     display: flex;
     justify-content: center;
@@ -9,7 +7,6 @@
     font-family:'Roboto', Helvetica, Arial, Lucida, sans-serif;
   }
   
-  /* Caja de login centrada */
   .register-box {
     background-color: rgba(255, 255, 255, 0.486);
     padding: 30px;
@@ -30,17 +27,17 @@
   }
   
   select {
-    margin-left: 5px; /* Espacio entre el símbolo @ y el select */
-    padding: 10px; /* Espaciado interno */
-    border: 1px solid #ccc; /* Bordes */
-    border-radius: 4px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    background-color: #fff; /* Fondo blanco */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: border-color 0.3s ease; /* Transición suave para el color del borde */
+    margin-left: 5px; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff; 
+    cursor: pointer; 
+    transition: border-color 0.3s ease;
   }
   
-  /* Cambiar el color del borde al estar enfocado */
+ 
  .email-input {
   display: flex;
   align-items: center;
@@ -54,32 +51,32 @@
     text-align: left;}
 .email-input input {
   flex: 1;
-  margin-right: 5px; /* Espacio entre el input y el símbolo @ */
-  padding: 10px; /* Espaciado interno */
-  border: 1px solid #ccc; /* Bordes */
-  border-radius: 4px; /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
+  margin-right: 5px;
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
 }
   .email-input select:focus {
-    border-color: #007bff; /* Color de borde al enfocar */
-    outline: none; /* Elimina el contorno predeterminado */
+    border-color: #007bff; 
+    outline: none; 
   }
   
-  /* Estilo para las opciones del select */
+
   .email-input select option {
-    padding: 10px; /* Espaciado interno de las opciones */
-    background-color: #fff; /* Fondo blanco */
+    padding: 10px;
+    background-color: #fff;
   }
   .email-input input:focus {
     outline: none;
     border-color: #0d5478;
   }
   
-  /* Estilo para las opciones seleccionadas */
+ 
   .email-input select option:hover {
-    background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+    background-color: #f0f0f0;
   }
-  /* Estructura de los inputs */
+
 
   .input-group {
     margin-bottom: 15px;
@@ -107,7 +104,7 @@
     border-color: #0d5478;
   }
   
-  /* Botón de inicio de sesión */
+
   .register-button {
     width: 100%;
     padding: 10px;
@@ -122,12 +119,13 @@
   
   .register-button:hover {
     background-color: #1a1a41;
+    font-weight: bold;
   }
   
 
 
   
-  /* Adaptación para pantallas móviles */
+
   @media (max-width: 768px) {
     .login-box {
       width: 100%;

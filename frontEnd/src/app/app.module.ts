@@ -11,6 +11,9 @@ import { RegisterComponent } from './components/landing-page/register/register.c
 import { PanelComponent } from './components/panel/panel/panel.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
+import { ReporteComponent } from './components/ordenTrabajo/reporte/reporte.component';
+import { ActivosFromComponent } from './components/activos-from/activos-from.component';
   
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     BodyComponent,
     FooterComponent,
     RegisterComponent,
-    PanelComponent
+    PanelComponent,
+    OrdenTrabajoComponent,
+    ReporteComponent,
+    ActivosFromComponent
   ],
   imports: [
     BrowserModule,

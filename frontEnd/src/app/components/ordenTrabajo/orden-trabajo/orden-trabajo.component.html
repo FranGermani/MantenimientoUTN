@@ -1,0 +1,71 @@
+
+   <div class="fondo">
+   <div class="form-container">
+        <img src="../../../../assets/image/utn2.png" alt="UTN FRVT Logo" class="logo">
+        <form id="orden-form">
+            <label for="fecha-impresion">Fecha de Impresión</label>
+            <input type="datetime-local" id="fecha-impresion" name="fecha-impresion" required>
+
+            <label for="fecha-terminacion">Fecha de Terminación</label>
+            <input type="datetime-local" id="fecha-terminacion" name="fecha-terminacion" required>
+
+            <label for="observacion">Observación</label>
+            <textarea id="observacion" name="observacion"></textarea>
+
+
+
+            <label for="operario">Operario</label>
+            <select id="operario" name="operario" required>
+                <option value="">Seleccione</option>
+                <option value="operario1">Dimmer Francisco</option>
+                <option value="operario2">Bustamante Esteban</option>
+                <option value="operario3">Borello Ramiro</option>
+                <option value="operario4">Germani Francisco</option>
+            </select>
+
+            <label for="edificio">Edificio</label>
+            <select id="edificio" name="edificio" required>
+                <option value="">Seleccione</option>
+                <option value="edificio1">Edificio 1</option>
+                <option value="edificio2">Edificio 2</option>
+                <option value="edificio3">Edificio 3</option>
+                <option value="edificio4">Edificio 4</option>
+            </select>
+
+            <label for="piso">Piso</label>
+            <select id="piso" name="piso" required>
+                <option value="">Seleccione</option>
+                <option value="piso1">Piso 1</option>
+                <option value="piso2">Piso 2</option>
+                <option value="piso3">Piso 3</option>
+                <option value="piso4">Piso 4</option>
+            </select>
+
+            <label for="sector">Sector</label>
+            <select id="sector" name="sector" required>
+                <option value="">Seleccione</option>
+                <option value="sector1">Sector 1</option>
+                <option value="sector2">Sector 2</option>
+                <option value="sector3">Sector 3</option>
+                <option value="sector4">Sector 4</option>
+            </select>
+
+            <label for="activo">Activo</label>
+            <select id="activo" name="activo" required>
+                <option value="">Seleccione</option>
+                <option value="activo1">Activo 1</option>
+                <option value="activo2">Activo 2</option>
+                <option value="activo3">Activo 3</option>
+                <option value="activo4">Activo 4</option>
+            </select>
+
+
+            <label for="tareas">Tareas</label>
+            <textarea id="tareas" name="tareas"></textarea>
+
+
+            <button type="button" id="calcular-tiempo">Generar Orden</button>
+        </form>
+
+    </div>
+</div>
