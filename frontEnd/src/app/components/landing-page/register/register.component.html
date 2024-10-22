@@ -1,0 +1,51 @@
+  <div class="register-container">
+    <div class="register-box">
+      <img src="../../../../assets/image/utn2.png" alt="UTN FRVT Logo" class="register-logo">
+      <h2>Registrarse</h2>
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+        <div class="input-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            [(ngModel)]="user.nombre"
+            name="nombre"
+            required
+          />
+        </div>
+
+        <label for="email" class="mail">Correo Electrónico:</label>
+        <div class="email-input">
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="user.email.username"
+            name="username"
+            placeholder="tu_email"
+            required
+          />
+          <span>&#64;</span>
+          <select [(ngModel)]="user.email.domain" name="domain" required>
+            <option value="">Selecciona un tipo de correo</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="hotmail.com">hotmail.com</option>
+            <option value="yahoo.com">yahoo.com</option>
+            <option value="outlook.com">outlook.com</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="register-button">Registrarse</button>
+      </form>
+    </div>
+  </div>

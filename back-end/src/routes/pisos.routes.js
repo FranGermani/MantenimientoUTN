@@ -1,12 +1,9 @@
-// routes/pisoRoutes.js
-import express from 'express';
-import { getPisos } from '../controllers/pisos.controller.js'; // Asegúrate de que la ruta sea correcta
+import { Router } from 'express';
+import { getPisos } from '../controllers/pisos.controller.js'; // Importa el controlador
 
-const router = express.Router();
+const router = Router();
 
-// Ruta para obtener todos los pisos
-router.get('/pisos', getPisos);
-
-// Aquí puedes agregar más rutas para crear, actualizar y eliminar pisos
+// Define la ruta y vincúlala al controlador
+router.get('/piso', getPisos);
 
 export default router;
