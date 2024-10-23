@@ -18,8 +18,7 @@ export const getDetallesOrdenTrabajo = async (req, res) => {
     SELECT 
     ot.id_orden_trabajo, 
     ot.fecha_impresion, 
-    ot.hora_inicio, 
-    ot.hora_final, 
+    ot.hora_impresion, 
     ot.realizada, 
     ot.id_usuario,
     ot.id_tag,
@@ -27,8 +26,7 @@ export const getDetallesOrdenTrabajo = async (req, res) => {
     e.direccion AS direccion_edificio,
     p.nombre AS nombre_piso, 
     s.nombre AS nombre_sector, 
-    ot.fecha_impresion AS fecha_creacion,
-    ot.observacion  -- Añadir la columna observacion
+    ot.observacion
 FROM orden_trabajo ot
 LEFT JOIN edificio e ON ot.id_edificio = e.id_edificio
 LEFT JOIN piso_nivel p ON ot.id_piso = p.id_piso
@@ -54,7 +52,7 @@ export const nuevaODT = async (req, res) => {
     const { 
         fecha_impresion, 
         hora_inicio, 
-        hora_final, 
+        hora_impresion, 
         realizada, 
         id_usuario, 
         id_sector, 
@@ -65,14 +63,12 @@ export const nuevaODT = async (req, res) => {
     } = req.body;
 
     const formattedFechaImpresion = format(new Date(fecha_impresion), 'yyyy-MM-dd'); // Cambia el formato si es necesario
-    const formattedHoraInicio = format(new Date(hora_inicio), 'yyyy-MM-dd HH:mm:ss');
-    const formattedHoraFinal = format(new Date(hora_final), 'yyyy-MM-dd HH:mm:ss');
+    const formattedHoraImpresion = format(new Date(hora_impresion), 'yyyy-MM-dd HH:mm:ss');
 
     const query = `
         INSERT INTO orden_trabajo (
             fecha_impresion, 
-            hora_inicio, 
-            hora_final, 
+            hora_impresion, 
             realizada, 
             id_usuario, 
             id_sector, 
@@ -81,14 +77,13 @@ export const nuevaODT = async (req, res) => {
             id_tag, 
             observacion
         ) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     try {
         const [result] = await pool.query(query, [
             formattedFechaImpresion, 
-            formattedHoraInicio, 
-            formattedHoraFinal, 
+            formattedHoraImpresion, 
             realizada, 
             id_usuario, 
             id_sector, 

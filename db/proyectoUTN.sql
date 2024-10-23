@@ -937,13 +937,12 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `orden_trabajo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orden_trabajo` (
   `id_orden_trabajo` int NOT NULL AUTO_INCREMENT,
   `fecha_impresion` date NOT NULL,
-  `hora_inicio` time NOT NULL,
-  `hora_final` time NOT NULL,
+  `hora_impresion` time NOT NULL, -- Agregar la columna hora_impresion
+  `hora_inicio` time DEFAULT NULL, -- Permitir que hora_inicio comience como NULL
+  `hora_final` time DEFAULT NULL, -- Permitir que hora_final comience como NULL
   `realizada` tinyint(1) DEFAULT '0',
   `id_usuario` int DEFAULT NULL,
   `id_sector` int DEFAULT NULL,
@@ -961,13 +960,8 @@ CREATE TABLE `orden_trabajo` (
   CONSTRAINT `orden_trabajo_ibfk_3` FOREIGN KEY (`id_sector`) REFERENCES `sector` (`id_sector`),
   CONSTRAINT `orden_trabajo_ibfk_4` FOREIGN KEY (`id_piso`) REFERENCES `piso_nivel` (`id_piso`),
   CONSTRAINT `orden_trabajo_ibfk_5` FOREIGN KEY (`id_edificio`) REFERENCES `edificio` (`id_edificio`),
-  CONSTRAINT `orden_trabajo_ibfk_6` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`)  -- Agregar la restricción de clave foránea para id_tag
+  CONSTRAINT `orden_trabajo_ibfk_6` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`) -- Agregar la restricción de clave foránea para id_tag
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-
-
 
 
 --

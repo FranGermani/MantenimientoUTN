@@ -1,6 +1,10 @@
 <div class="fondo">
   <div class="form-container">
-    <img src="../../../../assets/image/utn2.png" alt="UTN FRVT Logo" class="logo">
+    <img
+      src="../../../../assets/image/utn2.png"
+      alt="UTN FRVT Logo"
+      class="logo"
+    />
     <form id="orden-form">
       <label for="fecha-impresion">Fecha de Impresión</label>
       <input
@@ -11,56 +15,24 @@
         required
       />
 
-      <label for="fecha-terminacion">Fecha de Terminación</label>
-      <input
-        type="datetime-local"
-        id="fecha-terminacion"
-        [(ngModel)]="fechaTerminacion"
-        name="fechaTerminacion"
-        required
-      />
-
-      <label for="observacion">Observación</label>
-      <textarea
-        id="observacion"
-        [(ngModel)]="observacion"
-        name="observacion"
-      ></textarea>
-
       <label for="operario">Operario</label>
-      <select id="operario" [(ngModel)]="operario" name="operario" required>
-        <option value="">Seleccione</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+      <select id="operario" [(ngModel)]="operarioSeleccionado" name="operario" required>
+        <option *ngFor="let operario of operarios" [value]="operario.id_usuario">{{ operario.nombre }}</option>
       </select>
-
+      
       <label for="edificio">Edificio</label>
-      <select id="edificio" [(ngModel)]="edificio" name="edificio" required>
-        <option value="">Seleccione</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+      <select id="edificio" [(ngModel)]="edificioSeleccionado" name="edificio" required>
+        <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.nombre }}</option>
       </select>
-
+      
       <label for="piso">Piso</label>
-      <select id="piso" [(ngModel)]="piso" name="piso" required>
-        <option value="">Seleccione</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+      <select id="piso" [(ngModel)]="pisoSeleccionado" name="piso" required>
+        <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
       </select>
-
+      
       <label for="sector">Sector</label>
-      <select id="sector" [(ngModel)]="sector" name="sector" required>
-        <option value="">Seleccione</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+      <select id="sector" [(ngModel)]="sectorSeleccionado" name="sector" required>
+        <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
       </select>
 
       <label for="activo">Activo</label>
@@ -71,6 +43,13 @@
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
+
+      <label for="observacion">Observación</label>
+      <textarea
+        id="observacion"
+        [(ngModel)]="observacion"
+        name="observacion"
+      ></textarea>
 
       <button type="button" (click)="generarOrden()">Generar Orden</button>
     </form>

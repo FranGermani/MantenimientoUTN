@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 
 @Component({
@@ -6,29 +6,62 @@ import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
   templateUrl: './orden-trabajo.component.html',
   styleUrl: './orden-trabajo.component.css'
 })
-export class OrdenTrabajoComponent {
+export class OrdenTrabajoComponent implements OnInit {
   fechaImpresion: string = '';
-  fechaTerminacion: string = '';
   observacion: string = '';
-  operario: string = '';
-  edificio: string = '';
-  piso: string = '';
-  sector: string = '';
-  activo: string = ''; // Asumiendo que necesitas este campo
+  operarios: any[] = [];  
+  operarioSeleccionado: string = ''; 
+  edificios: any[] = [];  // Nueva lista de edificios
+  edificioSeleccionado: string = ''; // Edificio seleccionado
+  pisos: any[] = [];      // Nueva lista de pisos
+  pisoSeleccionado: string = '';     // Piso seleccionado
+  sectores: any[] = [];   // Nueva lista de sectores
+  sectorSeleccionado: string = '';   // Sector seleccionado
+  activo: string = ''; 
 
   constructor(private ordenTrabajoService: OrdenTrabajoService) {}
+
+  ngOnInit(): void {
+    this.cargarOperarios();
+    this.cargarEdificios();
+    this.cargarPisos();
+    this.cargarSectores();
+  }
+
+  cargarOperarios() {
+    this.ordenTrabajoService.getOperarios().subscribe(data => {
+      this.operarios = data;
+    });
+  }
+
+  cargarEdificios() {
+    this.ordenTrabajoService.getEdificios().subscribe(data => {
+      this.edificios = data;
+    });
+  }
+
+  cargarPisos() {
+    this.ordenTrabajoService.getPisos().subscribe(data => {
+      this.pisos = data;
+    });
+  }
+
+  cargarSectores() {
+    this.ordenTrabajoService.getSectores().subscribe(data => {
+      this.sectores = data;
+    });
+  }
 
   generarOrden() {
     const ordenTrabajoData = {
       fecha_impresion: this.fechaImpresion,
-      hora_inicio: this.fechaTerminacion, // Si esto debería ser hora de inicio, asegúrate de ajustarlo
-      hora_final: this.fechaTerminacion, // Asegúrate de que esto sea lo que esperas
-      realizada: false, // Cambia esto según tu lógica
-      id_usuario: this.operario, // Asumiendo que el ID del operario es el valor seleccionado
-      id_edificio: this.edificio,
-      id_piso: this.piso,
-      id_sector: this.sector,
-      id_tag: this.activo, // Si necesitas este campo
+      hora_impresion: this.fechaImpresion,
+      realizada: false,
+      id_usuario: this.operarioSeleccionado,
+      id_edificio: this.edificioSeleccionado, 
+      id_piso: this.pisoSeleccionado,
+      id_sector: this.sectorSeleccionado,
+      id_tag: this.activo,
       observacion: this.observacion
     };
 
