@@ -75,8 +75,47 @@
 }
 
 
+@media print {
+    body * {
+        visibility: hidden; /* Oculta todo el contenido */
+    }
+    .reporte-container, .reporte-container * {
+        visibility: visible; /* Muestra solo el contenido del div reporte */
+        width: 100%;
+        box-shadow: none;
+    }
+    .reporte-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    button {
+        display: none; /* Ocultar botones en la impresión */
+    }
+}
 
+.boton-container {
+    bottom: 20px; /* Ajusta según sea necesario */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
 
+.boton-imprimir {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF; /* Cambia el color del botón según tu preferencia */
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.boton-imprimir img {
+    vertical-align: middle;
+    margin-left: 10px;
+}
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .reporte-container {
