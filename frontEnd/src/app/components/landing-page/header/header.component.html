@@ -1,10 +1,10 @@
 <header class="header-container">
   <div class="header-content">
-  <a routerLink="/">   <img src="../../../../assets/image/utn3.png" alt="UTN FRVT Logo" class="header-logo"></a>
-    
+    <a routerLink="/">
+      <img src="../../../../assets/image/utn3.png" alt="UTN FRVT Logo" class="header-logo">
+    </a>
 
-
-    <div class="header-buttons">
+    <div class="header-buttons" *ngIf="showHeaderButtons"> <!-- Control de visibilidad de los botones -->
       <button class="login-button">Iniciar Sesión</button>
       <button class="signup-button" routerLink="/register">Registrarse</button>
     </div>
