@@ -17,8 +17,13 @@ export class RegisterComponent {
     password: ''
   };
   errorMessage: string = '';
+  isPasswordVisible: boolean = false; // Controla la visibilidad de la contraseña
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
 
   onSubmit() {
     const username = this.user.email.username;
@@ -95,3 +100,4 @@ export class RegisterComponent {
     return passwordPattern.test(password) && !/\s/.test(password);
   }
 }
+

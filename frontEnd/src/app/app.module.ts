@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { ReporteComponent } from './components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from './components/activos-from/activos-from.component';
+
   
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ActivosFromComponent } from './components/activos-from/activos-from.com
     OrdenTrabajoComponent,
     ReporteComponent,
     ActivosFromComponent,
+
   ],
   imports: [
     BrowserModule,

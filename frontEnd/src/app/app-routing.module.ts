@@ -7,13 +7,15 @@ import { OrdenTrabajoComponent } from '@components/ordenTrabajo/orden-trabajo/or
 import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from '@components/activos-from/activos-from.component';
 
+
 const routes: Routes = [
   { path: '', component: BodyComponent }, 
   { path: 'register', component: RegisterComponent }, 
   { path: 'panel', component: PanelComponent }, 
   { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
   { path: 'reporte', component: ReporteComponent }, 
-  { path: 'activos', component: ActivosFromComponent }, 
+  { path: 'activos', component: ActivosFromComponent },
+ 
 ];
 //agregar children ver doc. herrera fernando youtuber
 @NgModule({

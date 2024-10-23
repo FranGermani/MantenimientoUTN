@@ -11,14 +11,19 @@ export class BodyComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
+  isPasswordVisible: boolean = false; // Controla la visibilidad de la contraseña
 
   constructor(private router: Router, private usersService: UsersService) {}
+
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
 
   onSubmit() {
     // Limpiar el mensaje de error antes de validar
     this.errorMessage = '';
 
-    // Validaciones
+    // Validaciones de email
     if (!this.validateEmail(this.email)) {
       if (!this.email) {
         this.errorMessage += 'El campo de email no puede estar vacío. ';
@@ -29,6 +34,7 @@ export class BodyComponent {
       }
     }
 
+    // Validaciones de contraseña
     if (!this.validatePassword(this.password)) {
       if (this.password.length < 6 || this.password.length > 16) {
         this.errorMessage += 'La contraseña debe tener entre 6 y 16 caracteres. ';
