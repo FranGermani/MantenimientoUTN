@@ -946,20 +946,26 @@ CREATE TABLE `orden_trabajo` (
   `hora_final` time NOT NULL,
   `realizada` tinyint(1) DEFAULT '0',
   `id_usuario` int DEFAULT NULL,
-  `id_ubicacion` int DEFAULT NULL,
   `id_sector` int DEFAULT NULL,
-  `id_piso` int DEFAULT NULL, -- Agregar la columna id_piso
+  `id_piso` int DEFAULT NULL,
+  `id_edificio` int DEFAULT NULL,
+  `id_tag` int DEFAULT NULL,  -- Agregar la columna id_tag
+  `observacion` TEXT DEFAULT NULL, -- Agregar la columna observacion para texto
   PRIMARY KEY (`id_orden_trabajo`),
   KEY `id_usuario` (`id_usuario`),
-  KEY `id_ubicacion` (`id_ubicacion`),
   KEY `id_sector` (`id_sector`),
-  KEY `id_piso` (`id_piso`), -- Crear un índice para id_piso
+  KEY `id_piso` (`id_piso`),
+  KEY `id_edificio` (`id_edificio`),
+  KEY `id_tag` (`id_tag`),  -- Crear un índice para id_tag
   CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `orden_trabajo_ibfk_2` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion` (`id_ubicacion`),
   CONSTRAINT `orden_trabajo_ibfk_3` FOREIGN KEY (`id_sector`) REFERENCES `sector` (`id_sector`),
-  CONSTRAINT `orden_trabajo_ibfk_4` FOREIGN KEY (`id_piso`) REFERENCES `piso_nivel` (`id_piso`) -- Agregar la restricción de clave foránea para id_piso
+  CONSTRAINT `orden_trabajo_ibfk_4` FOREIGN KEY (`id_piso`) REFERENCES `piso_nivel` (`id_piso`),
+  CONSTRAINT `orden_trabajo_ibfk_5` FOREIGN KEY (`id_edificio`) REFERENCES `edificio` (`id_edificio`),
+  CONSTRAINT `orden_trabajo_ibfk_6` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`)  -- Agregar la restricción de clave foránea para id_tag
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
 
 
 
@@ -1052,6 +1058,49 @@ UNLOCK TABLES;
 --
 -- Table structure for table `tareas`
 --
+
+INSERT INTO tag (id_tag, nombre, tag_diminutivo) VALUES
+(1, 'Iluminación', 'ILUM'),
+(2, 'Aire Acondicionado', 'AACO'),
+(3, 'Radiador Calefacción', 'RCAL'),
+(4, 'Puerta', 'PRTA'),
+(5, 'Ventanas & Cortinas', 'VENT'),
+(6, 'Luces de Emergencia', 'LEME'),
+(7, 'Matafuego', 'MTFG'),
+(8, 'Barandas y Escaleras', 'BESC'),
+(9, 'Tablero Eléctrico', 'TABE'),
+(10, 'Inodoro & Mochila', 'INOD'),
+(11, 'Mesada', 'MESA'),
+(12, 'Ventilador', 'VENT'),
+(13, 'NA', 'NA'),  -- Se mantiene como NA
+(14, 'Puerta Emergencia', 'PTAE'),
+(15, 'Ascensor', 'ASCN'),
+(16, 'Cortina Enrollar Motor', 'CORT'),
+(17, 'NA', 'NA'),  -- Se mantiene como NA
+(18, 'Termotanque', 'TMTQ'),
+(19, 'Calefactor', 'CALE'),
+(20, 'Caldera', 'CALD'),
+(21, 'Techos y Canaletas', 'TCHO'),
+(22, 'NA', 'NA'),  -- Se mantiene como NA
+(23, 'Balcones', 'BALCO'),
+(24, 'Paneles Solares e Inversor', 'PSOL'),
+(25, 'Portones', 'PORT'),
+(26, 'Generador Eléctrico', 'GNDR'),
+(27, 'Bombas de Agua', 'BMBA'),
+(28, 'Tanques de Agua', 'TNQE'),
+(29, 'Rejillas & Desagues', 'DESA'),
+(30, 'NA', 'NA'),      -- Se mantiene como NA
+(31, 'Emergencia Alarma', 'EMER'),
+(32, 'Espacio Físico', 'ESFI'),
+(33, 'Ducha', 'DCHA'),
+(34, 'Cocheras', 'CHRA'),
+(35, 'Escalera', 'ESLR'),
+(36, 'NA', 'NA'),  -- Se mantiene como NA
+(37, 'Cámara Desagüe', 'CDES'),
+(38, 'Cámara Septicas', 'CSEP');
+
+
+
 
 DROP TABLE IF EXISTS `tareas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1230,7 +1279,7 @@ CREATE TABLE `usuario` (
   `email` VARCHAR(255) NOT NULL UNIQUE,
   `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*!40101 SET character_set_client = @saved_cs_client */;
 
