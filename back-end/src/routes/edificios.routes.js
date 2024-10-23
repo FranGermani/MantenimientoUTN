@@ -1,16 +1,10 @@
 import { Router } from 'express';
-import { pool } from '../../config/db.js';
+import { getEdificios, createEdificio, deleteEdificio } from '../controllers/edificios.controller.js';
+
 
 const router = Router();
-
-router.get('/edificio', async (req, res) => {
-    try {
-        const [rows] = await pool.query('SELECT * FROM edificio WHERE activo = 1');
-        res.json(rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error retrieving edificios' });
-    }
-});
+router.get('/edificio', getEdificios);
+router.post('/edificio', createEdificio);
+router.delete('/edificio/:id', deleteEdificio);
 
 export default router;

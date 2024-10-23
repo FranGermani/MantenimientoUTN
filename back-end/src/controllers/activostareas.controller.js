@@ -1,5 +1,6 @@
-import { pool } from '../../config/db.js';
-
+//controllers/activotareas.controller.js
+import { pool } from '../../config/db.js'; 
+// Obtener todas las tareas de activo
 export const getactivotareas = async (req, res) => {
     try {
         const [rows] = await pool.query(`
@@ -7,11 +8,13 @@ export const getactivotareas = async (req, res) => {
             FROM activo_tarea at
             JOIN tareas t ON at.id_tarea = t.id_tarea
             JOIN activo a ON at.id_activo = a.id_activo
-            WHERE at.id_activo BETWEEN 1 AND 10;
-        `); 
-        res.json(rows);
+            `);
+        res.json(rows); // Devuelve los registros en formato JSON
     } catch (err) {
         console.error('Error al obtener tareas de activo:', err);
         res.status(500).json({ message: 'Error interno del servidor' });
     }
 };
+
+
+// Aquí puedes agregar más métodos como crear, actualizar y eliminar tareas
