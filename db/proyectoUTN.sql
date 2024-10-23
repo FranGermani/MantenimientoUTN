@@ -946,11 +946,23 @@ CREATE TABLE `orden_trabajo` (
   `hora_final` time NOT NULL,
   `realizada` tinyint(1) DEFAULT '0',
   `id_usuario` int DEFAULT NULL,
+  `id_ubicacion` int DEFAULT NULL,
+  `id_sector` int DEFAULT NULL,
+  `id_piso` int DEFAULT NULL, -- Agregar la columna id_piso
   PRIMARY KEY (`id_orden_trabajo`),
   KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+  KEY `id_ubicacion` (`id_ubicacion`),
+  KEY `id_sector` (`id_sector`),
+  KEY `id_piso` (`id_piso`), -- Crear un índice para id_piso
+  CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  CONSTRAINT `orden_trabajo_ibfk_2` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion` (`id_ubicacion`),
+  CONSTRAINT `orden_trabajo_ibfk_3` FOREIGN KEY (`id_sector`) REFERENCES `sector` (`id_sector`),
+  CONSTRAINT `orden_trabajo_ibfk_4` FOREIGN KEY (`id_piso`) REFERENCES `piso_nivel` (`id_piso`) -- Agregar la restricción de clave foránea para id_piso
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
 
 --
 -- Dumping data for table `orden_trabajo`

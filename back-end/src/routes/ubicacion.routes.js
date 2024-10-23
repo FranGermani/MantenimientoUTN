@@ -1,8 +1,16 @@
+// routes/ubicacionRoutes.js
 import express from 'express';
-import { getUbicaciones } from '../controllers/ubicacion.controller.js'; // Importa el controlador
+import { getUbicaciones, createUbicacion, deleteUbicacion } from '../controllers/ubicacion.controller.js'; 
 
 const router = express.Router();
 
-router.get('/ubicacion', getUbicaciones);
+// Ruta para obtener todas las ubicaciones
+router.get('/ubicaciones', getUbicaciones);
+
+router.post('/ubicaciones', createUbicacion);
+
+router.delete('/ubicaciones/:id', deleteUbicacion);
+
+
 
 export default router;

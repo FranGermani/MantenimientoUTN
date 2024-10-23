@@ -25,13 +25,14 @@ import { ActivosFromComponent } from './components/activos-from/activos-from.com
     PanelComponent,
     OrdenTrabajoComponent,
     ReporteComponent,
-    ActivosFromComponent
+    ActivosFromComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    HttpClientModule 
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],

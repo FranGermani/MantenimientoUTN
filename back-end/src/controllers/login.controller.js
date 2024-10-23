@@ -56,6 +56,7 @@ export const login = async (req, res) => {
     }
 };
 
+
 export const protect = (req, res, next) => {
     const token = req.cookies['auth-token'] || req.headers['authorization'];
 
@@ -67,8 +68,8 @@ export const protect = (req, res, next) => {
         if (err) {
             return res.status(401).json({ error: 'Token inválido' });
         }
-        req.user = decoded; 
-        next(); 
+        req.user = decoded;
+        next();
     });
 };
 
