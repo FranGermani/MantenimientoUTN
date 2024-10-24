@@ -18,6 +18,7 @@ import { LandingBodyComponent } from './components/landing-page/landing-body/lan
 import { CameraComponent } from './components/camera/camera.component';
 import { UserPanelTutorial } from './components/user/user-tutorial/user-tutorial.component';
 import { TutorialComponent } from './components/admin-panel/tutorial/tutorial.component';
+import { OrdenTrabajoTablaComponent } from './orden-trabajo-tabla/orden-trabajo-tabla.component';
 
   
 @NgModule({
@@ -35,6 +36,7 @@ import { TutorialComponent } from './components/admin-panel/tutorial/tutorial.co
     CameraComponent,
     UserPanelTutorial,
     TutorialComponent,
+    OrdenTrabajoTablaComponent,
 
   ],
   imports: [
