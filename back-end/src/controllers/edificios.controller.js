@@ -45,3 +45,6 @@ export const deleteEdificio = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar edificio', error: err.message });
     }
 };
+
+
+

@@ -29,4 +29,7 @@ export class OrdenTrabajoService {
   crearOrdenTrabajo(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/nuevaODT`, data); // Asegúrate de que esta línea esté apuntando a la ruta correcta
   }
+  getEdificioConPisos(id_edificio: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/edificios/${id_edificio}/pisos`);
+  }
 }

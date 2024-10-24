@@ -13,6 +13,7 @@ import tareasRoutes from './routes/tareas.routes.js';
 import loginRoutes from './routes/login.routes.js'; 
 import edificioRoutes from './routes/edificios.routes.js';
 import ordenTrabajoRoutes from'./routes/ordenTrabajo.routes.js';
+import edificioPisosRoutes from './routes/edificiopisos.routes.js';
 
 
 const app = express();
@@ -33,6 +34,8 @@ app.use('/api', tareasRoutes);
 app.use('/api', loginRoutes); 
 app.use('/api', edificioRoutes);
 app.use('/api', ordenTrabajoRoutes);
+app.use('/api', edificioPisosRoutes);
+
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: 'Internal Server Error' });

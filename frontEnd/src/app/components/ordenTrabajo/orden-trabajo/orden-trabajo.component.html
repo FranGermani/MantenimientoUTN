@@ -21,7 +21,7 @@
       </select>
       
       <label for="edificio">Edificio</label>
-      <select id="edificio" [(ngModel)]="edificioSeleccionado" name="edificio" required>
+      <select id="edificio" [(ngModel)]="edificioSeleccionado" (change)="onEdificioSeleccionado()" name="edificio" required>
         <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.nombre }}</option>
       </select>
       
@@ -29,6 +29,7 @@
       <select id="piso" [(ngModel)]="pisoSeleccionado" name="piso" required>
         <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
       </select>
+      
       
       <label for="sector">Sector</label>
       <select id="sector" [(ngModel)]="sectorSeleccionado" name="sector" required>

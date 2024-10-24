@@ -11,11 +11,11 @@ export class OrdenTrabajoComponent implements OnInit {
   observacion: string = '';
   operarios: any[] = [];  
   operarioSeleccionado: string = ''; 
-  edificios: any[] = [];  // Nueva lista de edificios
-  edificioSeleccionado: string = ''; // Edificio seleccionado
-  pisos: any[] = [];      // Nueva lista de pisos
+  edificios: any[] = [];  // Lista de edificios
+  edificioSeleccionado: any= ''; // Edificio seleccionado
+  pisos: any[] = [];      // Lista de pisos dinámicos según el edificio seleccionado
   pisoSeleccionado: string = '';     // Piso seleccionado
-  sectores: any[] = [];   // Nueva lista de sectores
+  sectores: any[] = [];   // Lista de sectores
   sectorSeleccionado: string = '';   // Sector seleccionado
   activo: string = ''; 
 
@@ -24,7 +24,6 @@ export class OrdenTrabajoComponent implements OnInit {
   ngOnInit(): void {
     this.cargarOperarios();
     this.cargarEdificios();
-    this.cargarPisos();
     this.cargarSectores();
   }
 
@@ -40,10 +39,13 @@ export class OrdenTrabajoComponent implements OnInit {
     });
   }
 
-  cargarPisos() {
-    this.ordenTrabajoService.getPisos().subscribe(data => {
-      this.pisos = data;
-    });
+  // Cargar los pisos basados en el edificio seleccionado
+  onEdificioSeleccionado() {
+    if (this.edificioSeleccionado) {
+      this.ordenTrabajoService.getEdificioConPisos(this.edificioSeleccionado).subscribe(data => {
+        this.pisos = data.pisos; // Accede a los pisos devueltos desde el backend
+      });
+    }
   }
 
   cargarSectores() {
