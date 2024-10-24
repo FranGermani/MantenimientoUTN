@@ -14,6 +14,7 @@ import loginRoutes from './routes/login.routes.js';
 import edificioRoutes from './routes/edificios.routes.js';
 import ordenTrabajoRoutes from'./routes/ordenTrabajo.routes.js';
 import edificioPisosRoutes from './routes/edificiopisos.routes.js';
+import activoRoutes from './routes/activo.routes.js';
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(cors({
   }));              
 app.use(express.json());       
 
+app.use('/api', activoRoutes);
 app.use('/api', pisosRoutes);
 app.use('/api', sectoresRoutes);
 app.use('/api', ubicacionRoutes);

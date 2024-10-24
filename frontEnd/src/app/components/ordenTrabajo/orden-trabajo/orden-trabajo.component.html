@@ -30,19 +30,14 @@
         <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
       </select>
       
-      
       <label for="sector">Sector</label>
       <select id="sector" [(ngModel)]="sectorSeleccionado" name="sector" required>
         <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
       </select>
 
       <label for="activo">Activo</label>
-      <select id="activo" [(ngModel)]="activo" name="activo" required>
-        <option value="">Seleccione</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+      <select id="activo" [(ngModel)]="activoSeleccionado" name="activo" required>
+        <option *ngFor="let activo of activos" [value]="activo.id_activo">{{ activo.nombre }}</option>
       </select>
 
       <label for="observacion">Observación</label>

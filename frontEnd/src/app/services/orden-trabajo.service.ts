@@ -32,4 +32,7 @@ export class OrdenTrabajoService {
   getEdificioConPisos(id_edificio: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/edificios/${id_edificio}/pisos`);
   }
+  getActivos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/activos`);
+  }
 }
