@@ -8,6 +8,8 @@ import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.compo
 import { ActivosFromComponent } from '@components/admin-panel/activos-from/activos-from.component';
 import { LandingBodyComponent } from '@components/landing-page/landing-body/landing-body.component';
 import { CameraComponent } from '@components/camera/camera.component';
+import { UserPanelComponent } from '@components/user/user-panel/user-panel.component';
+import { TutorialComponent } from '@components/admin-panel/tutorial/tutorial.component';
 
 // Definición de rutas
 const routes: Routes = [
@@ -15,7 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent }, // Ruta para el registro
   { path: 'login', component: BodyComponent },
   { 
-    path: 'panel', 
+    path: 'adminPanel', 
     component: PanelComponent,
     children: [ // Rutas hijas del PanelComponent
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
@@ -24,6 +26,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'ordenTrabajo', pathMatch: 'full' }, // Redirige a 'ordenTrabajo' por defecto
     ]
   },
+  { path: 'tutorial', component: TutorialComponent},
+  { path: 'user', component: UserPanelComponent},
   { path: 'camara', component: CameraComponent },
 ];
 
