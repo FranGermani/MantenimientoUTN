@@ -59,7 +59,7 @@
       </section>
   
       <!-- Las demás vistas (ordenes, nueva, activo, etc.) -->
-      <h1 *ngIf="currentView === 'ordenes'">Vista operario</h1>
+       <app-panel  *ngIf="currentView === 'ordenes'"></app-panel>
       <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
       <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
     </main>

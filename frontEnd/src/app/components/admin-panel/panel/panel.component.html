@@ -1,23 +1,5 @@
 <div class="container">
-    <aside class="sidebar">
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
-      <label for="menu-toggle" class="hamburger">&#9776;</label>
-  
-      <nav class="menu">
-        <button (click)="setView('ordenes')">Orden de trabajo</button>
-        <button (click)="setView('nueva')">Nueva</button>
-        <button (click)="setView('lista')">Lista</button>
-        <button>Subbutton 1.3</button>
-        <button (click)="setView('activo')">Activo</button>
-        <button>Tarea</button>
-        <button>Edificio</button>
-        <button>Piso</button>
-        <button>Volver</button>
-      </nav>
-    </aside>
-  
     <main class="main-content">
-      <!-- Mostrar el componente OrdenTrabajoComponent o la tabla dependiendo de la vista -->
       <h1 *ngIf="currentView === 'ordenes'">Ordenes de trabajo</h1>
       <table *ngIf="currentView === 'ordenes'">
         <thead>

@@ -8,28 +8,29 @@ import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.compo
 import { ActivosFromComponent } from '@components/admin-panel/activos-from/activos-from.component';
 import { LandingBodyComponent } from '@components/landing-page/landing-body/landing-body.component';
 import { CameraComponent } from '@components/camera/camera.component';
-import { UserPanelComponent } from '@components/user/user-panel/user-panel.component';
+import { UserPanelTutorial } from '@components/user/user-tutorial/user-tutorial.component';
 import { TutorialComponent } from '@components/admin-panel/tutorial/tutorial.component';
 
 // Definición de rutas
 const routes: Routes = [
-  { path: '', component: LandingBodyComponent }, // Ruta raíz que carga BodyComponent
-  { path: 'register', component: RegisterComponent }, // Ruta para el registro
+  { path: '', component: LandingBodyComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: BodyComponent },
   { 
-    path: 'adminPanel', 
-    component: PanelComponent,
-    children: [ // Rutas hijas del PanelComponent
+    path: 'adminTutorial', 
+    component: TutorialComponent,
+    children: [ 
+      { path: '', component: PanelComponent }, // Asegúrate de tener esta ruta
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
       { path: 'reporte', component: ReporteComponent },
-      { path: 'activos', component: ActivosFromComponent },
-      { path: '', redirectTo: 'ordenTrabajo', pathMatch: 'full' }, // Redirige a 'ordenTrabajo' por defecto
+      { path: 'activos', component: ActivosFromComponent }, 
     ]
   },
-  { path: 'tutorial', component: TutorialComponent},
-  { path: 'user', component: UserPanelComponent},
+  { path: 'user', component: UserPanelTutorial },
   { path: 'camara', component: CameraComponent },
 ];
+
+
 
 // Importación y exportación del módulo de enrutamiento
 @NgModule({

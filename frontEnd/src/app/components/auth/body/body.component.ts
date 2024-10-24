@@ -66,7 +66,7 @@ export class BodyComponent {
       next: (response) => {
         // Redirigir al panel solo si la respuesta es exitosa y contiene el token
         if (response.token) {
-          this.router.navigate(['/panel']);
+          this.router.navigate(['/adminTutorial']);
         }
       },
       error: (error) => {
