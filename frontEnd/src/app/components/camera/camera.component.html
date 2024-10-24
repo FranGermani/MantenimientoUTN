@@ -1,0 +1,9 @@
+<div>
+    <video #video autoplay playsinline></video> <!-- playsinline para que funcione en móvil sin pantalla completa -->
+    <canvas #canvas style="display:none;"></canvas>
+    <div>
+      <button mat-button (click)="takePicture()">Tomar foto</button>
+      <img *ngIf="photo" [src]="photo" alt="Foto tomada">
+    </div>
+  </div>
+  

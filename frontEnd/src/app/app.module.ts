@@ -15,6 +15,7 @@ import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/o
 import { ReporteComponent } from './components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from './components/admin-panel/activos-from/activos-from.component';
 import { LandingBodyComponent } from './components/landing-page/landing-body/landing-body.component';
+import { CameraComponent } from './components/camera/camera.component';
 
   
 @NgModule({
@@ -29,6 +30,7 @@ import { LandingBodyComponent } from './components/landing-page/landing-body/lan
     ReporteComponent,
     ActivosFromComponent,
     LandingBodyComponent,
+    CameraComponent,
 
   ],
   imports: [

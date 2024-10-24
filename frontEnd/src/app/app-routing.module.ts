@@ -7,6 +7,7 @@ import { OrdenTrabajoComponent } from '@components/ordenTrabajo/orden-trabajo/or
 import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from '@components/admin-panel/activos-from/activos-from.component';
 import { LandingBodyComponent } from '@components/landing-page/landing-body/landing-body.component';
+import { CameraComponent } from '@components/camera/camera.component';
 
 // Definición de rutas
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'activos', component: ActivosFromComponent },
       { path: '', redirectTo: 'ordenTrabajo', pathMatch: 'full' }, // Redirige a 'ordenTrabajo' por defecto
     ]
-  }
+  },
+  { path: 'camara', component: CameraComponent },
 ];
 
 // Importación y exportación del módulo de enrutamiento
