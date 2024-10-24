@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { ReporteComponent } from './components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from './components/admin-panel/activos-from/activos-from.component';
+import { LandingBodyComponent } from './components/landing-page/landing-body/landing-body.component';
 
   
 @NgModule({
@@ -27,6 +28,7 @@ import { ActivosFromComponent } from './components/admin-panel/activos-from/acti
     OrdenTrabajoComponent,
     ReporteComponent,
     ActivosFromComponent,
+    LandingBodyComponent,
 
   ],
   imports: [

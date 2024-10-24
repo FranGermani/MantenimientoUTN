@@ -6,11 +6,13 @@ import { PanelComponent } from './components/admin-panel/panel/panel.component';
 import { OrdenTrabajoComponent } from '@components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from '@components/admin-panel/activos-from/activos-from.component';
+import { LandingBodyComponent } from '@components/landing-page/landing-body/landing-body.component';
 
 // Definición de rutas
 const routes: Routes = [
-  { path: '', component: BodyComponent }, // Ruta raíz que carga BodyComponent
+  { path: '', component: LandingBodyComponent }, // Ruta raíz que carga BodyComponent
   { path: 'register', component: RegisterComponent }, // Ruta para el registro
+  { path: 'login', component: BodyComponent },
   { 
     path: 'panel', 
     component: PanelComponent,
@@ -18,7 +20,7 @@ const routes: Routes = [
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
       { path: 'reporte', component: ReporteComponent },
       { path: 'activos', component: ActivosFromComponent },
-      { path: '', redirectTo: 'ordenTrabajo', pathMatch: 'full' } // Redirige a 'ordenTrabajo' por defecto
+      { path: '', redirectTo: 'ordenTrabajo', pathMatch: 'full' }, // Redirige a 'ordenTrabajo' por defecto
     ]
   }
 ];
