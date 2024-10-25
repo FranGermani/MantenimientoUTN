@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="main-content">
+    <form (ngSubmit)="registrarEdificio()" #edificioForm="ngForm">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        [(ngModel)]="nombre" 
+        placeholder="Ingrese el nombre del establecimiento"
+        required
+      />
+
+      <label for="direccion">Dirección:</label>
+      <input
+        type="text"
+        id="direccion"
+        name="direccion"
+        [(ngModel)]="direccion" 
+        placeholder="Ingrese la dirección del establecimiento"
+        required
+      />
+
+      <label class="invisible" for="label-tag">Label Tag:</label>
+      <input class="invisible"
+        type="text"
+        id="label-tag"
+        name="label-tag"
+        [value]="labeltag" 
+        readonly
+      />
+
+
+
+      <label for="disponibilidad">Estado:</label>
+      <select id="disponibilidad" name="disponibilidad" [(ngModel)]="estado">
+        <option value="disponible">Activo</option>
+        <option value="no-disponible">Inactivo</option>
+      </select>
+
+
+      <button type="submit" [disabled]="!edificioForm.valid">Registrar Edificio</button>
+    </form>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { PanelComponent } from './components/admin-panel/panel/panel.component';
 import { OrdenTrabajoComponent } from '@components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from '@components/admin-panel/activos-from/activos-from.component';
+import { EdificioFormComponent } from '@components/admin-panel/edificio-form/edificio-form.component';
 import { LandingBodyComponent } from '@components/landing-page/landing-body/landing-body.component';
 import { CameraComponent } from '@components/camera/camera.component';
 import { UserPanelTutorial } from '@components/user/user-tutorial/user-tutorial.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
       { path: 'reporte', component: ReporteComponent },
       { path: 'activos', component: ActivosFromComponent },
+      { path: 'edificio', component: EdificioFormComponent },
     ],
   },
   { path: 'user', component: UserPanelTutorial },

@@ -19,6 +19,8 @@ import { CameraComponent } from './components/camera/camera.component';
 import { UserPanelTutorial } from './components/user/user-tutorial/user-tutorial.component';
 import { TutorialComponent } from './components/admin-panel/tutorial/tutorial.component';
 import { OrdenTrabajoTablaComponent } from './orden-trabajo-tabla/orden-trabajo-tabla.component';
+import { EdificioFormComponent } from './components/admin-panel/edificio-form/edificio-form.component';
+import { EdificioService } from './services/edificio.service';
 
   
 @NgModule({
@@ -37,6 +39,7 @@ import { OrdenTrabajoTablaComponent } from './orden-trabajo-tabla/orden-trabajo-
     UserPanelTutorial,
     TutorialComponent,
     OrdenTrabajoTablaComponent,
+    EdificioFormComponent,
 
   ],
   imports: [
@@ -46,7 +49,10 @@ import { OrdenTrabajoTablaComponent } from './orden-trabajo-tabla/orden-trabajo-
     ReactiveFormsModule,
     HttpClientModule 
   ],
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(), // Asegúrate de que esto esté aquí
+    EdificioService, // Asegúrate de que el servicio esté incluido aquí
+  ],
   bootstrap: [AppComponent],
   
 })
