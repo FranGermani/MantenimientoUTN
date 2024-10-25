@@ -66,7 +66,12 @@ export class BodyComponent {
       next: (response) => {
         // Redirigir al panel solo si la respuesta es exitosa y contiene el token
         if (response.token) {
-          this.router.navigate(['/user']);
+          // Verificar si es el usuario administrador
+          if (user.email === 'Admin@gmail.com' && user.password === 'Admin123') {
+            this.router.navigate(['/adminTutorial']); // Redirigir a adminTutorial
+          } else {
+            this.router.navigate(['/user']); // Redirigir a user
+          }
         }
       },
       error: (error) => {

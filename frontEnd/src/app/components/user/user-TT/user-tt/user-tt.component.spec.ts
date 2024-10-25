@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BodyComponent } from './body.component';
+import { UserTTComponent } from './user-tt.component';
 
-describe('BodyComponent', () => {
-  let component: BodyComponent;
-  let fixture: ComponentFixture<BodyComponent>;
+describe('UserTTComponent', () => {
+  let component: UserTTComponent;
+  let fixture: ComponentFixture<UserTTComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BodyComponent]
+      declarations: [UserTTComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BodyComponent);
+    fixture = TestBed.createComponent(UserTTComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdenTrabajoService } from '../services/orden-trabajo.service';
+import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 
 @Component({
   selector: 'app-orden-trabajo-tabla',

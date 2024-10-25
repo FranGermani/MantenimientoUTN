@@ -1,0 +1,71 @@
+.fondo {
+    display: flex;
+    background: linear-gradient(45deg, #76acbc, #ffffff);
+    font-family: 'Roboto', Helvetica, Arial, Lucida, sans-serif;
+}
+
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.486);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    max-width: 300px;
+    margin-left: 25%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0d5478;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #11698c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a1a41;
+    font-weight: bold;
+}
+
+/* Resto del CSS (como en tu ejemplo anterior) */

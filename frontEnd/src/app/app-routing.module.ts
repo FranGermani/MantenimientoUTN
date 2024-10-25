@@ -1,40 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BodyComponent } from './components/auth/body/body.component';
-import { RegisterComponent } from './components/auth/register/register.component';
-import { PanelComponent } from './components/admin-panel/panel/panel.component';
+import { BodyComponent } from './components/auth/body/body.component'; 
+import { RegisterComponent } from './components/auth/register/register.component'; 
+import { PanelComponent } from './components/admin-panel/panel/panel.component'; 
 import { OrdenTrabajoComponent } from '@components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { ReporteComponent } from '@components/ordenTrabajo/reporte/reporte.component';
 import { ActivosFromComponent } from '@components/admin-panel/activos-from/activos-from.component';
-import { EdificioFormComponent } from '@components/admin-panel/edificio-form/edificio-form.component';
 import { LandingBodyComponent } from '@components/landing-page/landing-body/landing-body.component';
 import { CameraComponent } from '@components/camera/camera.component';
 import { UserPanelTutorial } from '@components/user/user-tutorial/user-tutorial.component';
 import { TutorialComponent } from '@components/admin-panel/tutorial/tutorial.component';
+import { UserOTComponent } from '@components/user/user-OT/user-ot/user-ot.component';
+import { UserTAComponent } from '@components/user/user-TA/user-ta/user-ta.component';
+import { UserTTComponent } from '@components/user/user-TT/user-tt/user-tt.component';
 
 // Definición de rutas
 const routes: Routes = [
   { path: '', component: LandingBodyComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: BodyComponent },
+  { path: 'user', component: UserPanelTutorial, children: [
+      { path: 'userTA', component: UserTAComponent },
+      { path: 'userTT', component: UserTTComponent },
+      { path: 'userOT', component: UserOTComponent }
+    ] 
+  },
   { 
     path: 'adminTutorial', 
     component: TutorialComponent,
-    children: [
+    children: [ 
       { path: '', component: PanelComponent }, // Asegúrate de tener esta ruta
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
       { path: 'reporte', component: ReporteComponent },
-      { path: 'activos', component: ActivosFromComponent },
-      { path: 'edificio', component: EdificioFormComponent },
-    ],
+      { path: 'activos', component: ActivosFromComponent }, 
+    ]
   },
-  
   { path: 'camara', component: CameraComponent },
 ];
 
 // Importación y exportación del módulo de enrutamiento
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -1,47 +1,46 @@
 <div class="container">
-    <aside class="sidebar">
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
-      <label for="menu-toggle" class="hamburger">&#9776;</label>
-  
-      <nav class="menu">
-        <button (click)="setView('ordenes')">Orden de trabajo</button>
-        <button>Tareas Terminadas</button>
-        <button>Tareas Asignadas</button>
-        <button (click)="cerrarSesion()">Cerrar Sesión</button>
+  <aside class="sidebar">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
 
-      </nav>
-    </aside>
-  
-    <main class="main-content">
-      <!-- Agregar una sección de bienvenida -->
-      <section class="welcome-section" *ngIf="currentView === 'presentacion'">
-        <h1>Bienvenido, Operario</h1>
-        <p>En esta página encontrarás las siguientes funcionalidades:</p>
-  
-        <div class="card-container">
-          <div class="card">
-            <h2>Orden de trabajo</h2>
-            <p>Consulta y gestiona tus órdenes de trabajo asignadas.</p>
-          </div>
-          <div class="card">
-            <h2>Tareas Terminadas</h2>
-            <p>Revisa un historial de las tareas que has completado.</p>
-          </div>
-          <div class="card">
-            <h2>Tareas Asignadas</h2>
-            <p>Consulta las tareas que te han sido asignadas.</p>
-          </div>
-          <div class="card">
-            <h2>Cerrar Sesión</h2>
-            <p>Este botón sirve para Cerrar Sesión</p>
-          </div>
+    <nav class="menu">
+      <button (click)="setView('userOT')">Orden de trabajo</button>
+      <button (click)="setView('userTT')">Tareas Terminadas</button>
+      <button (click)="setView('userTA')">Tareas Asignadas</button>
+      <button (click)="cerrarSesion()">Cerrar Sesión</button>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <!-- Agregar una sección de bienvenida -->
+    <section class="welcome-section" *ngIf="currentView === 'presentacion'">
+      <h1>Bienvenido, Operario</h1>
+      <p>En esta página encontrarás las siguientes funcionalidades:</p>
+
+      <div class="card-container">
+        <div class="card">
+          <h2>Orden de trabajo</h2>
+          <p>Consulta y gestiona tus órdenes de trabajo asignadas.</p>
         </div>
-      </section>
-  
-      <!-- Las demás vistas (ordenes, nueva, activo, etc.) -->
-      <h1 *ngIf="currentView === 'ordenes'">Vista operario</h1>
-      <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
-      <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
-    </main>
-  </div>
-  
+        <div class="card">
+          <h2>Tareas Terminadas</h2>
+          <p>Revisa un historial de las tareas que has completado.</p>
+        </div>
+        <div class="card">
+          <h2>Tareas Asignadas</h2>
+          <p>Consulta las tareas que te han sido asignadas.</p>
+        </div>
+        <div class="card">
+          <h2>Cerrar Sesión</h2>
+          <p>Este botón sirve para Cerrar Sesión</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Las demás vistas (userTA, userTT, userOT) -->
+    <app-user-ot *ngIf="currentView === 'userOT'"></app-user-ot>
+    <app-user-tt *ngIf="currentView === 'userTT'">Vista de Tareas Terminadas</app-user-tt>
+    <app-user-ta *ngIf="currentView === 'userTA'">Vista de Tareas Asignadas</app-user-ta>
+    <router-outlet></router-outlet> <!-- Aquí se cargarán los componentes correspondientes -->
+  </main>
+</div>
