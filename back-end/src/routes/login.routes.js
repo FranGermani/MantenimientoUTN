@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { login, registro, verifyToken, protect } from '../controllers/login.controller.js'; // Importar todas las funciones una sola vez
+import { login, registro, logout, verifyToken, protect } from '../controllers/login.controller.js';
 
 const router = Router();
 
-router.post('/registro', registro); // Ruta para registrar un nuevo usuario
-router.post('/login', login); // Ruta para iniciar sesión
-router.get('/protected', verifyToken, protect); // Ruta protegida
+router.post('/registro', registro);
+router.post('/login', login);
+router.post('/logout', logout); // Ruta para cerrar sesión
+router.get('/protected', verifyToken, protect);
 
 export default router;

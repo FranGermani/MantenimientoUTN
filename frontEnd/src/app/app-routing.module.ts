@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: '', component: LandingBodyComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: BodyComponent },
+  { path: 'user', component: UserPanelTutorial },
   { 
     path: 'adminTutorial', 
     component: TutorialComponent,
@@ -26,7 +27,7 @@ const routes: Routes = [
       { path: 'activos', component: ActivosFromComponent }, 
     ]
   },
-  { path: 'user', component: UserPanelTutorial },
+  
   { path: 'camara', component: CameraComponent },
 ];
 

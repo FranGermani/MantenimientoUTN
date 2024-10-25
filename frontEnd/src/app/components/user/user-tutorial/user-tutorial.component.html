@@ -5,14 +5,10 @@
   
       <nav class="menu">
         <button (click)="setView('ordenes')">Orden de trabajo</button>
-        <button (click)="setView('nueva')">Nueva</button>
-        <button (click)="setView('lista')">Lista</button>
         <button>Tareas Terminadas</button>
-        <button (click)="setView('activo')">Activo</button>
         <button>Tareas Asignadas</button>
-        <button>Edificio</button>
-        <button>Piso</button>
-        <button>Cerrar Sesión</button>
+        <button (click)="cerrarSesion()">Cerrar Sesión</button>
+
       </nav>
     </aside>
   
@@ -28,28 +24,12 @@
             <p>Consulta y gestiona tus órdenes de trabajo asignadas.</p>
           </div>
           <div class="card">
-            <h2>Nueva</h2>
-            <p>Crea una nueva orden de trabajo para iniciar una nueva tarea.</p>
-          </div>
-          <div class="card">
-            <h2>Lista</h2>
-            <p>Revisa una lista detallada de todas las órdenes de trabajo pendientes.</p>
-          </div>
-          <div class="card">
-            <h2>Activo</h2>
-            <p>Consulta los activos disponibles para el trabajo.</p>
-          </div>
-          <div class="card">
             <h2>Tareas Terminadas</h2>
             <p>Revisa un historial de las tareas que has completado.</p>
           </div>
           <div class="card">
             <h2>Tareas Asignadas</h2>
             <p>Consulta las tareas que te han sido asignadas.</p>
-          </div>
-          <div class="card">
-            <h2>Edificio y Piso</h2>
-            <p>Información sobre los edificios y pisos donde realizarás las tareas.</p>
           </div>
           <div class="card">
             <h2>Cerrar Sesión</h2>

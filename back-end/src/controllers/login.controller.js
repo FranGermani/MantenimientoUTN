@@ -88,3 +88,9 @@ export const verifyToken = (req, res, next) => {
         next();
     });
 };
+
+export const logout = (req, res) => {
+    console.log('Logout request received'); // Añade este log
+    res.clearCookie('auth-token', { httpOnly: true, sameSite: 'lax' });
+    return res.json({ message: 'Sesión cerrada exitosamente' });
+};
