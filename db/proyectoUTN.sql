@@ -936,32 +936,39 @@ UNLOCK TABLES;
 -- Table structure for table `orden_trabajo`
 --
 
-DROP TABLE IF EXISTS `orden_trabajo`;
-CREATE TABLE `orden_trabajo` (
-  `id_orden_trabajo` int NOT NULL AUTO_INCREMENT,
-  `fecha_impresion` date NOT NULL,
-  `hora_impresion` time NOT NULL, -- Agregar la columna hora_impresion
-  `hora_inicio` time DEFAULT NULL, -- Permitir que hora_inicio comience como NULL
-  `hora_final` time DEFAULT NULL, -- Permitir que hora_final comience como NULL
-  `realizada` tinyint(1) DEFAULT '0',
-  `id_usuario` int DEFAULT NULL,
-  `id_sector` int DEFAULT NULL,
-  `id_piso` int DEFAULT NULL,
-  `id_edificio` int DEFAULT NULL,
-  `id_tag` int DEFAULT NULL,  -- Agregar la columna id_tag
-  `observacion` TEXT DEFAULT NULL, -- Agregar la columna observacion para texto
-  PRIMARY KEY (`id_orden_trabajo`),
-  KEY `id_usuario` (`id_usuario`),
-  KEY `id_sector` (`id_sector`),
-  KEY `id_piso` (`id_piso`),
-  KEY `id_edificio` (`id_edificio`),
-  KEY `id_tag` (`id_tag`),  -- Crear un índice para id_tag
-  CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `orden_trabajo_ibfk_3` FOREIGN KEY (`id_sector`) REFERENCES `sector` (`id_sector`),
-  CONSTRAINT `orden_trabajo_ibfk_4` FOREIGN KEY (`id_piso`) REFERENCES `piso_nivel` (`id_piso`),
-  CONSTRAINT `orden_trabajo_ibfk_5` FOREIGN KEY (`id_edificio`) REFERENCES `edificio` (`id_edificio`),
-  CONSTRAINT `orden_trabajo_ibfk_6` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`) -- Agregar la restricción de clave foránea para id_tag
+DROP TABLE IF EXISTS orden_trabajo;
+
+CREATE TABLE orden_trabajo (
+  id_orden_trabajo int NOT NULL AUTO_INCREMENT,
+  fecha_impresion date NOT NULL,
+  hora_impresion time NOT NULL,
+  hora_inicio time DEFAULT NULL,
+  hora_final time DEFAULT NULL,
+  realizada tinyint(1) DEFAULT '0',
+  id_usuario int DEFAULT NULL,
+  id_sector int DEFAULT NULL,
+  id_piso int DEFAULT NULL,
+  id_edificio int DEFAULT NULL,
+  id_tag int DEFAULT NULL,
+  id_activo int DEFAULT NULL,  -- Nueva columna para id_activo
+  observacion TEXT DEFAULT NULL,
+  codigo VARCHAR(255) DEFAULT NULL, -- Columna para almacenar el código generado
+  PRIMARY KEY (id_orden_trabajo),
+  KEY id_usuario (id_usuario),
+  KEY id_sector (id_sector),
+  KEY id_piso (id_piso),
+  KEY id_edificio (id_edificio),
+  KEY id_tag (id_tag),
+  KEY id_activo (id_activo),  -- Crear un índice para id_activo
+  CONSTRAINT orden_trabajo_ibfk_1 FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
+  CONSTRAINT orden_trabajo_ibfk_3 FOREIGN KEY (id_sector) REFERENCES sector (id_sector),
+  CONSTRAINT orden_trabajo_ibfk_4 FOREIGN KEY (id_piso) REFERENCES piso_nivel (id_piso),
+  CONSTRAINT orden_trabajo_ibfk_5 FOREIGN KEY (id_edificio) REFERENCES edificio (id_edificio),
+  CONSTRAINT orden_trabajo_ibfk_6 FOREIGN KEY (id_tag) REFERENCES tag (id_tag),
+  CONSTRAINT orden_trabajo_ibfk_7 FOREIGN KEY (id_activo) REFERENCES activo (id_activo) -- Relación con la tabla activo
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 
 
 --

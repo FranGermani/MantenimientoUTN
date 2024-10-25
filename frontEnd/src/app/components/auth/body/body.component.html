@@ -10,7 +10,7 @@
       <div class="input-group">
         <label for="password">Contraseña</label>
         <div class="password-wrapper">
-          <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" name="password" [(ngModel)]="password" required>
+          <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" name="password" [(ngModel)]="password" required >
           <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
             {{ isPasswordVisible ? 'Ocultar' : 'Mostrar' }}
           </button>

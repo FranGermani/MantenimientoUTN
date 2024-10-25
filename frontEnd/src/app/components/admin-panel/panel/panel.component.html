@@ -1,44 +1,28 @@
 <div class="container">
-    <main class="main-content">
-      <h1 *ngIf="currentView === 'ordenes'">Ordenes de trabajo</h1>
-      <table *ngIf="currentView === 'ordenes'">
-        <thead>
-          <tr>
-            <th>Fecha de Impresión</th>
-            <th>Fecha de Terminación</th>
-            <th>Operario</th>
-            <th>Edificio</th>
-            <th>Piso</th>
-            <th>Sector</th>
-            <th>Ubicación</th>
-            <th>Activo</th>
-            <th>Tiempo</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Fecha de Impresión">18/10/2024</td>
-            <td data-label="Fecha de Terminación">18/10/2024</td>
-            <td data-label="Operario">2</td>
-            <td data-label="Edificio">1</td>
-            <td data-label="Piso">1</td>
-            <td data-label="Sector">1</td>
-            <td data-label="Ubicación">1</td>
-            <td data-label="Activo">1</td>
-            <td data-label="Tiempo">2024-10-19T03:22:00.000Z</td>
-            <td class="button">
-              <button><img src="../../../../assets/image/ver.png"/></button>
-              <button><img src="../../../../assets/image/editar.png"/></button>
-              <button><img src="../../../../assets/image/borrar.png"/></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-  
-      <!-- Aquí se muestra el componente OrdenTrabajoComponent cuando se selecciona la vista 'nueva' -->
-      <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
-      <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from> <!-- Corregido aquí -->
-    </main>
-  </div>
-  
+  <main class="main-content">
+    <h1 *ngIf="currentView === 'ordenes'">Ordenes de trabajo</h1>
+    <table *ngIf="currentView === 'ordenes'">
+      <thead>
+        <tr>
+          <th>Codigo Unico</th>
+          <th>Fecha de Impresión</th>
+          <th>Operario</th>
+          <th>Edificio</th>
+          <th>Piso</th>
+          <th>Sector</th>
+          <th>Activo</th>
+          <th>Realizado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <thead>
+        <app-orden-trabajo-tabla></app-orden-trabajo-tabla>
+      </thead>
+    </table>
+
+    <!-- Aquí se muestra el componente OrdenTrabajoComponent cuando se selecciona la vista 'nueva' -->
+    <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
+    <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
+    <!-- Corregido aquí -->
+  </main>
+</div>

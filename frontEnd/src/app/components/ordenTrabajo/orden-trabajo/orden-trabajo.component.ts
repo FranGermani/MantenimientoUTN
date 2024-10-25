@@ -71,7 +71,7 @@ export class OrdenTrabajoComponent implements OnInit {
       id_edificio: this.edificioSeleccionado, 
       id_piso: this.pisoSeleccionado,
       id_sector: this.sectorSeleccionado,
-      id_tag: this.activoSeleccionado, // Activo seleccionado
+      id_activo: this.activoSeleccionado, // Activo seleccionado
       observacion: this.observacion
     };
 
@@ -83,5 +83,5 @@ export class OrdenTrabajoComponent implements OnInit {
         console.error('Error al generar la orden:', error);
       }
     );
-  }
+}
 }

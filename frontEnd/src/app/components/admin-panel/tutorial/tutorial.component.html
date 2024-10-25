@@ -2,7 +2,6 @@
     <aside class="sidebar">
       <input type="checkbox" id="menu-toggle" class="menu-toggle">
       <label for="menu-toggle" class="hamburger">&#9776;</label>
-  
       <nav class="menu">
         <button (click)="setView('ordenes')">Orden de trabajo</button>
         <button (click)="setView('nueva')">Nueva</button>
@@ -10,7 +9,7 @@
         <button>Tareas Terminadas</button>
         <button (click)="setView('activo')">Activo</button>
         <button>Tareas Asignadas</button>
-        <button>Edificio</button>
+        <button (click)="setView('edificio')">Edificio</button>
         <button>Piso</button>
         <button>Cerrar Sesión</button>
       </nav>
@@ -62,6 +61,7 @@
        <app-panel  *ngIf="currentView === 'ordenes'"></app-panel>
       <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
       <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
+      <app-edificio-form *ngIf="currentView === 'edificio'"></app-edificio-form>
     </main>
   </div>
   

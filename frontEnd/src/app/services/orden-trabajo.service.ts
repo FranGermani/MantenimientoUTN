@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrdenTrabajoService {
   private apiUrl = 'http://localhost:3000/api'; // Cambia esta línea si es necesario
@@ -17,11 +17,11 @@ export class OrdenTrabajoService {
   getEdificios(): Observable<any> {
     return this.http.get(`${this.apiUrl}/edificio`);
   }
-  
+
   getPisos(): Observable<any> {
     return this.http.get(`${this.apiUrl}/pisos`);
   }
-  
+
   getSectores(): Observable<any> {
     return this.http.get(`${this.apiUrl}/sector`);
   }
@@ -34,5 +34,9 @@ export class OrdenTrabajoService {
   }
   getActivos(): Observable<any> {
     return this.http.get(`${this.apiUrl}/activos`);
+  }
+
+  getOrdenesTrabajo(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/orden_trabajo`);
   }
 }
