@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsersService } from '../../../services/usuario.service'; // Asegúrate de que la ruta sea correcta
+import { UsersService } from '../../../services/usuario.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class UserPanelTutorial {
     this.userService.logout().subscribe(
       () => {
         console.log('Sesión cerrada exitosamente');
-        this.router.navigate(['/']); // Redirigir a la página de login
+        this.router.navigate(['/']); 
       },
       (error) => {
         console.error('Error al cerrar sesión', error);

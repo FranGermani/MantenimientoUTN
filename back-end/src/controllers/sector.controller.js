@@ -1,7 +1,5 @@
-// controllers/sector.controller.js
 import { pool } from '../../config/db.js';
 
-// Función para obtener todos los sectores
 export const getSectores = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM sector'); 
@@ -12,7 +10,6 @@ export const getSectores = async (req, res) => {
     }
 };
 
-// Crear un nuevo sector
 export const createSector = async (req, res) => {
     const { nombre, descripcion, activo } = req.body;
 
@@ -24,7 +21,7 @@ export const createSector = async (req, res) => {
     try {
         const [result] = await pool.query(
             'INSERT INTO sector (nombre, descripcion, activo) VALUES (?, ?, ?)', 
-            [nombre, descripcion, activo ?? 1] // Si no se pasa 'activo', se establece en 1
+            [nombre, descripcion, activo ?? 1] 
         );
 
         res.status(201).json({ message: 'Sector creado exitosamente', id: result.insertId });
@@ -34,7 +31,6 @@ export const createSector = async (req, res) => {
     }
 };
 
-// Eliminar un sector
 export const deleteSector = async (req, res) => {
     const { id } = req.params; 
 

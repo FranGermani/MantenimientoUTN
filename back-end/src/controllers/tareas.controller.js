@@ -13,7 +13,7 @@ export const getTareas = async (req, res) => {
 export const createTarea = async (req, res) => {
     const { descripcion } = req.body;
 
-    console.log('Datos recibidos:', req.body); // Agrega este log para depuración
+    console.log('Datos recibidos:', req.body); 
 
     if (!descripcion) {
         return res.status(400).json({ message: 'Descripción es requerida' });

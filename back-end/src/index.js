@@ -4,6 +4,7 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import { pool } from '../config/db.js';
+
 import pisosRoutes from './routes/pisos.routes.js'; 
 import sectoresRoutes from './routes/sectores.routes.js'; 
 import ubicacionRoutes from './routes/ubicacion.routes.js'; 

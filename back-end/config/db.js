@@ -9,7 +9,6 @@ export const pool = createPool({
     database: process.env.DB_DATABASE
 });
 
-// Verifica la conexión
 pool.getConnection()
     .then(() => console.log('Connected to the database!'))
     .catch(err => console.error('Database connection failed:', err));

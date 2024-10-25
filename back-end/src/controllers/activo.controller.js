@@ -1,7 +1,5 @@
-// controllers/activo.controller.js
 import { pool } from '../../config/db.js';
 
-// Obtener todos los activos
 export const getActivos = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM activo');
@@ -12,7 +10,6 @@ export const getActivos = async (req, res) => {
     }
 };
 
-// Crear un nuevo activo
 export const createActivo = async (req, res) => {
     const { nombre, tag_diminutivo, disponibilidad } = req.body;
     try {
@@ -24,7 +21,6 @@ export const createActivo = async (req, res) => {
     }
 };
 
-// Actualizar un activo existente
 export const updateActivo = async (req, res) => {
     const { id } = req.params;
     const { nombre, tag_diminutivo, disponibilidad } = req.body;
@@ -37,7 +33,6 @@ export const updateActivo = async (req, res) => {
     }
 };
 
-// Eliminar un activo
 export const deleteActivo = async (req, res) => {
     const { id } = req.params;
     try {

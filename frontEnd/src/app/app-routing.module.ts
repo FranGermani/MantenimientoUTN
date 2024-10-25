@@ -29,16 +29,15 @@ const routes: Routes = [
     path: 'adminTutorial', 
     component: TutorialComponent,
     children: [ 
-      { path: '', component: PanelComponent }, // Asegúrate de tener esta ruta
+      { path: '', component: PanelComponent },
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
-      { path: 'reporte', component: ReporteComponent },
       { path: 'activos', component: ActivosFromComponent }, 
+      { path: 'reporte', component: ReporteComponent },
     ]
   },
   { path: 'camara', component: CameraComponent },
 ];
 
-// Importación y exportación del módulo de enrutamiento
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -3,20 +3,20 @@
       <input type="checkbox" id="menu-toggle" class="menu-toggle">
       <label for="menu-toggle" class="hamburger">&#9776;</label>
       <nav class="menu">
-        <button (click)="setView('ordenes')">Orden de trabajo</button>
-        <button (click)="setView('nueva')">Nueva</button>
-        <button (click)="setView('lista')">Lista</button>
-        <button>Tareas Terminadas</button>
-        <button (click)="setView('activo')">Activo</button>
-        <button>Tareas Asignadas</button>
-        <button (click)="setView('edificio')">Edificio</button>
-        <button>Piso</button>
-        <button>Cerrar Sesión</button>
+        <button (click)="setView('ordenes')">Ordenes de trabajo</button>
+        <button (click)="setView('nueva')">Generar nueva orden</button>
+        <!-- <button (click)="setView('lista')">Lista</button> -->
+        <button (click)="setView('edificio')">Generar nuevo edificio</button>
+        <button>Generar nuevo piso</button>
+        <button (click)="setView('activo')">Generar nuevo activo</button>
+        <!-- <button>Tareas Asignadas</button> -->
+        <!-- <button>Tareas Terminadas</button> -->
+        <button (click)="setView('reporte')">Ver reporte</button>
+        <button (click)="cerrarSesion()">Cerrar Sesión</button>
       </nav>
     </aside>
   
     <main class="main-content">
-      <!-- Agregar una sección de bienvenida -->
       <section class="welcome-section" *ngIf="currentView === 'presentacion'">
         <h1>Bienvenido, Administrador</h1>
         <p>En esta página encontrarás las siguientes funcionalidades:</p>
@@ -57,11 +57,12 @@
         </div>
       </section>
   
-      <!-- Las demás vistas (ordenes, nueva, activo, etc.) -->
        <app-panel  *ngIf="currentView === 'ordenes'"></app-panel>
       <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
       <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
       <app-edificio-form *ngIf="currentView === 'edificio'"></app-edificio-form>
+      <app-reporte *ngIf="currentView === 'reporte'"></app-reporte>
+      
     </main>
   </div>
   

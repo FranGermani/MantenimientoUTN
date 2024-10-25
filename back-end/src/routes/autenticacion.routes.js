@@ -8,10 +8,9 @@ const router = express.Router();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 router.post('/register', async (req, res) => {
-    const { nombre, email, password } = req.body;  // Asegúrate de que el campo se llama password
+    const { nombre, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Asegúrate de usar 'password' en lugar de 'contraseña'
     const query = 'INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)';
     base_conexion.query(query, [nombre, email, hashedPassword], (error, result) => {
         if (error) {
@@ -20,14 +19,13 @@ router.post('/register', async (req, res) => {
             return;
         }
 
-        res.json({ nombre, email });  // Respuesta ajustada
+        res.json({ nombre, email }); 
     });
 });
 
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;  // Cambiado de nombre a email
+    const { email, password } = req.body; 
 
-    // Actualizado para buscar por email
     const query = 'SELECT * FROM usuario WHERE email = ?';
     base_conexion.query(query, [email], async (error, results) => {
         if (error) {
@@ -44,7 +42,7 @@ router.post('/login', async (req, res) => {
         const user = results[0];
 
         try {
-            const isMatch = await bcrypt.compare(password, user.password);  // Asegúrate de usar password
+            const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) {
                 res.status(401).json({ error: 'Contraseña incorrecta' });
                 return;

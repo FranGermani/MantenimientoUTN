@@ -78,15 +78,13 @@ export const getDetallesOrdenTrabajo = async (req, res) => {
   try {
     const [rows] = await pool.query(query, [id]);
 
-    // Verifica si la consulta devolvió algún resultado
     if (rows.length === 0) {
       return res
         .status(404)
         .json({ message: "Orden de trabajo no encontrada" });
     }
 
-    // Responde con todos los datos, incluyendo id_activo
-    res.status(200).json(rows[0]); // Aquí se incluye id_activo si está en los resultados
+    res.status(200).json(rows[0]);
   } catch (err) {
     console.error("Error al obtener los detalles de la orden de trabajo:", err);
     res.status(500).json({ message: "Error interno del servidor" });

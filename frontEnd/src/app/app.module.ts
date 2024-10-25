@@ -56,8 +56,8 @@ import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.compo
     HttpClientModule 
   ],
   providers: [
-    provideHttpClient(), // Asegúrate de que esto esté aquí
-    EdificioService, // Asegúrate de que el servicio esté incluido aquí
+    provideHttpClient(),
+    EdificioService,
   ],
   bootstrap: [AppComponent],
   

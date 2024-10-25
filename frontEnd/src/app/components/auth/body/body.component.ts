@@ -11,7 +11,7 @@ export class BodyComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
-  isPasswordVisible: boolean = false; // Controla la visibilidad de la contraseña
+  isPasswordVisible: boolean = false;
 
   constructor(private router: Router, private usersService: UsersService) {}
 
@@ -20,10 +20,8 @@ export class BodyComponent {
   }
 
   onSubmit() {
-    // Limpiar el mensaje de error antes de validar
     this.errorMessage = '';
 
-    // Validaciones de email
     if (!this.validateEmail(this.email)) {
       if (!this.email) {
         this.errorMessage += 'El campo de email no puede estar vacío. ';
@@ -34,7 +32,6 @@ export class BodyComponent {
       }
     }
 
-    // Validaciones de contraseña
     if (!this.validatePassword(this.password)) {
       if (this.password.length < 6 || this.password.length > 16) {
         this.errorMessage += 'La contraseña debe tener entre 6 y 16 caracteres. ';
@@ -47,16 +44,14 @@ export class BodyComponent {
       }
     }
 
-    // Si hay un mensaje de error, mostrar la alerta y recargar la página
     if (this.errorMessage) {
-      alert(this.errorMessage); // Mostrar el mensaje de error en una alerta
+      alert(this.errorMessage); 
       setTimeout(() => {
-        window.location.reload(); // Recargar la página después de 1 segundo
+        window.location.reload(); 
       }, 1000);
       return;
     }
 
-    // Si las validaciones se cumplen, proceder con el login
     const user = {
       email: this.email,
       password: this.password,
@@ -64,13 +59,11 @@ export class BodyComponent {
 
     this.usersService.login(user).subscribe({
       next: (response) => {
-        // Redirigir al panel solo si la respuesta es exitosa y contiene el token
         if (response.token) {
-          // Verificar si es el usuario administrador
           if (user.email === 'Admin@gmail.com' && user.password === 'Admin123') {
-            this.router.navigate(['/adminTutorial']); // Redirigir a adminTutorial
+            this.router.navigate(['/adminTutorial']);
           } else {
-            this.router.navigate(['/user']); // Redirigir a user
+            this.router.navigate(['/user']);
           }
         }
       },

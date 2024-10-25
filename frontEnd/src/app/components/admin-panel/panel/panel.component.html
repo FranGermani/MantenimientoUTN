@@ -20,9 +20,7 @@
       </thead>
     </table>
 
-    <!-- Aquí se muestra el componente OrdenTrabajoComponent cuando se selecciona la vista 'nueva' -->
     <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
     <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
-    <!-- Corregido aquí -->
   </main>
 </div>
