@@ -4,12 +4,12 @@ import { OrdenTrabajoService } from '../services/orden-trabajo.service';
 @Component({
   selector: 'app-orden-trabajo-tabla',
   templateUrl: './orden-trabajo-tabla.component.html',
-  styleUrls: ['./orden-trabajo-tabla.component.css']
+  styleUrls: ['./orden-trabajo-tabla.component.css'],
 })
 export class OrdenTrabajoTablaComponent implements OnInit {
   ordenes: any[] = [];
 
-  constructor(private ordenTrabajoService: OrdenTrabajoService) { }
+  constructor(private ordenTrabajoService: OrdenTrabajoService) {}
 
   ngOnInit(): void {
     this.obtenerOrdenes();
