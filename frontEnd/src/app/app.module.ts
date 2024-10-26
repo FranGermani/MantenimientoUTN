@@ -46,14 +46,13 @@ import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.compo
     UserOTComponent,
     UserTTComponent,
     UserTAComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule, 
   ],
   providers: [
     provideHttpClient(), // Asegúrate de que esto esté aquí
