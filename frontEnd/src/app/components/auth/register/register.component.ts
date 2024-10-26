@@ -17,7 +17,7 @@ export class RegisterComponent {
     password: ''
   };
   errorMessage: string = '';
-  isPasswordVisible: boolean = false; // Controla la visibilidad de la contraseña
+  isPasswordVisible: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -29,10 +29,8 @@ export class RegisterComponent {
     const username = this.user.email.username;
     const domain = this.user.email.domain;
 
-    // Limpiar mensajes de error antes de cada intento de validación
     this.errorMessage = '';
 
-    // Validaciones
     if (!this.validateEmail(username, domain)) {
       if (!username) {
         this.errorMessage += 'El nombre de usuario no puede estar vacío. ';
@@ -57,16 +55,14 @@ export class RegisterComponent {
       }
     }
 
-    // Si hay errores, mostrar mensaje y refrescar la página
     if (this.errorMessage) {
-      alert(this.errorMessage); // Muestra una alerta con los errores
+      alert(this.errorMessage);
       setTimeout(() => {
-        window.location.reload(); // Recarga la página después de mostrar el error
-      }, 1000); // Espera 1 segundo antes de refrescar
+        window.location.reload(); 
+      }, 1000);
       return;
     }
 
-    // Si no hay errores, proceder con el registro
     const email = `${username}@${domain}`;
     const registrationData = {
       nombre: this.user.nombre,
@@ -90,8 +86,8 @@ export class RegisterComponent {
   }
 
   validateEmail(username: string, domain: string): boolean {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+$/; // Permite caracteres válidos en ambas partes
-    const domainPattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Valida el dominio
+    const emailPattern = /^[a-zA-Z0-9._%+-]+$/; 
+    const domainPattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
     return emailPattern.test(username) && domainPattern.test(domain) && !/\s/.test(username) && !/\s/.test(domain);
   }
 

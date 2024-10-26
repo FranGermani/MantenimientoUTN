@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-activos-from', // Este debe coincidir en tu HTML
+  selector: 'app-activos-from', 
   templateUrl: './activos-from.component.html',
-  styleUrls: ['./activos-from.component.css'] // Corregido: styleUrls en plural
+  styleUrls: ['./activos-from.component.css'] 
 })
 export class ActivosFromComponent {
 }

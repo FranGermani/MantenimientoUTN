@@ -12,7 +12,6 @@
   </aside>
 
   <main class="main-content">
-    <!-- Agregar una sección de bienvenida -->
     <section class="welcome-section" *ngIf="currentView === 'presentacion'">
       <h1>Bienvenido, Operario</h1>
       <p>En esta página encontrarás las siguientes funcionalidades:</p>
@@ -37,10 +36,9 @@
       </div>
     </section>
 
-    <!-- Las demás vistas (userTA, userTT, userOT) -->
     <app-user-ot *ngIf="currentView === 'userOT'"></app-user-ot>
     <app-user-tt *ngIf="currentView === 'userTT'">Vista de Tareas Terminadas</app-user-tt>
     <app-user-ta *ngIf="currentView === 'userTA'">Vista de Tareas Asignadas</app-user-ta>
-    <router-outlet></router-outlet> <!-- Aquí se cargarán los componentes correspondientes -->
+    <router-outlet></router-outlet>
   </main>
 </div>

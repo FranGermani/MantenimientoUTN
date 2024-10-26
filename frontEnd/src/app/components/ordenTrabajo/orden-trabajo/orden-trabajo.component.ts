@@ -11,14 +11,14 @@ export class OrdenTrabajoComponent implements OnInit {
   observacion: string = '';
   operarios: any[] = [];  
   operarioSeleccionado: string = ''; 
-  edificios: any[] = [];  // Lista de edificios
-  edificioSeleccionado: any = ''; // Edificio seleccionado
-  pisos: any[] = [];      // Lista de pisos dinámicos según el edificio seleccionado
-  pisoSeleccionado: string = '';     // Piso seleccionado
-  sectores: any[] = [];   // Lista de sectores
-  sectorSeleccionado: string = '';   // Sector seleccionado
-  activos: any[] = [];    // Lista de activos
-  activoSeleccionado: string = '';   // Activo seleccionado
+  edificios: any[] = []; 
+  edificioSeleccionado: any = ''; 
+  pisos: any[] = []; 
+  pisoSeleccionado: string = ''; 
+  sectores: any[] = [];
+  sectorSeleccionado: string = '';
+  activos: any[] = [];
+  activoSeleccionado: string = '';
 
   constructor(private ordenTrabajoService: OrdenTrabajoService) {}
 
@@ -26,7 +26,7 @@ export class OrdenTrabajoComponent implements OnInit {
     this.cargarOperarios();
     this.cargarEdificios();
     this.cargarSectores();
-    this.cargarActivos(); // Cargar activos al iniciar
+    this.cargarActivos();
   }
 
   cargarOperarios() {
@@ -41,11 +41,10 @@ export class OrdenTrabajoComponent implements OnInit {
     });
   }
 
-  // Cargar los pisos basados en el edificio seleccionado
   onEdificioSeleccionado() {
     if (this.edificioSeleccionado) {
       this.ordenTrabajoService.getEdificioConPisos(this.edificioSeleccionado).subscribe(data => {
-        this.pisos = data.pisos; // Accede a los pisos devueltos desde el backend
+        this.pisos = data.pisos;
       });
     }
   }
@@ -71,7 +70,7 @@ export class OrdenTrabajoComponent implements OnInit {
       id_edificio: this.edificioSeleccionado, 
       id_piso: this.pisoSeleccionado,
       id_sector: this.sectorSeleccionado,
-      id_activo: this.activoSeleccionado, // Activo seleccionado
+      id_activo: this.activoSeleccionado,
       observacion: this.observacion
     };
 

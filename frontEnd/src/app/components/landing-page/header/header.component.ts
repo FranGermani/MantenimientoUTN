@@ -8,20 +8,17 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  showHeaderButtons: boolean = true; // Propiedad para controlar la visibilidad de los botones
+  showHeaderButtons: boolean = true;
 
   constructor(private router: Router) {
-    // Escuchar los cambios de ruta
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        // Mostrar u ocultar los botones según la ruta
-        this.showHeaderButtons = !this.isRestrictedRoute(event.url); // Ocultar en rutas restringidas
+        this.showHeaderButtons = !this.isRestrictedRoute(event.url);
       });
   }
 
   isRestrictedRoute(url: string): boolean {
-    // Especifica las rutas donde no quieres que aparezcan los botones
     return url === '/register' || url.startsWith('/panel');
   }
 

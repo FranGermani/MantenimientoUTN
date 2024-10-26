@@ -1,6 +1,5 @@
 import { pool } from '../../config/db.js';
 
-// Obtener todos los edificios
 export const getEdificios = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM edificio');
@@ -11,11 +10,10 @@ export const getEdificios = async (req, res) => {
     }
 };
 
-// Crear un nuevo edificio
 export const createEdificio = async (req, res) => {
-    const { nombre, direccion, labeltag, activo } = req.body; // Asegúrate de que estos campos están bien
+    const { nombre, direccion, labeltag, activo } = req.body;
 
-    console.log('Datos recibidos para crear edificio:', req.body); // Agrega esta línea
+    console.log('Datos recibidos para crear edificio:', req.body); 
 
     try {
         const [result] = await pool.query(
@@ -31,9 +29,8 @@ export const createEdificio = async (req, res) => {
 };
 
 
-// Eliminar un edificio
 export const deleteEdificio = async (req, res) => {
-    const { id } = req.params; // ID del edificio a eliminar
+    const { id } = req.params; 
 
     try {
         const [result] = await pool.query('DELETE FROM edificio WHERE id_edificio = ?', [id]);
@@ -48,7 +45,6 @@ export const deleteEdificio = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar edificio', error: err.message });
     }
 };
-
 
 
 export const updateLabelTag = async (req, res) => {
@@ -69,10 +65,10 @@ export const updateLabelTag = async (req, res) => {
   };
 
   export const updateEdificio = async (req, res) => {
-    const { id_edificio } = req.params; // Esto debería recibir el parámetro correctamente
+    const { id_edificio } = req.params; 
     const { nombre, direccion, labeltag, activo } = req.body;
 
-    console.log('ID del edificio que se intenta actualizar:', id_edificio); // Asegúrate de que esto no sea undefined
+    console.log('ID del edificio que se intenta actualizar:', id_edificio); 
 
     try {
         const [result] = await pool.query(

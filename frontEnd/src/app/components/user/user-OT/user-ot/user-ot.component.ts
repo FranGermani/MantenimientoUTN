@@ -4,7 +4,7 @@ import { OrdenTrabajoService } from '../../../../services/orden-trabajo.service'
 @Component({
   selector: 'app-user-ot',
   templateUrl: './user-ot.component.html',
-  styleUrls: ['./user-ot.component.css'] // Corregido a 'styleUrls'
+  styleUrls: ['./user-ot.component.css']
 })
 export class UserOTComponent implements OnInit {
   fechaImpresion: string = '';

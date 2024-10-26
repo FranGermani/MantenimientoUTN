@@ -11,13 +11,11 @@ export class AppComponent implements OnInit {
   data: any;
 
   constructor(private router: Router) {
-    // Suscribirse a los cambios de ruta
     this.router.events.subscribe(() => {
-      this.showHeaderButtons = this.router.url !== '/register'; // Cambiar según la ruta actual
+      this.showHeaderButtons = this.router.url !== '/register';
     });
   }
 
   ngOnInit() {
-    // Aquí puedes inicializar la data u otras configuraciones necesarias
   }
 }

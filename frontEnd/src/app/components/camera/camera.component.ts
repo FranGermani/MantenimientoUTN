@@ -18,8 +18,8 @@ export class CameraComponent implements OnInit, OnDestroy {
   initCamera() {
     const constraints = {
       video: {
-        facingMode: 'environment', // Usa la cámara trasera en móviles por defecto
-        width: { ideal: 1280 },    // Ajusta el tamaño de video deseado
+        facingMode: 'environment',
+        width: { ideal: 1280 }, 
         height: { ideal: 720 }
       }
     };
@@ -42,18 +42,14 @@ export class CameraComponent implements OnInit, OnDestroy {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
-    // Manejar rotación dependiendo de la orientación del dispositivo
     if (window.innerWidth < window.innerHeight) {
-      // Si el dispositivo está en orientación vertical (retrato), rota la imagen
       context.translate(canvas.width / 2, canvas.height / 2);
       context.rotate(90 * Math.PI / 180);
       context.drawImage(video, -canvas.height / 2, -canvas.width / 2, canvas.height, canvas.width);
     } else {
-      // En modo horizontal (apaisado)
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
     }
 
-    // Obtener la imagen en formato base64
     this.photo = canvas.toDataURL('image/png');
   }
 

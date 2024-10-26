@@ -1,7 +1,5 @@
-// controllers/ubicacionController.js
 import { pool } from '../../config/db.js';
 
-// Obtener todas las ubicaciones
 export const getUbicaciones = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM ubicacion');
@@ -12,12 +10,11 @@ export const getUbicaciones = async (req, res) => {
     }
 };
 
-// Crear una nueva ubicación
 export const createUbicacion = async (req, res) => {
-    const { nombre, labeltag, activo } = req.body; // Capturamos los campos desde el body
+    const { nombre, labeltag, activo } = req.body;
     try {
         const [result] = await pool.query('INSERT INTO ubicacion (nombre, labeltag, activo) VALUES (?, ?, ?)', 
-        [nombre, labeltag, activo || 1]); // Si no se envía "activo", por defecto es 1 (activa)
+        [nombre, labeltag, activo || 1]); 
         
         res.status(201).json({ 
             message: 'Ubicación creada exitosamente', 
@@ -30,7 +27,6 @@ export const createUbicacion = async (req, res) => {
 };
 
 
-// Eliminar (físicamente) una ubicación
 export const deleteUbicacion = async (req, res) => {
     const { id } = req.params;
 

@@ -3,7 +3,6 @@ import { getTareas, createTarea, deleteTarea } from "../controllers/tareas.contr
 
 const router = express.Router();
 
-
 router.get('/tareas', getTareas);
 router.post('/tareas', createTarea);
 router.delete('/tareas/:id_tarea', deleteTarea);
