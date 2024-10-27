@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt';
 export const registro = async (req, res) => {
     const { nombre, email, password } = req.body; 
     if (!nombre || !email || !password) {
+        console.log('Datos recibidos en el registro:', req.body, nombre, email, password);
         return res.status(400).json({ message: 'Nombre, email y contraseña son requeridos' });
     }
     
@@ -15,7 +16,6 @@ export const registro = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-
         await pool.query('INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)', [nombre, email, hashedPassword]);
         res.status(201).json({ message: 'Usuario registrado exitosamente' });
     } catch (error) {
@@ -34,7 +34,6 @@ export const login = async (req, res) => {
         }
 
         const user = rows[0];
-
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ error: 'Contraseña incorrecta' });
@@ -45,32 +44,15 @@ export const login = async (req, res) => {
             return res.status(500).json({ error: 'Error en la configuración del servidor' });
         }
 
-        const token = jwt.sign({ id: user.id_usuario, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id_usuario, email: user.email, nombre: user.nombre }, process.env.JWT_SECRET, { expiresIn: '1h' });
         
         res.cookie('auth-token', token, { httpOnly: true, sameSite: 'lax' });
-        res.json({ message: 'Inicio de sesión exitoso', token });
+        res.json({ message: 'Inicio de sesión exitoso', token, nombre: user.nombre });
 
     } catch (error) {
         console.error('Error en el login:', error); 
         res.status(500).json({ error: 'Error al iniciar sesión', details: error.message });
     }
-};
-
-
-export const protect = (req, res, next) => {
-    const token = req.cookies['auth-token'] || req.headers['authorization'];
-
-    if (!token) {
-        return res.status(401).json({ error: 'No se proporcionó un token' });
-    }
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ error: 'Token inválido' });
-        }
-        req.user = decoded;
-        next();
-    });
 };
 
 export const verifyToken = (req, res, next) => {
@@ -85,6 +67,22 @@ export const verifyToken = (req, res, next) => {
             return res.sendStatus(403);
         }
         req.user = user;
+        next();
+    });
+};
+
+export const protect = (req, res, next) => {
+    const token = req.cookies['auth-token'] || req.headers['authorization'];
+
+    if (!token) {
+        return res.status(401).json({ error: 'No se proporcionó un token' });
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ error: 'Token inválido' });
+        }
+        req.user = decoded;
         next();
     });
 };

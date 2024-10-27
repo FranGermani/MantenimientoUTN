@@ -1,7 +1,10 @@
 <header class="header-container">
   <div class="header-content">
     <a routerLink="/">
-      <img src="../../../../assets/image/utn3.png" alt="UTN FRVT Logo" class="header-logo">
+      <img src="../../../../assets/image/utn.png" alt="UTN FRVT Logo" class="header-logo">
     </a>
+    <div class="user-name" *ngIf="currentUser">
+      Bienvenido, {{ currentUser }}
+    </div>
   </div>
 </header>

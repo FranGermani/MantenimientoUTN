@@ -68,7 +68,8 @@ export class BodyComponent {
         }
       },
       error: (error) => {
-        this.errorMessage = error.error.error;
+        // Verificación para evitar errores de acceso a propiedades indefinidas
+        this.errorMessage = error?.error?.error || 'Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.';
         console.error('Error en el login:', this.errorMessage);
       },
     });
