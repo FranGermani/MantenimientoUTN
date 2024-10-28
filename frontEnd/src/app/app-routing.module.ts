@@ -13,6 +13,7 @@ import { TutorialComponent } from '@components/admin-panel/tutorial/tutorial.com
 import { UserOTComponent } from '@components/user/user-OT/user-ot/user-ot.component';
 import { UserTAComponent } from '@components/user/user-TA/user-ta/user-ta.component';
 import { UserTTComponent } from '@components/user/user-TT/user-tt/user-tt.component';
+import { Err404Component } from '@components/err404/err404.component';
 
 // Definición de rutas
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
     ]
   },
   { path: 'camara', component: CameraComponent },
+  { path: '**', component: Err404Component }
 ];
 
 @NgModule({

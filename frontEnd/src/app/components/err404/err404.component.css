@@ -1,0 +1,91 @@
+.err404-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #76acbc, #ffffff);
+    text-align: center;
+     font-family:'Roboto', Helvetica, Arial, Lucida, sans-serif;
+    padding: 20px;
+  }
+
+  .err404-content {
+    max-width: 500px;
+    padding: 20px;
+    background: #ffffff81;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+    transition: transform 0.3s;
+  }
+  
+  .err404-content:hover {
+    transform: scale(1.02);
+  }
+  
+  .err404-image {
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+  
+  h1 {
+    font-size: 2em;
+    color: #1a1a41;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #11698c;
+    margin-bottom: 30px;
+  }
+  
+  .go-home-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color:#11698c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .go-home-button:hover {
+    background-color: #1a1a41;
+  }
+
+  
+  
+  /* Animación */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Media Queries para Pantallas Pequeñas */
+  @media (max-width: 768px) {
+    .err404-content {
+      max-width: 90%; /* Ajusta el tamaño en pantallas pequeñas */
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 1.5em; /* Reduce el tamaño del título */
+    }
+  
+    p {
+      font-size: 1em; /* Reduce el tamaño del texto */
+    }
+  
+    .go-home-button {
+      width: 100%; /* Botón de ancho completo en pantallas pequeñas */
+      font-size: 0.9em;
+    }
+  }
+  

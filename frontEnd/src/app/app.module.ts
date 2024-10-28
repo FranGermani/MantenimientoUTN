@@ -24,6 +24,7 @@ import { EdificioService } from './services/edificio.service';
 import { UserOTComponent } from './components/user/user-OT/user-ot/user-ot.component';
 import { UserTTComponent } from './components/user/user-TT/user-tt/user-tt.component';
 import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.component';
+import { Err404Component } from './components/err404/err404.component';
 
   
 @NgModule({
@@ -46,6 +47,7 @@ import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.compo
     UserOTComponent,
     UserTTComponent,
     UserTAComponent,
+    Err404Component,
   ],
   imports: [
     BrowserModule,
