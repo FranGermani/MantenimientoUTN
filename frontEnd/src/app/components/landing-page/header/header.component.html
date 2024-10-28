@@ -3,8 +3,13 @@
     <a role="button" (click)="goToHome()" style="cursor: pointer;">
       <img src="../../../../assets/image/utn.png" alt="UTN FRVT Logo" class="header-logo">
     </a>
-    <div class="user-name" *ngIf="currentUser">
-      {{ currentUser }}
-    </div>
-  </div>
+    <div class="user-info" *ngIf="currentUser">
+      <img src="../../../../assets/image/landing1.png" alt="Foto de perfil" class="user-avatar" />
+      <div class="user-details">
+        <span class="user-name">{{ currentUser }}</span>
+        <span class="user-role">Administrador</span> 
+      </div>
+    </div> 
+  </div> 
 </header>
+
