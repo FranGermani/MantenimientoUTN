@@ -18,7 +18,6 @@ import { LandingBodyComponent } from './components/landing-page/landing-body/lan
 import { CameraComponent } from './components/camera/camera.component';
 import { UserPanelTutorial } from './components/user/user-tutorial/user-tutorial.component';
 import { TutorialComponent } from './components/admin-panel/tutorial/tutorial.component';
-import { OrdenTrabajoTablaComponent } from './components/admin-panel/orden-trabajo-tabla/orden-trabajo-tabla.component';
 import { EdificioFormComponent } from './components/admin-panel/edificio-form/edificio-form.component';
 import { EdificioService } from './services/edificio.service';
 import { UserOTComponent } from './components/user/user-OT/user-ot/user-ot.component';
@@ -41,7 +40,6 @@ import { Err404Component } from './components/err404/err404.component';
     CameraComponent,
     UserPanelTutorial,
     TutorialComponent,
-    OrdenTrabajoTablaComponent,
     EdificioFormComponent,
     UserOTComponent,
     UserTTComponent,
