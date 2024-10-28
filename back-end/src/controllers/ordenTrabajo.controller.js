@@ -170,4 +170,31 @@ export const nuevaODT = async (req, res) => {
     console.error("Error al crear la orden de trabajo:", err);
     res.status(500).json({ message: "Error interno del servidor" });
   }
+
+};
+export const deleteOrdenTrabajo = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    console.log(`Intentando eliminar la orden con ID: ${id}`); // Log antes de la consulta
+
+    // Ejecuta la consulta para eliminar la orden de trabajo
+    const [result] = await pool.query(
+      "DELETE FROM orden_trabajo WHERE id_orden_trabajo = ?",
+      [id]
+    );
+
+    console.log("Resultado de la consulta:", result); // Log después de la consulta
+
+    // Si no se encuentra ninguna fila afectada, envía un error 404
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Orden de trabajo no encontrada" });
+    }
+
+    // Envío de respuesta exitosa
+    res.status(200).json({ message: "Orden de trabajo eliminada exitosamente" });
+  } catch (err) {
+    console.error("Error al eliminar la orden de trabajo:", err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
 };

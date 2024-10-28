@@ -1,3 +1,4 @@
+// orden-trabajo-tabla.component.ts
 import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 
@@ -30,6 +31,17 @@ export class OrdenTrabajoTablaComponent implements OnInit {
   }
 
   eliminarOrden(id: number) {
-    console.log('Eliminar orden', id);
+    if (window.confirm('¿Estás seguro de que deseas eliminar esta orden?')) {
+      this.ordenTrabajoService.deleteOrdenTrabajo(id).subscribe({
+        next: () => {
+          console.log('Orden eliminada', id);
+          this.ordenes = this.ordenes.filter(orden => orden.id_orden_trabajo !== id);
+        },
+        error: (error) => {
+          console.error('Error al eliminar la orden:', error); // Detalles del error
+        }
+      });
+    }
   }
 }
+

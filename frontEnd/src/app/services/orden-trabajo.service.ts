@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class OrdenTrabajoService {
-  private apiUrl = 'http://localhost:3000/api'; 
+  private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
   getOperarios(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/usuarios`); 
+    return this.http.get(`${this.apiUrl}/usuarios`);
   }
 
   getEdificios(): Observable<any> {
@@ -27,16 +27,23 @@ export class OrdenTrabajoService {
   }
 
   crearOrdenTrabajo(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/nuevaODT`, data); 
+    return this.http.post(`${this.apiUrl}/nuevaODT`, data);
   }
+
   getEdificioConPisos(id_edificio: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/edificios/${id_edificio}/pisos`);
   }
+
   getActivos(): Observable<any> {
     return this.http.get(`${this.apiUrl}/activos`);
   }
 
   getOrdenesTrabajo(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/orden_trabajo`);
+  }
+
+
+  deleteOrdenTrabajo(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/orden_trabajo/${id}`);
   }
 }
