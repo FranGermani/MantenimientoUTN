@@ -1,4 +1,11 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  max-height: calc(100vh - 80px); 
+}
 .password-wrapper {
   position: relative;
 }
