@@ -31,17 +31,6 @@ export class HeaderComponent implements OnInit {
   }
 
   goToHome(): void {
-    const isAuthenticated = this.usersService.isAuthenticated();
-    const userRole = this.usersService.getUserRole();
-
-    if (isAuthenticated) {
-      if (userRole === 'admin') {
-        this.router.navigate(['/adminTutorial']);
-      } else if (userRole === 'user') {
-        this.router.navigate(['/user']);
-      }
-    } else {
-      this.router.navigate(['/']);
-    }
+    this.router.navigate(['/']);
   }
 }
