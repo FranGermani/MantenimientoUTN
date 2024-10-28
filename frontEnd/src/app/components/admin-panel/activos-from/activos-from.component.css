@@ -152,7 +152,14 @@ input{
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
+ p {
+    color: #0d5478;
+    margin-top: 10px;
+ }
+ h2{
+    margin: 10px;
+    color:  #0b4563;
+ }
 
 @media (max-width: 768px) {
     .sidebar {

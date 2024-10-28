@@ -5,7 +5,6 @@ import bcrypt from 'bcrypt';
 export const registro = async (req, res) => {
     const { nombre, email, password } = req.body; 
     if (!nombre || !email || !password) {
-        console.log('Datos recibidos en el registro:', req.body, nombre, email, password);
         return res.status(400).json({ message: 'Nombre, email y contraseña son requeridos' });
     }
     
@@ -28,22 +27,18 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Verifica si el email existe en la base de datos
         const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [email]);
         if (rows.length === 0) {
-            return res.status(401).json({ error: 'Usuario no encontrado' }); // Error específico para email incorrecto
+            return res.status(401).json({ error: 'Usuario no encontrado' });
         }
 
         const user = rows[0];
-        // Verifica si la contraseña es correcta
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(401).json({ error: 'Contraseña incorrecta' }); // Error específico para contraseña incorrecta
+            return res.status(401).json({ error: 'Contraseña incorrecta' });
         }
 
-        // Genera el token JWT si el login es exitoso
         if (!process.env.JWT_SECRET) {
-            console.error('JWT_SECRET no está definido en las variables de entorno');
             return res.status(500).json({ error: 'Error en la configuración del servidor' });
         }
 
@@ -56,7 +51,6 @@ export const login = async (req, res) => {
         res.status(500).json({ error: 'Error al iniciar sesión', details: error.message });
     }
 };
-
 export const verifyToken = (req, res, next) => {
     const token = req.headers['authorization'];
 

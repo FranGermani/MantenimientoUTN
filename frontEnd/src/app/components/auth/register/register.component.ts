@@ -19,47 +19,58 @@ export class RegisterComponent {
   errorMessage: string = '';
   isPasswordVisible: boolean = false;
 
+  // Propiedades de validación en tiempo real para nombre, email y contraseña
+  isNameValid: boolean = false;
+  isEmailValid: boolean = false;
+  isPasswordLengthValid: boolean = false;
+  isPasswordUpperCaseValid: boolean = false;
+  isPasswordNumberValid: boolean = false;
+  isPasswordNoSpaces: boolean = false;
+
   constructor(private http: HttpClient, private router: Router) {}
 
   togglePasswordVisibility(): void {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
+  // Validación en tiempo real del nombre
+  validateNameRealTime(): void {
+    this.isNameValid = this.user.nombre.trim().length > 0; // Verifica que no esté vacío
+  }
+
+  // Validación en tiempo real del email
+  validateEmailRealTime(): void {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+$/; 
+    const domainPattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+    this.isEmailValid = emailPattern.test(this.user.email.username) && domainPattern.test(this.user.email.domain) && !/\s/.test(this.user.email.username) && !/\s/.test(this.user.email.domain);
+  }
+
+  // Validación en tiempo real de los requisitos de la contraseña
+  validatePasswordRealTime(): void {
+    const password = this.user.password;
+    this.isPasswordLengthValid = password.length >= 6 && password.length <= 16;
+    this.isPasswordUpperCaseValid = /[A-Z]/.test(password);
+    this.isPasswordNumberValid = /\d/.test(password);
+    this.isPasswordNoSpaces = !/\s/.test(password);
+  }
+
   onSubmit() {
     const username = this.user.email.username;
     const domain = this.user.email.domain;
 
-    this.errorMessage = '';
+    this.errorMessage = ''; // Reinicia el mensaje de error antes de cada intento
 
-    if (!this.validateEmail(username, domain)) {
-      if (!username) {
-        this.errorMessage += 'El nombre de usuario no puede estar vacío. ';
-      } else if (!domain) {
-        this.errorMessage += 'El dominio del correo no puede estar vacío. ';
-      } else if (/\s/.test(username) || /\s/.test(domain)) {
-        this.errorMessage += 'El email no puede contener espacios en blanco. ';
-      } else {
-        this.errorMessage += 'El email contiene caracteres especiales no permitidos. ';
-      }
+    // Validación final antes del envío
+    if (!this.isNameValid) {
+      this.errorMessage = 'El nombre es obligatorio.';
+      return;
     }
-
-    if (!this.validatePassword(this.user.password)) {
-      if (this.user.password.length < 6 || this.user.password.length > 16) {
-        this.errorMessage += 'La contraseña debe tener entre 6 y 16 caracteres. ';
-      } else if (!/[A-Z]/.test(this.user.password)) {
-        this.errorMessage += 'La contraseña debe contener al menos una letra mayúscula. ';
-      } else if (!/\d/.test(this.user.password)) {
-        this.errorMessage += 'La contraseña debe contener al menos un número. ';
-      } else if (/\s/.test(this.user.password)) {
-        this.errorMessage += 'La contraseña no puede contener espacios en blanco. ';
-      }
+    if (!this.isEmailValid) {
+      this.errorMessage = 'El email no es válido.';
+      return;
     }
-
-    if (this.errorMessage) {
-      alert(this.errorMessage);
-      setTimeout(() => {
-        window.location.reload(); 
-      }, 1000);
+    if (!this.isPasswordLengthValid || !this.isPasswordUpperCaseValid || !this.isPasswordNumberValid || !this.isPasswordNoSpaces) {
+      this.errorMessage = 'La contraseña no cumple con los requisitos.';
       return;
     }
 
@@ -70,30 +81,20 @@ export class RegisterComponent {
       password: this.user.password
     };
 
-    console.log(email);
-    console.log('Datos de registro enviados:', registrationData);
-
-    this.http.post('http://localhost:3000/api/usuarios', registrationData)
+    this.http.post('http://localhost:3000/api/registro', registrationData)
       .subscribe({
         next: (response) => {
           console.log('Usuario registrado exitosamente', response);
           this.router.navigate(['/login']);
         },
         error: (error) => {
+          if (error.status === 400 && error.error.message === 'El usuario ya existe') {
+            this.errorMessage = 'Este correo ya está registrado. Por favor, usa otro o inicia sesión.';
+          } else {
+            this.errorMessage = 'Error al registrar el usuario. Inténtalo de nuevo más tarde.';
+          }
           console.error('Error al registrar el usuario', error.error);
         }
       });
   }
-
-  validateEmail(username: string, domain: string): boolean {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+$/; 
-    const domainPattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
-    return emailPattern.test(username) && domainPattern.test(domain) && !/\s/.test(username) && !/\s/.test(domain);
-  }
-
-  validatePassword(password: string): boolean {
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,16}$/;
-    return passwordPattern.test(password) && !/\s/.test(password);
-  }
 }
-

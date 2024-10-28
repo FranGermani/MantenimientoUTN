@@ -39,6 +39,32 @@
     margin-bottom: 20px;
     color: #0d5478;
   }
+  p {
+    color: #0d5478;
+  }
+  
+  .requirement {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .password-requirements {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.85em;
+    color: #666;
+  }
+  
+  .password-requirements li,
+  .requirement {
+    margin-top: 3px;
+  }
+  
+  .valid {
+    color: #28a745; /* Verde si la regla se cumple */
+  }
+  
   
   select {
     margin-left: 5px; 
