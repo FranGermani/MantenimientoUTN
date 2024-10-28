@@ -10,7 +10,7 @@ import { LandingBodyComponent } from '@components/landing-page/landing-body/land
 import { CameraComponent } from '@components/camera/camera.component';
 import { UserPanelTutorial } from '@components/user/user-tutorial/user-tutorial.component';
 import { TutorialComponent } from '@components/admin-panel/tutorial/tutorial.component';
-import { UserOTComponent } from '@components/user/user-OT/user-ot/user-ot.component';
+import { UserOtComponent } from '@components/user/user-OT/user-ot/user-ot.component';
 import { UserTAComponent } from '@components/user/user-TA/user-ta/user-ta.component';
 import { UserTTComponent } from '@components/user/user-TT/user-tt/user-tt.component';
 import { Err404Component } from '@components/err404/err404.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
     children: [
       { path: 'userTA', component: UserTAComponent },
       { path: 'userTT', component: UserTTComponent },
-      { path: 'userOT', component: UserOTComponent }
+      { path: 'userOT', component: UserOtComponent }
     ] 
   },
 

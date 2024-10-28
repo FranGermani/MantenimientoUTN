@@ -1,66 +1,163 @@
+/* Reset general */
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
 
-.form-container {
-    width: 50%;
-    margin: 50px auto;
-    background-color: rgba(255, 255, 255, 0.486);
+/* Fondo y estructura de la página */
+/*.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    background: linear-gradient(45deg, #76acbc, #ffffff);
+    font-family: 'Roboto', Helvetica, Arial, Lucida, sans-serif;
+}*/
+
+/* Sidebar */
+.sidebar {
+    background-color: #ffffffa8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
     padding: 20px;
+    height: 100vh;
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
+}
+
+/* Contenedor principal para órdenes de trabajo */
+.main-content {
+    padding: 20px;
+    flex-grow: 1;
+    width: calc(100% - 200px);
+    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+    margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.logo {
-    max-width: 300px;
-    margin-left: 25%;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
+/* Título principal */
+h1 {
+    font-size: 28px;
     font-weight: bold;
     color: #0d5478;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="datetime-local"],
-input[type="number"],
-textarea,
-select {
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.486);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Estilos para los encabezados de la tabla */
+thead th {
+    background-color: #11698c;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Celdas de la tabla */
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(200, 200, 200, 0.1);
+}
+
+/* Hover en las filas de la tabla */
+tbody tr:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones de acción */
+.botones {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+}
+
+td button {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+}
+
+.button img {
+    max-width: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+img:hover {
+    filter: saturate(200%);
+}
+
+/* Estilos de hover para botones */
+.menu button {
+    background-color: #11698c;
+    color: white;
+    border: none;
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="datetime-local"]:focus,
-input[type="number"]:focus,
-textarea:focus,
-select:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #11698c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    margin-bottom: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #1a1a41;
+    text-align: left;
     font-weight: bold;
 }
 
-/* Resto del CSS (como en tu ejemplo anterior) */
+.menu button:hover {
+    background-color: #76acbc;
+    color: rgb(0, 0, 0);
+}
+
+/* Contenedor para el botón de impresión */
+.boton-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-imprimir {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Estilos de impresión */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .main-content,
+    .main-content * {
+        visibility: visible;
+        width: 100%;
+        box-shadow: none;
+    }
+    .main-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}

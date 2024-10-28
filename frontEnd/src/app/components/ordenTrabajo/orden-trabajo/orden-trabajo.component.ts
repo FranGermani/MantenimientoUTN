@@ -4,7 +4,7 @@ import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 @Component({
   selector: 'app-orden-trabajo',
   templateUrl: './orden-trabajo.component.html',
-  styleUrl: './orden-trabajo.component.css'
+  styleUrls: ['./orden-trabajo.component.css']  // Corrige el nombre de la propiedad 'styleUrls'
 })
 export class OrdenTrabajoComponent implements OnInit {
   fechaImpresion: string = '';
@@ -77,10 +77,24 @@ export class OrdenTrabajoComponent implements OnInit {
     this.ordenTrabajoService.crearOrdenTrabajo(ordenTrabajoData).subscribe(
       response => {
         console.log('Orden de trabajo generada:', response);
+        // Llamamos al método para restablecer el formulario
+        this.resetForm();
       },
       error => {
         console.error('Error al generar la orden:', error);
       }
     );
-}
+  }
+
+  // Método para restablecer el formulario
+  resetForm() {
+    this.fechaImpresion = '';
+    this.observacion = '';
+    this.operarioSeleccionado = '';
+    this.edificioSeleccionado = '';
+    this.pisos = [];
+    this.pisoSeleccionado = '';
+    this.sectorSeleccionado = '';
+    this.activoSeleccionado = '';
+  }
 }

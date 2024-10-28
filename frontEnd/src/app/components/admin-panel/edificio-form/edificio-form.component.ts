@@ -12,6 +12,7 @@ export class EdificioFormComponent {
   activo: number = 1; 
   labeltag: string = ''; 
   estado: string = 'disponible';
+  isEditing: boolean = false; // Estado de modo edición
 
   constructor(private edificioService: EdificioService) {}
 
@@ -33,12 +34,25 @@ export class EdificioFormComponent {
                 labeltag: newLabelTag 
             }).subscribe(() => {
                 console.log('Edificio creado y labeltag actualizado:', newLabelTag);
+
+                // Restablecer el formulario después de crear el edificio
+                this.resetForm();
             });
         }, 1000);
     });
-}
+  }
 
   generarLabelTag(id: number): string {
     return String(id).padStart(3, '0');
+  }
+
+  // Método para restablecer el formulario y salir del modo de edición
+  resetForm() {
+    this.nombre = '';
+    this.direccion = '';
+    this.activo = 1;
+    this.labeltag = '';
+    this.estado = 'disponible';
+    this.isEditing = false;
   }
 }

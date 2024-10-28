@@ -20,7 +20,7 @@ import { UserPanelTutorial } from './components/user/user-tutorial/user-tutorial
 import { TutorialComponent } from './components/admin-panel/tutorial/tutorial.component';
 import { EdificioFormComponent } from './components/admin-panel/edificio-form/edificio-form.component';
 import { EdificioService } from './services/edificio.service';
-import { UserOTComponent } from './components/user/user-OT/user-ot/user-ot.component';
+import { UserOtComponent } from './components/user/user-OT/user-ot/user-ot.component';
 import { UserTTComponent } from './components/user/user-TT/user-tt/user-tt.component';
 import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.component';
 import { Err404Component } from './components/err404/err404.component';
@@ -41,7 +41,7 @@ import { Err404Component } from './components/err404/err404.component';
     UserPanelTutorial,
     TutorialComponent,
     EdificioFormComponent,
-    UserOTComponent,
+    UserOtComponent,
     UserTTComponent,
     UserTAComponent,
     Err404Component,

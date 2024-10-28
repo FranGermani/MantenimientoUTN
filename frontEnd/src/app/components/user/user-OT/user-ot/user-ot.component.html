@@ -1,54 +1,31 @@
-<div class="fondo">
-    <div class="form-container">
-      <img
-        src="../../../../assets/image/utn2.png"
-        alt="UTN FRVT Logo"
-        class="logo"
-      />
-      <form id="orden-form">
-        <label for="fecha-impresion">Fecha de Impresión</label>
-        <input
-          type="datetime-local"
-          id="fecha-impresion"
-          [(ngModel)]="fechaImpresion"
-          name="fechaImpresion"
-          required
-        />
-  
-        <label for="operario">Operario</label>
-        <select id="operario" [(ngModel)]="operarioSeleccionado" name="operario" required>
-          <option *ngFor="let operario of operarios" [value]="operario.id_usuario">{{ operario.nombre }}</option>
-        </select>
-        
-        <label for="edificio">Edificio</label>
-        <select id="edificio" [(ngModel)]="edificioSeleccionado" (change)="onEdificioSeleccionado()" name="edificio" required>
-          <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.nombre }}</option>
-        </select>
-        
-        <label for="piso">Piso</label>
-        <select id="piso" [(ngModel)]="pisoSeleccionado" name="piso" required>
-          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
-        </select>
-        
-        <label for="sector">Sector</label>
-        <select id="sector" [(ngModel)]="sectorSeleccionado" name="sector" required>
-          <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
-        </select>
-  
-        <label for="activo">Activo</label>
-        <select id="activo" [(ngModel)]="activoSeleccionado" name="activo" required>
-          <option *ngFor="let activo of activos" [value]="activo.id_activo">{{ activo.nombre }}</option>
-        </select>
-  
-        <label for="observacion">Observación</label>
-        <textarea
-          id="observacion"
-          [(ngModel)]="observacion"
-          name="observacion"
-        ></textarea>
-  
-        <button type="button" (click)="generarOrden()">Generar Orden</button>
-      </form>
-    </div>
-  </div>
-  
+<div class="container">
+  <main class="main-content">
+    <h1>Órdenes de trabajo</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Código Único</th>
+          <th>Fecha de Impresión</th>
+          <th>Operario</th>
+          <th>Edificio</th>
+          <th>Piso</th>
+          <th>Sector</th>
+          <th>Activo</th>
+          <th>Realizado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orden of ordenes">
+          <td>ILUM - 001001045001001 - 296</td>
+          <td>{{ orden.fecha_impresion | date : "dd/MM/yyyy" }}</td>
+          <td>{{ orden.nombre_usuario }}</td>
+          <td>{{ orden.nombre_edificio }}</td>
+          <td>{{ orden.nombre_piso }}</td>
+          <td>{{ orden.nombre_sector }}</td>
+          <td>{{ orden.nombre_activo }}</td>
+          <td>{{ orden.realizada ? "Sí" : "No" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</div>
