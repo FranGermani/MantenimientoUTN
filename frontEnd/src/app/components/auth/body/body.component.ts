@@ -11,8 +11,8 @@ export class BodyComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
-  emailError: string = ''; // Mensaje específico para el campo email
-  passwordError: string = ''; // Mensaje específico para el campo contraseña
+  emailError: string = '';
+  passwordError: string = '';
   isPasswordVisible: boolean = false;
 
   constructor(private router: Router, private usersService: UsersService) {}
@@ -21,18 +21,16 @@ export class BodyComponent {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  // Método para el envío del formulario
+  // Envío del formulario de inicio de sesión
   onSubmit() {
-    // Limpia los mensajes de error previos
     this.emailError = '';
     this.passwordError = '';
     this.errorMessage = '';
 
-    // Validaciones de email y contraseña antes de enviar
+    // Validaciones
     this.validateEmailField();
     this.validatePasswordField();
 
-    // Verifica si hay errores antes de proceder con el envío
     if (this.emailError || this.passwordError) {
       return;
     }
@@ -45,15 +43,17 @@ export class BodyComponent {
     this.usersService.login(user).subscribe({
       next: (response) => {
         if (response.token) {
-          if (user.email === 'Admin@gmail.com' && user.password === 'Admin123') {
+          const userRole = this.usersService.getUserRole();
+
+          // Redirige al panel de administrador o usuario según el rol
+          if (userRole === 'admin') {
             this.router.navigate(['/adminTutorial']);
-          } else {
+          } else if (userRole === 'user') {
             this.router.navigate(['/user']);
           }
         }
       },
       error: (error) => {
-        // Manejo de errores específicos basados en la respuesta del backend
         const backendError = error?.error?.error || 'Ha ocurrido un error inesperado.';
 
         if (backendError === 'Usuario no encontrado') {
@@ -61,13 +61,13 @@ export class BodyComponent {
         } else if (backendError === 'Contraseña incorrecta') {
           this.passwordError = 'La contraseña es incorrecta.';
         } else {
-          this.errorMessage = backendError; // Mensaje de error general
+          this.errorMessage = backendError;
         }
       },
     });
   }
 
-  // Validación en tiempo real del email
+
   validateEmailField(): void {
     this.emailError = '';
     if (!this.email) {
@@ -79,7 +79,6 @@ export class BodyComponent {
     }
   }
 
-  // Validación en tiempo real de la contraseña
   validatePasswordField(): void {
     this.passwordError = '';
     if (this.password.length < 6 || this.password.length > 16) {
@@ -93,4 +92,3 @@ export class BodyComponent {
     }
   }
 }
-

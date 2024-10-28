@@ -15,20 +15,34 @@ import { UserTAComponent } from '@components/user/user-TA/user-ta/user-ta.compon
 import { UserTTComponent } from '@components/user/user-TT/user-tt/user-tt.component';
 import { Err404Component } from '@components/err404/err404.component';
 
-// Definición de rutas
+import { AdminGuard } from './guards/admin-guard.guard';
+import { UserGuard } from './guards/user-guard.guard';
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   { path: '', component: LandingBodyComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: BodyComponent },
-  { path: 'user', component: UserPanelTutorial, children: [
+
+  // Rutas de login y registro protegidas para usuarios no autenticados
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: BodyComponent, canActivate: [AuthGuard] },
+
+  // Rutas de usuario regular protegidas por UserGuard
+  { 
+    path: 'user', 
+    component: UserPanelTutorial, 
+    canActivate: [UserGuard],
+    children: [
       { path: 'userTA', component: UserTAComponent },
       { path: 'userTT', component: UserTTComponent },
       { path: 'userOT', component: UserOTComponent }
     ] 
   },
+
+  // Rutas de administrador protegidas por AdminGuard
   { 
     path: 'adminTutorial', 
     component: TutorialComponent,
+    canActivate: [AdminGuard],
     children: [ 
       { path: '', component: PanelComponent },
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
@@ -36,7 +50,11 @@ const routes: Routes = [
       { path: 'reporte', component: ReporteComponent },
     ]
   },
-  { path: 'camara', component: CameraComponent },
+
+  // Ruta para cámara accesible solo a usuarios autenticados (ajustable si se requiere)
+  { path: 'camara', component: CameraComponent, canActivate: [UserGuard, AdminGuard] },
+
+  // Ruta de error 404
   { path: '**', component: Err404Component }
 ];
 
