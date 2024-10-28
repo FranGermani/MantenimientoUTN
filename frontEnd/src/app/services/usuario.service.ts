@@ -22,8 +22,8 @@ export class UsersService {
           }
         }),
         catchError(error => {
-          console.error('Error en la solicitud de login:', error); // Log para ver detalles del error
-          return throwError(() => error); // Lanza el error para que el componente pueda manejarlo
+          console.error('Error en la solicitud de login:', error);
+          return throwError(() => error); // Pasa el error al componente para su manejo
         })
       );
   }
@@ -33,8 +33,8 @@ export class UsersService {
       .pipe(
         tap(() => this.currentUserSubject.next(null)), // Limpia el usuario actual al cerrar sesión
         catchError(error => {
-          console.error('Error en la solicitud de logout:', error); // Log para ver detalles del error
-          return throwError(() => error); // Lanza el error para que el componente pueda manejarlo
+          console.error('Error en la solicitud de logout:', error);
+          return throwError(() => error);
         })
       );
   }

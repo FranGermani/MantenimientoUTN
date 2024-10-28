@@ -28,17 +28,20 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
+        // Verifica si el email existe en la base de datos
         const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [email]);
         if (rows.length === 0) {
-            return res.status(401).json({ error: 'Usuario no encontrado' });
+            return res.status(401).json({ error: 'Usuario no encontrado' }); // Error específico para email incorrecto
         }
 
         const user = rows[0];
+        // Verifica si la contraseña es correcta
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(401).json({ error: 'Contraseña incorrecta' });
+            return res.status(401).json({ error: 'Contraseña incorrecta' }); // Error específico para contraseña incorrecta
         }
 
+        // Genera el token JWT si el login es exitoso
         if (!process.env.JWT_SECRET) {
             console.error('JWT_SECRET no está definido en las variables de entorno');
             return res.status(500).json({ error: 'Error en la configuración del servidor' });
@@ -48,7 +51,6 @@ export const login = async (req, res) => {
         
         res.cookie('auth-token', token, { httpOnly: true, sameSite: 'lax' });
         res.json({ message: 'Inicio de sesión exitoso', token, nombre: user.nombre });
-
     } catch (error) {
         console.error('Error en el login:', error); 
         res.status(500).json({ error: 'Error al iniciar sesión', details: error.message });
