@@ -1,20 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .invisible {
     display: none;
 }
 
-.container {
+/*.container {
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
     background: linear-gradient(45deg, #76acbc, #ffffff);
     font-family:'Roboto', Helvetica, Arial, Lucida, sans-serif;
-}
+}*/
 .sidebar {
     background-color: #ffffffa8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

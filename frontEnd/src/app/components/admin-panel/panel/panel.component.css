@@ -1,4 +1,4 @@
-* {
+/* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +10,7 @@
     height: 100vh;
     background: linear-gradient(45deg, #76acbc, #ffffff);
     font-family:'Roboto', Helvetica, Arial, Lucida, sans-serif;
-}
+}*/
 
 .sidebar {
     background-color: #ffffffa8;
@@ -44,7 +44,6 @@
     padding: 20px;
     flex-grow: 1;
     width: calc(100% - 200px);
-    overflow-x: auto;
 }
 
 h1 {
@@ -83,8 +82,14 @@ thead th {
 tbody td {
     padding: 10px;
 }
-
-td button{ display:inline
+.botones{
+    display: flex;
+    flex-direction:row;
+}
+td button{     
+    display: flex;
+    flex-direction:row;
+    gap: 5px;
 }
 
 tbody tr:hover {

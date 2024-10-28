@@ -25,7 +25,7 @@
           <td>{{ orden.nombre_sector }}</td>
           <td>{{ orden.nombre_activo }}</td>
           <td>{{ orden.realizada ? "Sí" : "No" }}</td>
-          <td>
+          <td class="botones">
             <button (click)="verDetalle(orden.id_orden_trabajo)">
               <img src="../../assets/image/ver.png" alt="Ver" />
             </button>

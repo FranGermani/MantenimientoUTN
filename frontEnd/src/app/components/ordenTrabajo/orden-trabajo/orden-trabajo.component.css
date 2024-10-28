@@ -1,15 +1,21 @@
-.fondo {
+/*.fondo {
     display:flex;
     background: linear-gradient(45deg, #76acbc, #ffffff);
     font-family:'Roboto', Helvetica, Arial, Lucida, sans-serif;
-  }
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+  }*/
 .form-container {
+    flex-grow: 1;
     width: 50%;
     margin: 50px auto;
     background-color: rgba(255, 255, 255, 0.486);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
 }
 
 .logo {
