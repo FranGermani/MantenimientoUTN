@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { ReporteComponent } from './components/ordenTrabajo/reporte/reporte.component';
-import { ActivosFromComponent } from './components/admin-panel/activos-from/activos-from.component';
+import {  ActivosFromComponent } from './components/admin-panel/activos-from/activos-from.component';
 import { LandingBodyComponent } from './components/landing-page/landing-body/landing-body.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { UserPanelTutorial } from './components/user/user-tutorial/user-tutorial.component';
@@ -37,7 +37,6 @@ import { Err404Component } from './components/err404/err404.component';
     PanelComponent,
     OrdenTrabajoComponent,
     ReporteComponent,
-    ActivosFromComponent,
     LandingBodyComponent,
     CameraComponent,
     UserPanelTutorial,
@@ -48,6 +47,7 @@ import { Err404Component } from './components/err404/err404.component';
     UserTTComponent,
     UserTAComponent,
     Err404Component,
+    ActivosFromComponent,
   ],
   imports: [
     BrowserModule,

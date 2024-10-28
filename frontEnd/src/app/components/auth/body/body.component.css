@@ -42,7 +42,9 @@
     margin-bottom: 20px;
     color: #0d5478;
   }
-  
+  p{
+    color: #0d5478;
+  }
   
   .input-group {
     margin-bottom: 15px;

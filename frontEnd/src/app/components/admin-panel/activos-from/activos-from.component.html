@@ -1,51 +1,59 @@
 <div class="container">
   <div class="main-content">
-    <form action="#">
+    <h2>Registrar Activo</h2>
+    <form (ngSubmit)="onSubmit()">
       <label for="nombre">Nombre:</label>
       <input
         type="text"
         id="nombre"
         name="nombre"
         placeholder="Ingrese el nombre"
-      />
-
-      <label for="id-tag">ID Tag:</label>
-      <input
-        type="text"
-        id="id-tag"
-        name="id-tag"
-        placeholder="Ingrese el ID Tag"
+        [(ngModel)]="nombre"
+        required
       />
 
       <label for="disponibilidad">Disponibilidad:</label>
-      <select id="disponibilidad" name="disponibilidad">
-        <option value="disponible">Disponible</option>
-        <option value="no-disponible">No Disponible</option>
+      <select id="disponibilidad" name="disponibilidad" [(ngModel)]="disponibilidad">
+        <option value="1">Disponible</option>
+        <option value="0">No Disponible</option>
       </select>
 
-      <label for="label-tag">Label Tag:</label>
-      <select id="label-tag" name="label-tag">
-        <option value="label1">ILUM</option>
-        <option value="label2">AACO</option>
-      </select>
-
-      <label for="numero-existencia">Número de Existencia:</label>
+      <label for="tag_diminutivo">Label Tag:</label>
       <input
-        type="number"
-        id="numero-existencia"
-        name="numero-existencia"
-        placeholder="Ingrese el número de existencia"
+        type="text"
+        id="tag_diminutivo"
+        name="tag_diminutivo"
+        placeholder="Ingrese el tag"
+        [(ngModel)]="tagDiminutivo"
+        required
       />
-
-      <label for="numero-real">Número Real:</label>
-      <input
-        type="number"
-        id="numero-real"
-        name="numero-real"
-        placeholder="Ingrese el número real"
-      />
+      
 
       <button type="submit">Registrar Activo</button>
     </form>
+    <p *ngIf="message">{{ message }}</p>
+
+   <!-- <h2>Lista de Activos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Tag</th>
+          <th>Disponibilidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activo of activos">
+          <td>{{ activo.nombre }}</td>
+          <td>{{ activo.tag_diminutivo }}</td>
+          <td>{{ activo.disponibilidad ? 'Disponible' : 'No Disponible' }}</td>
+          <td>
+            <button (click)="editActivo(activo)">Editar</button>
+            <button (click)="deleteActivo(activo.id_activo)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
+</div>-->
