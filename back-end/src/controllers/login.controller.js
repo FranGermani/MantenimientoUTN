@@ -7,15 +7,17 @@ export const registro = async (req, res) => {
     if (!nombre || !email || !password) {
         return res.status(400).json({ message: 'Nombre, email y contraseña son requeridos' });
     }
-    
+
+    const fullEmail = `${email.username}@${email.domain}`;
+
     try {
-        const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [email]);
+        const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [fullEmail]);
         if (rows.length > 0) {
             return res.status(400).json({ message: 'El usuario ya existe' });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        await pool.query('INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)', [nombre, email, hashedPassword]);
+        await pool.query('INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)', [nombre, fullEmail, hashedPassword]);
         res.status(201).json({ message: 'Usuario registrado exitosamente' });
     } catch (error) {
         console.error('Error al registrar el usuario:', error); 
