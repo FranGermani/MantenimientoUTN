@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '@services/usuario.service';
+import { User } from '../../../interfaces/body.interface'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-body',
@@ -35,7 +36,7 @@ export class BodyComponent {
       return;
     }
 
-    const user = {
+    const user: User = { // Tipado con la interfaz User
       email: this.email,
       password: this.password,
     };

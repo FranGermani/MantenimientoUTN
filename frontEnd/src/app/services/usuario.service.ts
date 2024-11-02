@@ -16,23 +16,54 @@ export class UsersService {
   // Verificar si el usuario está autenticado basado en el token
   isAuthenticated(): boolean {
     const token = localStorage.getItem('auth-token');
-    return !!token;
+    if (!token) {
+      return false;
+    }
+  
+    try {
+      // Divide el token en sus partes (header, payload, signature)
+      const tokenParts = token.split('.'); 
+      if (tokenParts.length !== 3) {
+        return false; // El token no tiene el formato correcto
+      }
+  
+      // Decodifica la parte del payload (que contiene la fecha de expiración)
+      const payload = JSON.parse(atob(tokenParts[1])); 
+  
+      // Verifica si el token ha expirado
+      const exp = payload.exp; // Obtiene la fecha de expiración del payload
+      if (typeof exp !== 'number' || exp * 1000 < Date.now()) {
+        return false; // El token ha expirado o no tiene una fecha de expiración válida
+      }
+  
+      return true; // El token es válido
+    } catch (error) {
+      return false; // Error al decodificar o verificar el token
+    }
   }
 
   // Guardar el token y el rol del usuario después de iniciar sesión
   setToken(token: string, role: string): void {
     localStorage.setItem('auth-token', token);
-    this.currentUserRole = role; // Guarda el rol en la variable local
+    localStorage.setItem('user-role', role); // Guardar el rol en el localStorage
+    this.currentUserRole = role; // También guardar el rol en la variable local
   }
 
   // Obtener el rol del usuario actual
   getUserRole(): string | null {
-    return this.currentUserRole;
+    // Intentar obtener el rol del localStorage
+    const storedRole = localStorage.getItem('user-role');
+    if (storedRole) {
+      return storedRole;
+    }
+    // Si no está en el localStorage, usar el valor de la variable local
+    return this.currentUserRole; 
   }
 
   // Limpiar el token y el rol al cerrar sesión
   clearToken(): void {
     localStorage.removeItem('auth-token');
+    localStorage.removeItem('user-role'); // Eliminar el rol del localStorage
     this.currentUserRole = null;
     this.currentUserSubject.next(null);
   }

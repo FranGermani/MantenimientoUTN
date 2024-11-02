@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoService } from '../../../services/activos.service';
+import { Activo } from '../../../interfaces/activos-from.interface';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ActivoService } from '../../../services/activos.service';
   })
 
 export class ActivosFromComponent implements OnInit {
-  activos: any[] = []; // Lista de activos
+  activos: Activo[] = []; ; // Lista de activos
   nombre: string = '';
   tagDiminutivo: string = 'ILUM';
   disponibilidad: number = 1;
@@ -37,7 +38,7 @@ export class ActivosFromComponent implements OnInit {
 
   // Enviar el formulario para crear o actualizar un activo
   onSubmit(): void {
-    const data = {
+    const data: Activo = {
       nombre: this.nombre,
       tag_diminutivo: this.tagDiminutivo,
       disponibilidad: this.disponibilidad,
@@ -73,12 +74,11 @@ export class ActivosFromComponent implements OnInit {
   }
 
   // Editar un activo
-  editActivo(activo: any): void {
+  editActivo(activo: Activo): void {
     this.nombre = activo.nombre;
     this.tagDiminutivo = activo.tag_diminutivo;
     this.disponibilidad = activo.disponibilidad;
     this.editMode = true;
-    this.editId = activo.id_activo;
   }
 
   // Eliminar un activo

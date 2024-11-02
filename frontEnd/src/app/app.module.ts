@@ -24,7 +24,9 @@ import { UserOtComponent } from './components/user/user-OT/user-ot/user-ot.compo
 import { UserTTComponent } from './components/user/user-TT/user-tt/user-tt.component';
 import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.component';
 import { Err404Component } from './components/err404/err404.component';
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { OrdenGeneradaDialogComponent } from './components/ordenTrabajo/orden-trabajo/orden-generada-dialog/orden-generada-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
   
 @NgModule({
   declarations: [
@@ -46,17 +48,20 @@ import { Err404Component } from './components/err404/err404.component';
     UserTAComponent,
     Err404Component,
     ActivosFromComponent,
+    OrdenGeneradaDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule, 
+    HttpClientModule,
+    MatDialogModule  
   ],
   providers: [
     provideHttpClient(),
     EdificioService,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
   

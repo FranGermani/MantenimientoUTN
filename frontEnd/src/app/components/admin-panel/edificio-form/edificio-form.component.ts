@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { EdificioService } from '../../../services/edificio.service';
+import { Edificio } from '../../../interfaces/edificio-form.interface'; 
+import { Observable } from 'rxjs'; // Asegúrate de importar Observable
 
 @Component({
   selector: 'app-edificio-form',
@@ -17,7 +19,7 @@ export class EdificioFormComponent {
   constructor(private edificioService: EdificioService) {}
 
   registrarEdificio() {
-    const edificioData = { 
+    const edificioData: Omit<Edificio, 'id'> = { 
         nombre: this.nombre, 
         direccion: this.direccion, 
         activo: this.activo 

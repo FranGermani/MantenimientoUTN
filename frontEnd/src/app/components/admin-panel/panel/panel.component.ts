@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
+import { Panel } from '../../../interfaces/panel.interface'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-panel',
@@ -8,7 +9,7 @@ import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 })
 export class PanelComponent implements OnInit {
   currentView: string = 'ordenes';
-  ordenes: any[] = [];
+  ordenes: Panel[] = []; // Tipado con la interfaz
 
   constructor(private ordenTrabajoService: OrdenTrabajoService) {}
 
@@ -26,8 +27,13 @@ export class PanelComponent implements OnInit {
   }
 
   obtenerOrdenes() {
-    this.ordenTrabajoService.getOrdenesTrabajo().subscribe((data: any[]) => {
-      this.ordenes = data;
+    this.ordenTrabajoService.getOrdenesTrabajo().subscribe({
+      next: (data: Panel[]) => { // Tipado con la interfaz
+        this.ordenes = data;
+      },
+      error: (error) => {
+        console.error('Error al obtener las órdenes de trabajo:', error);
+      }
     });
   }
 

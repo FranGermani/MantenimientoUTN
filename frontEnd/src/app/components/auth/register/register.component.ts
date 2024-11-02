@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { User } from '../../../interfaces/register.interface'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  user = {
+  user: User = {  // Tipado con la interfaz User
     nombre: '',
     email: {
       username: '',
@@ -75,9 +76,9 @@ export class RegisterComponent {
     }
 
     const email = `${username}@${domain}`;
-    const registrationData = {
+    const registrationData: User = {  // Tipado con la interfaz User
       nombre: this.user.nombre,
-      email: email,
+      email: { username, domain }, // Usando la estructura de la interfaz
       password: this.user.password
     };
 

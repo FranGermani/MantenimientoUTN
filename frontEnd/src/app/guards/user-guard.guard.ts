@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { UsersService } from '../services/usuario.service';
 
@@ -27,4 +27,4 @@ export class UserGuard implements CanActivate {
     return false; // Bloquea el acceso si no cumple los criterios
   }
 }
-
+*/

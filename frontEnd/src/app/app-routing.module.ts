@@ -15,9 +15,11 @@ import { UserTAComponent } from '@components/user/user-TA/user-ta/user-ta.compon
 import { UserTTComponent } from '@components/user/user-TT/user-tt/user-tt.component';
 import { Err404Component } from '@components/err404/err404.component';
 
-//import { AdminGuard } from './guards/admin-guard.guard';
-//import { UserGuard } from './guards/user-guard.guard';
-//import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/NUEVOauthGuard.guard';
+
+// import { AdminGuard } from './guards/admin-guard.guard';
+// import { UserGuard } from './guards/user-guard.guard';
+// import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingBodyComponent },
@@ -30,7 +32,8 @@ const routes: Routes = [
   { 
     path: 'user', 
     component: UserPanelTutorial, 
-    /*canActivate: [UserGuard],*/
+    // canActivate: [UserGuard],
+    canActivate: [AuthGuard],
     children: [
       { path: 'userTA', component: UserTAComponent },
       { path: 'userTT', component: UserTTComponent },
@@ -42,7 +45,8 @@ const routes: Routes = [
   { 
     path: 'adminTutorial', 
     component: TutorialComponent,
-    /*canActivate: [AdminGuard],*/
+    // canActivate: [AdminGuard],
+    canActivate: [AuthGuard],
     children: [ 
       { path: '', component: PanelComponent },
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
