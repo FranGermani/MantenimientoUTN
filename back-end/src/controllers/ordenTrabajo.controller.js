@@ -198,3 +198,51 @@ export const deleteOrdenTrabajo = async (req, res) => {
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };
+
+export const getConcatenacionIds = async (req, res) => {
+  const { id } = req.params;
+
+  const query = `
+    SELECT 
+      u.id_usuario, 
+      e.id_edificio, 
+      p.id_piso AS piso_nivel, 
+      s.id_sector, 
+      a.id_activo
+    FROM 
+      orden_trabajo ot
+    LEFT JOIN usuario u ON ot.id_usuario = u.id_usuario
+    LEFT JOIN edificio e ON ot.id_edificio = e.id_edificio
+    LEFT JOIN piso_nivel p ON ot.id_piso = p.id_piso
+    LEFT JOIN sector s ON ot.id_sector = s.id_sector
+    LEFT JOIN activo a ON ot.id_activo = a.id_activo
+    WHERE 
+      ot.id_orden_trabajo = ?
+  `;
+
+  try {
+    const [rows] = await pool.query(query, [id]);
+
+    if (rows.length === 0) {
+      console.log("No se encontró la orden de trabajo con ID:", id);
+      return res.status(404).json({ message: "Orden de trabajo no encontrada" });
+    }
+
+    // Obtener los valores de los IDs y mostrar cada uno en la consola
+    const { id_usuario, id_edificio, piso_nivel, id_sector, id_activo } = rows[0];
+    console.log("ID Usuario:", id_usuario);
+    console.log("ID Edificio:", id_edificio);
+    console.log("Piso Nivel:", piso_nivel);
+    console.log("ID Sector:", id_sector);
+    console.log("ID Activo:", id_activo);
+
+    // Concatenar los IDs en el formato deseado
+    const concatenacion = `${id_usuario}-${id_edificio}-${piso_nivel}-${id_sector}-${id_activo}`;
+    console.log("Concatenación de IDs:", concatenacion);
+
+    res.status(200).json({ concatenacion });
+  } catch (err) {
+    console.error("Error al obtener la concatenación de IDs:", err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
