@@ -26,7 +26,8 @@ import { UserTAComponent } from './components/user/user-TA/user-ta/user-ta.compo
 import { Err404Component } from './components/err404/err404.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { OrdenGeneradaDialogComponent } from './components/ordenTrabajo/orden-trabajo/orden-generada-dialog/orden-generada-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { BorrarOrdenDialogComponent } from './components/admin-panel/panel/borrar-orden-dialog/borrar-orden-dialog.component'; 
   
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     Err404Component,
     ActivosFromComponent,
     OrdenGeneradaDialogComponent,
+    BorrarOrdenDialogComponent,
   ],
   imports: [
     BrowserModule,

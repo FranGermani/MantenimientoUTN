@@ -3,6 +3,7 @@ import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 import { Panel } from '../../../interfaces/panel.interface';
 import { ConcatenacionResponse } from '../../../interfaces/concatenacion-response';
 import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -12,11 +13,10 @@ export class PanelComponent implements OnInit {
   currentView: string = 'ordenes';
   ordenes: (Panel & { concatenacionIds?: string })[] = []; // Extender tipo Panel
 
-  constructor(private ordenTrabajoService: OrdenTrabajoService,
+  constructor(
+    private ordenTrabajoService: OrdenTrabajoService,
     private cdr: ChangeDetectorRef
-  ) {
-    
-  }
+  ) {}
 
   ngOnInit(): void {
     if (this.currentView === 'ordenes') {
@@ -44,14 +44,29 @@ export class PanelComponent implements OnInit {
       }
     });
   }
+
   obtenerConcatenacionIds(orden: Panel & { concatenacionIds?: string }) {
-    this.ordenTrabajoService.getConcatenacionIds(orden.id_orden_trabajo).subscribe({
-      next: (data: ConcatenacionResponse) => {
-        orden.concatenacionIds = data.concatenacion;
-        this.cdr.detectChanges();  // Forzar actualización de la vista
+    // 1. Obtener el tag_diminutivo del activo
+    this.ordenTrabajoService.getActivo(orden.id_activo).subscribe({
+      next: (activo: any) => { // Ajusta el tipo de dato según la respuesta de tu servicio
+        const tagDiminutivo = activo.tag_diminutivo; 
+  
+        // 2. Formatear cada ID con tres ceros a la izquierda
+        const idsConcatenados = [
+          tagDiminutivo, // Agregar el tag_diminutivo al principio
+          orden.id_orden_trabajo.toString().padStart(3, '0'),
+          orden.id_usuario.toString().padStart(3, '0'),
+          orden.id_edificio.toString().padStart(3, '0'),
+          orden.id_piso.toString().padStart(3, '0'),
+          orden.id_sector.toString().padStart(3, '0'),
+          orden.id_activo.toString().padStart(3, '0')
+        ].join(''); // Concatenar los IDs
+  
+        orden.concatenacionIds = idsConcatenados;
+        this.cdr.detectChanges(); 
       },
       error: (error) => {
-        console.error("Error al obtener la concatenación de IDs:", error);
+        console.error("Error al obtener el activo:", error);
       }
     });
   }

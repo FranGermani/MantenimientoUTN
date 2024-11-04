@@ -10,6 +10,20 @@ export const getActivos = async (req, res) => {
     }
 };
 
+export const getActivo = async (req, res) => {
+    try {
+      const { id } = req.params; // Obtener el ID del activo de la URL
+      const [rows] = await pool.query('SELECT * FROM activo WHERE id_activo = ?', [id]);
+      if (rows.length === 0) {
+        return res.status(404).json({ message: 'Activo no encontrado' });
+      }
+      res.json(rows[0]); // Devolver la información del activo
+    } catch (err) {
+      console.error('Error al obtener el activo:', err);
+      res.status(500).json({ message: 'Error interno del servidor' });
+    }
+  };
+
 export const createActivo = async (req, res) => {
     const { nombre, tag_diminutivo, disponibilidad } = req.body;
     try {
