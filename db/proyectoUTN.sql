@@ -39,7 +39,45 @@ CREATE TABLE `activo` (
 
 LOCK TABLES `activo` WRITE;
 /*!40000 ALTER TABLE `activo` DISABLE KEYS */; -- esta de mas el id principal
-INSERT INTO `activo` VALUES (1,'Iluminación','ILUM -',1),(2,'Aire Acondicionado','AACO -',1),(3,'Radiador Calefacción','RCAL -',1),(4,'Puerta','PRTA -',1),(5,'Ventanas & Cortinas','VENT -',1),(6,'Luces de Emergencia','LEME -',1),(7,'Matafuego','MTFG -',1),(8,'Barandas y Escaleras','BESC -',1),(9,'Tablero Eléctrico','TABE -',1),(10,'Inodoro & Mochila','INOD -',1),(11,'Mesada','MESA -',1),(12,'Ventilador','VENT -',1),(13,'NA','NA',1),(14,'Puerta Emergencia','PTAE -',1),(15,'Ascensor','ASCN -',1),(16,'Cortina Enrollar Motor','CORT -',1),(17,'NA','NA',1),(18,'Termotanque','TMTQ -',1),(19,'Calefactor','CALE -',1),(20,'Caldera','CALD -',1),(21,'Techos y Canaletas','TCHO -',1),(22,'NA','NA',1),(23,'Balcones','BALCO -',1),(24,'Paneles Solares e Inversor','PSOL -',1),(25,'Portones','PORT -',1),(26,'Generador Eléctrico','GNDR -',1),(27,'Bombas de Agua','BMBA -',1),(28,'Tanques de Agua','TNQE -',1),(29,'Rejillas & Desagues','DESA -',1),(30,'NA','NA',1),(31,'Emergencia Alarma','EMER -',1),(32,'Espacio Físico','ESFI -',1),(33,'Ducha','DCHA -',1),(34,'Cocheras','CHRA -',1),(35,'Escalera','ESLR -',1),(36,'NA','NA',1),(37,'Cámara Desagüe','CDES -',1),(38,'Cámara Septicas','CSEP -',1);
+INSERT INTO `activo` VALUES 
+(1,'Iluminación','ILUM - ',1),
+(2,'Aire Acondicionado','AACO - ',1),
+(3,'Radiador Calefacción','RCAL - ',1),
+(4,'Puerta','PRTA - ',1),
+(5,'Ventanas & Cortinas','VENT - ',1),
+(6,'Luces de Emergencia','LEME - ',1),
+(7,'Matafuego','MTFG - ',1),
+(8,'Barandas y Escaleras','BESC - ',1),
+(9,'Tablero Eléctrico','TABE - ',1),
+(10,'Inodoro & Mochila','INOD - ',1),
+(11,'Mesada','MESA - ',1),
+(12,'Ventilador','VENT - ',1),
+(13,'NA','NA',1),
+(14,'Puerta Emergencia','PTAE - ',1),
+(15,'Ascensor','ASCN - ',1),
+(16,'Cortina Enrollar Motor','CORT - ',1),
+(17,'NA','NA',1),
+(18,'Termotanque','TMTQ - ',1),
+(19,'Calefactor','CALE - ',1),
+(20,'Caldera','CALD - ',1),
+(21,'Techos y Canaletas','TCHO - ',1),
+(22,'NA','NA',1),
+(23,'Balcones','BALCO - ',1),
+(24,'Paneles Solares e Inversor','PSOL - ',1),
+(25,'Portones','PORT - ',1),
+(26,'Generador Eléctrico','GNDR - ',1),
+(27,'Bombas de Agua','BMBA - ',1),
+(28,'Tanques de Agua','TNQE - ',1),
+(29,'Rejillas & Desagues','DESA - ',1),
+(30,'NA','NA',1),
+(31,'Emergencia Alarma','EMER - ',1),
+(32,'Espacio Físico','ESFI - ',1),
+(33,'Ducha','DCHA - ',1),
+(34,'Cocheras','CHRA - ',1),
+(35,'Escalera','ESLR - ',1),
+(36,'NA','NA',1),
+(37,'Cámara Desagüe','CDES - ',1),
+(38,'Cámara Septicas','CSEP - ',1);
 /*!40000 ALTER TABLE `activo` ENABLE KEYS */;
 UNLOCK TABLES;
 
