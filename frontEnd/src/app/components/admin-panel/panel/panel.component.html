@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let orden of ordenes">
-          <td>ILUM - 001001045001001 - 296</td>
+          <td class="id-info">{{ orden.concatenacionIds }}</td> <!-- Muestra la concatenación aquí -->
           <td>{{ orden.fecha_impresion | date : "dd/MM/yyyy" }}</td>
           <td>{{ orden.nombre_usuario }}</td>
           <td>{{ orden.nombre_edificio }}</td>
@@ -39,8 +39,5 @@
         </tr>
       </tbody>
     </table>
-
-    <app-orden-trabajo *ngIf="currentView === 'nueva'"></app-orden-trabajo>
-    <app-activos-from *ngIf="currentView === 'activo'"></app-activos-from>
   </main>
 </div>

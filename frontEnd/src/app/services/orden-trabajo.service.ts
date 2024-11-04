@@ -46,4 +46,10 @@ export class OrdenTrabajoService {
   deleteOrdenTrabajo(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/orden_trabajo/${id}`);
   }
+  getConcatenacionIds (id: number): Observable<any>{
+    return this.http.get(`${this.apiUrl}/orden-trabajo/${id}/concatenacion`);
+  }
+  getOrdenDetalle(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/orden_trabajo/${id}`);
+  }
 }

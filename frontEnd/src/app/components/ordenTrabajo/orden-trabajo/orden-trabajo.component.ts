@@ -3,7 +3,6 @@ import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 import { OrdenTrabajo } from '../../../interfaces/orden-trabajo.interface'; // Asegúrate de que la ruta sea correcta
 import { MatDialog } from '@angular/material/dialog';
 import { OrdenGeneradaDialogComponent } from './orden-generada-dialog/orden-generada-dialog.component'; // Asegúrate de que la ruta sea correcta
-
 @Component({
   selector: 'app-orden-trabajo',
   templateUrl: './orden-trabajo.component.html',

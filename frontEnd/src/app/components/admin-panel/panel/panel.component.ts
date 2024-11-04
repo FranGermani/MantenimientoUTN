@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
-import { Panel } from '../../../interfaces/panel.interface'; // Asegúrate de que la ruta sea correcta
-
+import { Panel } from '../../../interfaces/panel.interface';
+import { ConcatenacionResponse } from '../../../interfaces/concatenacion-response';
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -9,9 +10,13 @@ import { Panel } from '../../../interfaces/panel.interface'; // Asegúrate de qu
 })
 export class PanelComponent implements OnInit {
   currentView: string = 'ordenes';
-  ordenes: Panel[] = []; // Tipado con la interfaz
+  ordenes: (Panel & { concatenacionIds?: string })[] = []; // Extender tipo Panel
 
-  constructor(private ordenTrabajoService: OrdenTrabajoService) {}
+  constructor(private ordenTrabajoService: OrdenTrabajoService,
+    private cdr: ChangeDetectorRef
+  ) {
+    
+  }
 
   ngOnInit(): void {
     if (this.currentView === 'ordenes') {
@@ -28,15 +33,29 @@ export class PanelComponent implements OnInit {
 
   obtenerOrdenes() {
     this.ordenTrabajoService.getOrdenesTrabajo().subscribe({
-      next: (data: Panel[]) => { // Tipado con la interfaz
+      next: (data: Panel[]) => {
         this.ordenes = data;
+        this.ordenes.forEach(orden => {
+          this.obtenerConcatenacionIds(orden);
+        });
       },
       error: (error) => {
         console.error('Error al obtener las órdenes de trabajo:', error);
       }
     });
   }
-
+  obtenerConcatenacionIds(orden: Panel & { concatenacionIds?: string }) {
+    this.ordenTrabajoService.getConcatenacionIds(orden.id_orden_trabajo).subscribe({
+      next: (data: ConcatenacionResponse) => {
+        orden.concatenacionIds = data.concatenacion;
+        this.cdr.detectChanges();  // Forzar actualización de la vista
+      },
+      error: (error) => {
+        console.error("Error al obtener la concatenación de IDs:", error);
+      }
+    });
+  }
+  
   verDetalle(id: number) {
     console.log('Ver detalle', id);
   }

@@ -7,4 +7,5 @@ export interface Panel {
   nombre_sector: string;
   nombre_activo: string;
   realizada: boolean;
+
 }
