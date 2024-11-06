@@ -1,0 +1,73 @@
+/* orden-detalle-dialog.component.css */
+
+.mat-dialog-container {
+    overflow: hidden !important; /* Forzar sin scroll */
+    max-width: 90vw; /* Ajusta al 90% del ancho de la pantalla */
+    width: auto !important;
+}
+
+
+
+
+.mat-dialog-content {
+    overflow-y: hidden !important;
+}
+
+.orden-generada-dialog {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .orden-generada-dialog h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #10698c;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  
+  .orden-generada-dialog  mat-dialog-content { /* Es importante seleccionar el mat-dialog-content dentro de .orden-generada-dialog */
+    font-size: 16px; 
+    color: #555555;
+  }
+  
+  .orden-generada-dialog mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .orden-generada-dialog .mat-button {
+    margin: 5px;
+    background-color: #10698c;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0px solid #10698c;
+  }
+  
+  .orden-generada-dialog .mat-button:hover {
+    background-color: #76ACBC;
+  }
+
+  .expandir-para-imprimir {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  @media (max-width: 768px) {
+    .mi-dialogo .mat-dialog-container {
+      width: 100vw !important;
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+
+  /* Estilos para expandir el contenido en modo de impresión */
+
+  

@@ -27,7 +27,8 @@ import { Err404Component } from './components/err404/err404.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { OrdenGeneradaDialogComponent } from './components/ordenTrabajo/orden-trabajo/orden-generada-dialog/orden-generada-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { BorrarOrdenDialogComponent } from './components/admin-panel/panel/borrar-orden-dialog/borrar-orden-dialog.component'; 
+import { BorrarOrdenDialogComponent } from './components/admin-panel/panel/borrar-orden-dialog/borrar-orden-dialog.component';
+import { OrdenDetalleDialogComponent } from './components/admin-panel/panel/orden-detalle-dialog/orden-detalle-dialog.component'; 
   
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { BorrarOrdenDialogComponent } from './components/admin-panel/panel/borra
     ActivosFromComponent,
     OrdenGeneradaDialogComponent,
     BorrarOrdenDialogComponent,
+    OrdenDetalleDialogComponent,
   ],
   imports: [
     BrowserModule,

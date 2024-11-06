@@ -2,7 +2,7 @@ export interface Panel {
   id_orden_trabajo: number;
   fecha_impresion: string;
   hora_impresion: string;
-  realizada: number; 
+  realizada: boolean; 
   id_usuario: number; // Agregar id_usuario
   nombre_usuario: string;
   nombre_tag: string | null; 
@@ -18,4 +18,5 @@ export interface Panel {
   codigo: string | null;
   observacion: string;
   concatenacionIds?: string;
+  
 }

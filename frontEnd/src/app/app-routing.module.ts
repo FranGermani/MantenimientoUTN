@@ -51,7 +51,7 @@ const routes: Routes = [
       { path: '', component: PanelComponent },
       { path: 'ordenTrabajo', component: OrdenTrabajoComponent },
       { path: 'activos', component: ActivosFromComponent }, 
-      { path: 'reporte', component: ReporteComponent },
+      { path: 'reporte/:id', component: ReporteComponent },
     ]
   },
 

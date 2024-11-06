@@ -46,7 +46,6 @@ export class OrdenTrabajoService {
     return this.http.get<any[]>(`${this.apiUrl}/orden_trabajo`);
   }
 
-
   deleteOrdenTrabajo(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/orden_trabajo/${id}`);
   }

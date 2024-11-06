@@ -2,17 +2,15 @@
   <div class="reporte-container">
     <h1>Orden de Trabajo de Mantenimiento Planificado</h1>
     <p>
-      <strong>Orden de Trabajo Nº:</strong> 20241026_20_PRTA - 001003009004001 -
-      008
+      <strong>Orden de Trabajo Nº:</strong> {{ orden.concatenacionIds }}
     </p>
     <p>
-      <strong>Código Único de Identificación:</strong> PRTA - 001003009004001 -
-      008
+      <strong>Código Único de Identificación:</strong> {{ orden.concatenacionIds }}
     </p>
-    <p><strong>Edificio:</strong> Laprida 651 - UTN FRVT</p>
-    <p><strong>Piso:</strong> 2do. Piso</p>
-    <p><strong>Sector:</strong> Baños Mixtos</p>
-    <p><strong>Tipo de Activo:</strong> Puerta</p>
+    <p><strong>Edificio:</strong> {{ orden.nombre_edificio }}</p>
+    <p><strong>Piso:</strong> {{ orden.nombre_piso }}</p>
+    <p><strong>Sector:</strong> {{ orden.nombre_sector }}</p>
+    <p><strong>Tipo de Activo:</strong> {{ orden.nombre_activo }}</p>
     <p>
       <strong>Tipo de Mantenimiento:</strong> Mantenimiento Preventivo
       Planificado

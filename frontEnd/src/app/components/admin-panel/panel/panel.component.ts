@@ -5,6 +5,7 @@ import { ConcatenacionResponse } from '../../../interfaces/concatenacion-respons
 import { ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'; // Importa MatDialog
 import { BorrarOrdenDialogComponent } from '../panel/borrar-orden-dialog/borrar-orden-dialog.component'; // Importa tu componente de diálogo
+import { OrdenDetalleDialogComponent } from '../panel/orden-detalle-dialog/orden-detalle-dialog.component';
 
 @Component({
   selector: 'app-panel',
@@ -75,9 +76,16 @@ export class PanelComponent implements OnInit {
     });
   }
 
-  verDetalle(id: number) {
-    console.log('Ver detalle', id);
+  verDetalle(orden: Panel) {
+    // Abre el pop-up con los datos de la orden
+    this.dialog.open(OrdenDetalleDialogComponent, {
+      width: '90vw',
+      height: '65vh', // Ajusta el ancho según tus necesidades
+      data: orden // Pasa la orden al componente del diálogo
+    });
   }
+
+
 
   editarOrden(id: number) {
     console.log('Editar orden', id);
