@@ -17,4 +17,5 @@ export interface Panel {
   id_sector: number;   // Agregar id_sector
   codigo: string | null;
   observacion: string;
+  concatenacionIds?: string;
 }

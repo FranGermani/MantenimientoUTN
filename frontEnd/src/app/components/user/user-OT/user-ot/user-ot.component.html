@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let orden of ordenes">
-          <td>ILUM - 001001045001001 - 296</td>
+          <td>{{ orden.concatenacionIds }}</td>
           <td>{{ orden.fecha_impresion | date : "dd/MM/yyyy" }}</td>
           <td>{{ orden.nombre_usuario }}</td>
           <td>{{ orden.nombre_edificio }}</td>
