@@ -21,6 +21,8 @@ export class OrdenTrabajoComponent implements OnInit {
   sectorSeleccionado: string = '';
   activos: any[] = [];
   activoSeleccionado: string = '';
+  tiposOrden: any[] = [];
+  tipoOrdenSeleccionado: number = 0;
 
   constructor(
     private ordenTrabajoService: OrdenTrabajoService,
@@ -32,6 +34,7 @@ export class OrdenTrabajoComponent implements OnInit {
     this.cargarEdificios();
     this.cargarSectores();
     this.cargarActivos();
+    this.cargarTiposOrden();
   }
 
   cargarOperarios() {
@@ -53,6 +56,18 @@ export class OrdenTrabajoComponent implements OnInit {
       });
     }
   }
+
+  cargarTiposOrden(): void {
+    this.ordenTrabajoService.getTiposOrden().subscribe(
+      (data: any[]) => {
+        this.tiposOrden = data; // Asignamos los tipos de orden a la propiedad tiposOrden
+      },
+      (error) => {
+        console.error('Error al obtener los tipos de orden:', error);
+      }
+    );
+  }
+
 
   cargarSectores() {
     this.ordenTrabajoService.getSectores().subscribe(data => {
@@ -76,12 +91,13 @@ export class OrdenTrabajoComponent implements OnInit {
       id_piso: this.pisoSeleccionado,
       id_sector: this.sectorSeleccionado,
       id_activo: this.activoSeleccionado,
+      id_tipo_orden: this.tipoOrdenSeleccionado,
       observacion: this.observacion
     };
   
     // Validar campos obligatorios
     if (!this.fechaImpresion || !this.operarioSeleccionado || !this.edificioSeleccionado || 
-        !this.pisoSeleccionado || !this.sectorSeleccionado || !this.activoSeleccionado) {
+        !this.pisoSeleccionado || !this.sectorSeleccionado || !this.activoSeleccionado || !this.tipoOrdenSeleccionado) {
       console.error('Error: Todos los campos, excepto "Observación", son obligatorios.');
       return; // No generar la orden si falta algún campo
     }

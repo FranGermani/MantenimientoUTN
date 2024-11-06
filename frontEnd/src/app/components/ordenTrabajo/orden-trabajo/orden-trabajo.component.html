@@ -40,6 +40,13 @@
         <option *ngFor="let activo of activos" [value]="activo.id_activo">{{ activo.nombre }}</option>
       </select>
 
+      <label for="tipoOrden">Tipo de Orden</label>
+      <select id="tipoOrden" [(ngModel)]="tipoOrdenSeleccionado" name="tipoOrden" required>
+        <option *ngFor="let tipo of tiposOrden" [value]="tipo.id_tipo_orden">
+          {{ tipo.descripcion }}
+        </option>
+      </select>
+
       <label for="observacion">Observación</label>
       <textarea
         id="observacion"

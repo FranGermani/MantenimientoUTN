@@ -16,14 +16,16 @@ import edificioRoutes from './routes/edificios.routes.js';
 import ordenTrabajoRoutes from'./routes/ordenTrabajo.routes.js';
 import edificioPisosRoutes from './routes/edificiopisos.routes.js';
 import activoRoutes from './routes/activo.routes.js';
+import tipoOrdenRoutes from './routes/tipoOrden.routes.js';  // Asegúrate de que la ruta sea correcta
+
 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: 'http://localhost:4200', //origin:'http:localhost:/d+$/,
-    credentials: true
+        origin: 'http://localhost:4200', //origin:'http:localhost:/d+$/,
+        credentials: true
   }));              
 app.use(express.json());       
 
@@ -38,6 +40,7 @@ app.use('/api', loginRoutes);
 app.use('/api', edificioRoutes);
 app.use('/api', ordenTrabajoRoutes);
 app.use('/api', edificioPisosRoutes);
+app.use('/api', tipoOrdenRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

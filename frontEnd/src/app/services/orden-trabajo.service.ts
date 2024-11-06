@@ -42,6 +42,10 @@ export class OrdenTrabajoService {
     return this.http.get(`${this.apiUrl}/activos/${id_activo}`);
   }
 
+  getTiposOrden(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/tiposOrden`);  // Asegúrate de que 'this.apiUrl' sea 'http://localhost:3000/api'
+  }
+  
   getOrdenesTrabajo(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/orden_trabajo`);
   }

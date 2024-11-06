@@ -46,33 +46,37 @@ export const getDetallesOrdenTrabajo = async (req, res) => {
 
   const query = `
     SELECT 
-            ot.id_orden_trabajo, 
-            ot.fecha_impresion, 
-            ot.hora_impresion, 
-            ot.realizada, 
-            ot.id_usuario,
-            u.nombre AS nombre_usuario,  -- Obtener el nombre del usuario
-            u.id_usuario AS id_usuario,   -- Incluir el ID del usuario
-            t.nombre AS nombre_tag,       -- Obtener el nombre del tag
-            t.id_tag AS id_tag,           -- Incluir el ID del tag
-            a.nombre AS nombre_activo,    -- Obtener el nombre del activo
-            a.id_activo AS id_activo,     -- Incluir el ID del activo
-            e.nombre AS nombre_edificio, 
-            e.id_edificio AS id_edificio,  -- Incluir el ID del edificio
-            p.nombre AS nombre_piso, 
-            p.id_piso AS id_piso,         -- Incluir el ID del piso
-            s.nombre AS nombre_sector, 
-            s.id_sector AS id_sector,      -- Incluir el ID del sector
-            ot.codigo, 
-            ot.observacion
-        FROM orden_trabajo ot
-        LEFT JOIN edificio e ON ot.id_edificio = e.id_edificio
-        LEFT JOIN piso_nivel p ON ot.id_piso = p.id_piso
-        LEFT JOIN sector s ON ot.id_sector = s.id_sector
-        LEFT JOIN activo a ON ot.id_activo = a.id_activo
-        LEFT JOIN usuario u ON ot.id_usuario = u.id_usuario
-        LEFT JOIN tag t ON ot.id_tag = t.id_tag
-        WHERE ot.id_orden_trabajo = ?;
+    ot.id_orden_trabajo, 
+    ot.fecha_impresion, 
+    ot.hora_impresion, 
+    ot.realizada, 
+    ot.id_usuario,
+    u.nombre AS nombre_usuario,  -- Obtener el nombre del usuario
+    u.id_usuario AS id_usuario,   -- Incluir el ID del usuario
+    t.nombre AS nombre_tag,       -- Obtener el nombre del tag
+    t.id_tag AS id_tag,           -- Incluir el ID del tag
+    a.nombre AS nombre_activo,    -- Obtener el nombre del activo
+    a.id_activo AS id_activo,     -- Incluir el ID del activo
+    e.nombre AS nombre_edificio, 
+    e.id_edificio AS id_edificio,  -- Incluir el ID del edificio
+    p.nombre AS nombre_piso, 
+    p.id_piso AS id_piso,         -- Incluir el ID del piso
+    s.nombre AS nombre_sector, 
+    s.id_sector AS id_sector,      -- Incluir el ID del sector
+    ot.codigo, 
+    ot.observacion,
+    ot.id_tipo_orden,             -- Incluir el ID del tipo de orden
+    tipo_orden.descripcion AS descripcion_tipo_orden  -- Obtener la descripción del tipo de orden
+    FROM orden_trabajo ot
+    LEFT JOIN edificio e ON ot.id_edificio = e.id_edificio
+    LEFT JOIN piso_nivel p ON ot.id_piso = p.id_piso
+    LEFT JOIN sector s ON ot.id_sector = s.id_sector
+    LEFT JOIN activo a ON ot.id_activo = a.id_activo
+    LEFT JOIN usuario u ON ot.id_usuario = u.id_usuario
+    LEFT JOIN tag t ON ot.id_tag = t.id_tag
+    LEFT JOIN tipo_orden tipo_orden ON ot.id_tipo_orden = tipo_orden.id_tipo_orden
+    WHERE ot.id_orden_trabajo = ?;
+
 `;
 
   try {
@@ -103,6 +107,7 @@ export const nuevaODT = async (req, res) => {
     id_tag,
     id_activo,
     codigo,
+    id_tipo_orden,
     observacion,
   } = req.body;
 
@@ -117,6 +122,7 @@ export const nuevaODT = async (req, res) => {
     id_tag,
     id_activo,
     codigo,
+    id_tipo_orden,
     observacion,
   });
 
@@ -140,10 +146,11 @@ export const nuevaODT = async (req, res) => {
             id_edificio, 
             id_tag,
             id_activo,
-            codigo, 
+            codigo,
+            id_tipo_orden, 
             observacion
         ) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     `;
 
   try {
@@ -158,6 +165,7 @@ export const nuevaODT = async (req, res) => {
       id_tag,
       id_activo,
       codigo,
+      id_tipo_orden,
       observacion,
     ]);
     res
@@ -246,3 +254,15 @@ export const getConcatenacionIds = async (req, res) => {
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };
+
+export const getTiposOrden = async (req, res) => {
+  try {
+    const query = `SELECT * FROM tipo_orden`; // Asegúrate de que la tabla y los campos sean correctos
+    const [rows] = await pool.query(query);
+    res.json(rows);  // Devuelve los datos en formato JSON
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+};
+

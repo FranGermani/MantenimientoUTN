@@ -7,5 +7,6 @@ export interface OrdenTrabajo {
     id_piso: string;
     id_sector: string;
     id_activo: string;
+    id_tipo_orden: number;
     observacion: string;
   }
