@@ -12,6 +12,7 @@
           <th>Sector</th>
           <th>Activo</th>
           <th>Realizado</th>
+          <th>Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,15 @@
           <td>{{ orden.nombre_sector }}</td>
           <td>{{ orden.nombre_activo }}</td>
           <td>{{ orden.realizada ? "Sí" : "No" }}</td>
+          <td>
+            <button 
+              (click)="marcarComoRealizado(orden)" 
+              [class.completado]="orden.realizada"
+              [class.pendiente]="!orden.realizada"
+            >
+              {{ orden.realizada ? "Desmarcar" : "Marcar como Realizado" }}
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
