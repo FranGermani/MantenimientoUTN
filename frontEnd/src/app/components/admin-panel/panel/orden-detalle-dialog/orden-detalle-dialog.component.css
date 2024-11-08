@@ -1,73 +1,85 @@
-/* orden-detalle-dialog.component.css */
-
-.mat-dialog-container {
-    overflow: hidden !important; /* Forzar sin scroll */
-    max-width: 90vw; /* Ajusta al 90% del ancho de la pantalla */
-    width: auto !important;
-}
-
-
-
-
-.mat-dialog-content {
-    overflow-y: hidden !important;
-}
-
 .orden-generada-dialog {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .orden-generada-dialog h1 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #10698c;
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  
-  .orden-generada-dialog  mat-dialog-content { /* Es importante seleccionar el mat-dialog-content dentro de .orden-generada-dialog */
-    font-size: 16px; 
-    color: #555555;
-  }
-  
-  .orden-generada-dialog mat-dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-  }
-  
-  .orden-generada-dialog .mat-button {
-    margin: 5px;
-    background-color: #10698c;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    border: 0px solid #10698c;
-  }
-  
-  .orden-generada-dialog .mat-button:hover {
-    background-color: #76ACBC;
+  background-color: #ffffff;
+  border: 1px solid black;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.tabla-principal,
+.tabla-instrucciones,
+.tabla-fechas {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.tabla-principal th,
+.tabla-instrucciones th,
+.tabla-fechas th {
+  border: 1px solid black;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+
+.tabla-principal td,
+.tabla-instrucciones td,
+.tabla-fechas td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.tabla-principal .titulo {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #d9d9d9;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.mat-button {
+  background-color: #10698c;
+  color: white;
+  margin: 0 5px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.mat-button:hover {
+  background-color: #76acbc;
+}
+@media print {
+  body * {
+    visibility: hidden;
   }
 
-  .expandir-para-imprimir {
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
+  .orden-generada-dialog.imprimible,
+  .orden-generada-dialog.imprimible * {
+    visibility: visible;
   }
 
-  @media (max-width: 768px) {
-    .mi-dialogo .mat-dialog-container {
-      width: 100vw !important;
-      margin: 0;
-      border-radius: 0;
-    }
+  .orden-generada-dialog.imprimible {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow: visible;
   }
 
-  /* Estilos para expandir el contenido en modo de impresión */
+  .no-imprimir {
+    display: none;
+  }
+}
+
 
   
