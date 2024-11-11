@@ -1,6 +1,6 @@
 .header-container {
   background-color: #0d5478;
-  padding: 20px;
+  padding: 20px 0;
   color: white;
   font-family: 'Roboto', Helvetica, Arial, Lucida, sans-serif;
   font-size: 20px;
@@ -11,12 +11,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%; 
+  margin: 0; 
+  padding: 0 20px; 
+  box-sizing: border-box; 
 }
 
 .header-logo {
-  max-width: 150px;
+  max-width: 250px;
+  margin: 0; 
+  padding: 0;
+  object-fit: contain; 
 }
 
 .user-name {
@@ -24,7 +29,6 @@
   font-size: 16px;
   color: white;
 }
-/* Contenedor Principal de Usuario */
 .user-info {
   display: flex;
   align-items: center;
@@ -35,31 +39,29 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagen de Perfil del Usuario */
 .user-avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Hace que la imagen sea circular */
-  object-fit: cover; /* Ajusta la imagen para que se vea bien en el círculo */
+  border-radius: 50%; 
+  object-fit: cover; 
   margin-right: 10px;
   border: 2px solid #fff;
 }
 
-/* Contenedor de Detalles del Usuario */
+
 .user-details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* Nombre del Usuario */
+
 .user-name {
   font-weight: bold;
   font-size: 16px;
   color: #fff;
 }
 
-/* Rol del Usuario (opcional) */
 .user-role {
   font-size: 12px;
   color: #d1e8f1;

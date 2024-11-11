@@ -66,30 +66,38 @@ tbody tr:hover {
 }
 
 td button {
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #007bff;
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 8px 12px; 
+    font-size: 13px; 
+    font-weight: bold;
     border: none;
+    background-color: #11698c; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
+
 button.completado {
-    background-color: #4caf50; 
+    background-color: #11698c; 
 }
 
 button.pendiente {
-    background-color: #f44336; 
-    color: white;
+    background-color: #11698c;
 }
 
-button:hover {
-    opacity: 0.8;
+td button:hover {
+    background-color: #76acbc; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+td button:active {
+    transform: scale(0.95);
+}
 .button img {
     max-width: 30px;
     transition: all 0.5s ease-in-out;

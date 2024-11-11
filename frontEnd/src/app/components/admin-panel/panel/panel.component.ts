@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
 import { Panel } from '../../../interfaces/panel.interface';
-import { ConcatenacionResponse } from '../../../interfaces/concatenacion-response';
-import { ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog'; // Importa MatDialog
-import { BorrarOrdenDialogComponent } from '../panel/borrar-orden-dialog/borrar-orden-dialog.component'; // Importa tu componente de diálogo
+import { MatDialog } from '@angular/material/dialog';
+import { BorrarOrdenDialogComponent } from '../panel/borrar-orden-dialog/borrar-orden-dialog.component';
 import { OrdenDetalleDialogComponent } from '../panel/orden-detalle-dialog/orden-detalle-dialog.component';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-panel',
@@ -14,58 +14,64 @@ import { OrdenDetalleDialogComponent } from '../panel/orden-detalle-dialog/orden
 })
 export class PanelComponent implements OnInit {
   currentView: string = 'ordenes';
-  ordenes: (Panel & { concatenacionIds?: string })[] = []; // Extender tipo Panel
+  ordenes: (Panel & { concatenacionIds?: string })[] = [];
+  ordenesFiltradas: (Panel & { concatenacionIds?: string })[] = [];
+  selectedColumn: string = 'nombre_edificio';
+  filterValue: string = '';
+  opciones: string[] = [];
 
   constructor(
     private ordenTrabajoService: OrdenTrabajoService,
-    private cdr: ChangeDetectorRef,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
-    if (this.currentView === 'ordenes') {
-      this.obtenerOrdenes();
-    }
-  }
-
-  setView(view: string) {
-    this.currentView = view;
-    if (view === 'ordenes') {
-      this.obtenerOrdenes();
-    }
+    this.obtenerOrdenes();
   }
 
   obtenerOrdenes() {
     this.ordenTrabajoService.getOrdenesTrabajo().subscribe({
-      next: (data: Panel[]) => {
+      next: (data) => {
         this.ordenes = data;
         this.ordenes.forEach((orden) => {
           this.obtenerConcatenacionIds(orden);
         });
+        this.ordenesFiltradas = [...this.ordenes];
       },
-      error: (error) => {
-        console.error('Error al obtener las órdenes de trabajo:', error);
-      },
+      error: (err) => console.error(err),
     });
   }
 
+
+
+
+  actualizarOpciones() {
+    const columna = this.selectedColumn;
+    const valoresUnicos = new Set(
+      this.ordenes.map((orden) => orden[columna]).filter((valor) => valor)
+    );
+    this.opciones = Array.from(valoresUnicos);
+    this.filterValue = '';
+  }
+
   obtenerConcatenacionIds(orden: Panel & { concatenacionIds?: string }) {
-    // 1. Obtener el tag_diminutivo del activo
     this.ordenTrabajoService.getActivo(orden.id_activo).subscribe({
       next: (activo: any) => {
-        // Ajusta el tipo de dato según la respuesta de tu servicio
-        const tagDiminutivo = activo.tag_diminutivo;
+        const tagDiminutivo = (activo.tag_diminutivo || 'DEFAULT').trim();
 
-        // 2. Formatear cada ID con tres ceros a la izquierda
         const idsConcatenados = [
-          tagDiminutivo, // Agregar el tag_diminutivo al principio
+          tagDiminutivo,
           orden.id_orden_trabajo.toString().padStart(3, '0'),
           orden.id_usuario.toString().padStart(3, '0'),
           orden.id_edificio.toString().padStart(3, '0'),
           orden.id_piso.toString().padStart(3, '0'),
           orden.id_sector.toString().padStart(3, '0'),
           orden.id_activo.toString().padStart(3, '0'),
-        ].join(''); // Concatenar los IDs
+        ]
+          .filter((parte) => parte)
+          .join('-')
+          .replace(/\s*-\s*/g, '-');
 
         orden.concatenacionIds = idsConcatenados;
         this.cdr.detectChanges();
@@ -76,36 +82,60 @@ export class PanelComponent implements OnInit {
     });
   }
 
-  verDetalle(orden: Panel) {
-    // Abre el pop-up con los datos de la orden
-    this.dialog.open(OrdenDetalleDialogComponent, {
-      width: '90vw',
-      height: '65vh', // Ajusta el ancho según tus necesidades
-      data: orden // Pasa la orden al componente del diálogo
-    });
+  filtrarOrdenes() {
+    const columna = this.selectedColumn;
+    const valor = this.filterValue;
+
+    this.ordenesFiltradas = this.ordenes
+      .filter((orden) => orden[columna] === valor)
+      .map((orden) => {
+        this.obtenerConcatenacionIds(orden);
+        return orden;
+      });
   }
 
 
+  calcularCodigoUnico(orden: Panel): string {
+    const tagDiminutivo = orden.nombre_tag || 'TAG';
+    return [
+      tagDiminutivo,
+      orden.id_orden_trabajo.toString().padStart(3, '0'),
+      orden.id_usuario.toString().padStart(3, '0'),
+      orden.id_edificio.toString().padStart(3, '0'),
+      orden.id_piso.toString().padStart(3, '0'),
+      orden.id_sector.toString().padStart(3, '0'),
+      orden.id_activo.toString().padStart(3, '0'),
+    ].join('-');
+  }
+
+
+  verDetalle(orden: Panel) {
+    this.dialog.open(OrdenDetalleDialogComponent, {
+      width: '90vw',
+      height: '65vh',
+      data: orden,
+    });
+  }
 
   editarOrden(id: number) {
     console.log('Editar orden', id);
   }
 
   eliminarOrden(id: number) {
-    // Abre el diálogo de confirmación
     const dialogRef = this.dialog.open(BorrarOrdenDialogComponent, {
       width: '250px',
-      data: { id }, // Pasa el ID de la orden al diálogo
+      data: { id },
     });
 
-    // Espera la respuesta del diálogo
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Si el usuario confirma la eliminación
         this.ordenTrabajoService.deleteOrdenTrabajo(result).subscribe({
           next: () => {
             console.log('Orden eliminada', id);
             this.ordenes = this.ordenes.filter(
+              (orden) => orden.id_orden_trabajo !== id
+            );
+            this.ordenesFiltradas = this.ordenesFiltradas.filter(
               (orden) => orden.id_orden_trabajo !== id
             );
           },
@@ -115,5 +145,11 @@ export class PanelComponent implements OnInit {
         });
       }
     });
+  }
+  reiniciarFiltro() {
+    this.ordenesFiltradas = [...this.ordenes];
+    this.filterValue = '';
+    this.selectedColumn = 'nombre_edificio';
+    this.actualizarOpciones();
   }
 }

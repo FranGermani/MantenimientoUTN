@@ -1,10 +1,29 @@
 <div class="container">
   <main class="main-content">
-    <h1 *ngIf="currentView === 'ordenes'">Ordenes de trabajo</h1>
+    <h1 *ngIf="currentView === 'ordenes'">Órdenes de trabajo</h1>
+
+    <div class="filter-container">
+      <label for="filterColumn">Buscar por:</label>
+      <select id="filterColumn" [(ngModel)]="selectedColumn" (change)="actualizarOpciones()">
+        <option value="nombre_edificio">Edificio</option>
+        <option value="nombre_usuario">Operario</option>
+        <option value="nombre_piso">Piso</option>
+        <option value="nombre_sector">Sector</option>
+        <option value="nombre_activo">Activo</option>
+      </select>
+    
+      <select id="filterValue" [(ngModel)]="filterValue" (change)="filtrarOrdenes()">
+        <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
+      </select>
+    
+      <button (click)="reiniciarFiltro()" class="reset-button" [disabled]="!filterValue">Reiniciar Filtro</button>
+    </div>
+    
+
     <table *ngIf="currentView === 'ordenes'">
       <thead>
         <tr>
-          <th>Codigo Unico</th>
+          <th>Código Único</th>
           <th>Fecha de Impresión</th>
           <th>Operario</th>
           <th>Edificio</th>
@@ -16,8 +35,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let orden of ordenes">
-          <td class="id-info">{{ orden.concatenacionIds }}</td> <!-- Muestra la concatenación aquí -->
+        <tr *ngFor="let orden of ordenesFiltradas">
+          <td>{{ orden.concatenacionIds }}</td>
           <td>{{ orden.fecha_impresion | date : "dd/MM/yyyy" }}</td>
           <td>{{ orden.nombre_usuario }}</td>
           <td>{{ orden.nombre_edificio }}</td>
@@ -29,13 +48,17 @@
             <button (click)="verDetalle(orden)">
               <img src="../../assets/image/ver.png" alt="Ver" />
             </button>
-            <button (click)="editarOrden(orden.id_orden_trabajo)">
+            <!-- <button (click)="editarOrden(orden.id_orden_trabajo)">
               <img src="../../assets/image/editar.png" alt="Editar" />
-            </button>
+            </button> -->
             <button (click)="eliminarOrden(orden.id_orden_trabajo)">
               <img src="../../assets/image/borrar.png" alt="Borrar" />
             </button>
           </td>
+
+          <div *ngIf="ordenesFiltradas.length === 0">
+            <p>No se encontraron resultados para los filtros aplicados.</p>
+          </div>
         </tr>
       </tbody>
     </table>

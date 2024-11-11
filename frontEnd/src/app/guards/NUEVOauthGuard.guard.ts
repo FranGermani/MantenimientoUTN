@@ -12,15 +12,13 @@ export class AuthGuard implements CanActivate {
     const isAuthenticated = this.usersService.isAuthenticated();
     const userRole = this.usersService.getUserRole();
 
-    // Si el usuario NO está autenticado, redirige a /login
     if (!isAuthenticated) { 
       if (state.url !== '/login') {
         this.router.navigate(['/login']);
       }
-      return false; // Bloquea el acceso
+      return false; 
     }
 
-    // Si el usuario está autenticado, verifica el rol y redirige si no coincide con la ruta
     if (userRole === 'admin' && state.url.startsWith('/user')) {
       this.router.navigate(['/adminTutorial']);
       return false;
@@ -29,6 +27,6 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-    return true; // Permite el acceso si el rol coincide con la ruta o no hay redirección
+    return true; 
   }
 }

@@ -44,13 +44,12 @@ export const login = async (req, res) => {
             return res.status(500).json({ error: 'Error en la configuración del servidor' });
         }
 
-        // Asigna el rol basado en el email como solución temporal
         const role = email.toLowerCase() === 'admin@gmail.com' ? 'admin' : 'user';
 
         const token = jwt.sign({ id: user.id_usuario, email: user.email, nombre: user.nombre, role }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.cookie('auth-token', token, { httpOnly: true, sameSite: 'lax' });
-        res.json({ message: 'Inicio de sesión exitoso', token, nombre: user.nombre, role }); // Incluye el rol en la respuesta JSON
+        res.json({ message: 'Inicio de sesión exitoso', token, nombre: user.nombre, role }); 
     } catch (error) {
         console.error('Error en el login:', error); 
         res.status(500).json({ error: 'Error al iniciar sesión', details: error.message });
