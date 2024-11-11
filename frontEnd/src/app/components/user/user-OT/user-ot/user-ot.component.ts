@@ -9,40 +9,39 @@ import { Panel } from '../../../../interfaces/panel.interface';
   styleUrls: ['./user-ot.component.css']
 })
 export class UserOtComponent implements OnInit {
-  ordenes: Panel[] = []; // Lista de órdenes de trabajo
+  ordenes: Panel[] = [];
 
   constructor(
     private ordenTrabajoService: OrdenTrabajoService,
     private usersService: UsersService,
-    private cdr: ChangeDetectorRef // Detecta cambios en el DOM
-  ) {}
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
-    this.obtenerOrdenes(); // Carga las órdenes al inicializar el componente
+    this.obtenerOrdenes();
   }
 
   obtenerOrdenes(): void {
-    // Obtiene el usuario actual y filtra las órdenes asociadas a él
+
     this.usersService.getCurrentUser().subscribe((nombreUsuario: string | null) => {
       if (nombreUsuario) {
         this.ordenTrabajoService.getOrdenesTrabajo().subscribe((data: Panel[]) => {
           this.ordenes = data
             .filter((orden: Panel) => orden.nombre_usuario === nombreUsuario)
             .map((orden: Panel) => {
-              this.obtenerConcatenacionIds(orden); // Genera el ID concatenado
-              orden.realizada = false; // Inicializa la propiedad "realizada"
+              this.obtenerConcatenacionIds(orden);
               return orden;
             });
         });
       } else {
         console.error('No se pudo obtener el nombre de usuario.');
-        this.ordenes = []; // Limpia la lista si no hay usuario
+        this.ordenes = [];
       }
     });
   }
 
+
   obtenerConcatenacionIds(orden: Panel): void {
-    // Genera el ID concatenado basado en los atributos de la orden
     this.ordenTrabajoService.getActivo(orden.id_activo).subscribe({
       next: (activo: any) => {
         const tagDiminutivo = activo.tag_diminutivo;
@@ -56,7 +55,7 @@ export class UserOtComponent implements OnInit {
           orden.id_activo.toString().padStart(3, '0'),
         ].join('');
         orden.concatenacionIds = idsConcatenados;
-        this.cdr.detectChanges(); // Actualiza la vista
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Error al obtener el activo:', error);
@@ -65,12 +64,21 @@ export class UserOtComponent implements OnInit {
   }
 
   marcarComoRealizado(orden: Panel): void {
-    // Alterna el estado de "realizada"
-    orden.realizada = !orden.realizada;
-    console.log(
-      `Orden ${orden.concatenacionIds} marcada como ${
-        orden.realizada ? 'realizada' : 'pendiente'
-      }`
+    const nuevoEstado = !orden.realizada;
+
+    this.ordenTrabajoService.updateRealizada(orden.id_orden_trabajo, nuevoEstado ? 1 : 0).subscribe(
+      (response) => {
+        orden.realizada = nuevoEstado;
+        console.log(
+          `Orden ${orden.concatenacionIds} marcada como ${orden.realizada ? 'realizada' : 'pendiente'
+          }`
+        );
+
+      },
+      (error) => {
+        console.error('Error al actualizar la orden de trabajo:', error);
+
+      }
     );
   }
-}
+}  

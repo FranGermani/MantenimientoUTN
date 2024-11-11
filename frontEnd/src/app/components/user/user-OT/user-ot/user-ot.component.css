@@ -1,4 +1,4 @@
-/* Sidebar */
+
 .sidebar {
     background-color: #ffffffa8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -10,17 +10,15 @@
     position: relative;
 }
 
-/* Contenedor principal para órdenes de trabajo */
 .main-content {
     padding: 20px;
     flex-grow: 1;
     width: calc(100% - 200px);
-    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+    max-width: 1200px; 
     margin: 20px auto;
     border-radius: 10px;
 }
 
-/* Título principal */
 h1 {
     font-size: 28px;
     font-weight: bold;
@@ -29,7 +27,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Estilos de la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -40,7 +37,6 @@ table {
     margin-top: 20px;
 }
 
-/* Estilos para los encabezados de la tabla */
 thead th {
     background-color: #11698c;
     color: white;
@@ -48,7 +44,6 @@ thead th {
     text-align: left;
 }
 
-/* Celdas de la tabla */
 tbody td {
     padding: 10px;
     border-bottom: 1px solid #ccc;
@@ -58,13 +53,12 @@ tbody tr:nth-child(even) {
     background-color: rgba(200, 200, 200, 0.1);
 }
 
-/* Hover en las filas de la tabla */
+
 tbody tr:hover {
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Botones de acción */
 .botones {
     display: flex;
     gap: 5px;
@@ -83,15 +77,12 @@ td button {
     font-size: 14px;
     border: none;
 }
-
-/* Estilos para el botón de "Realizado" */
 button.completado {
-    background-color: #4caf50; /* Verde para realizado */
-    color: white;
+    background-color: #4caf50; 
 }
 
 button.pendiente {
-    background-color: #f44336; /* Rojo para pendiente */
+    background-color: #f44336; 
     color: white;
 }
 
@@ -99,7 +90,6 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Iconos de botones */
 .button img {
     max-width: 30px;
     transition: all 0.5s ease-in-out;
@@ -109,7 +99,6 @@ img:hover {
     filter: saturate(200%);
 }
 
-/* Estilos de hover para botones del menú */
 .menu button {
     background-color: #11698c;
     color: white;
@@ -127,7 +116,6 @@ img:hover {
     color: rgb(0, 0, 0);
 }
 
-/* Contenedor para el botón de impresión */
 .boton-container {
     margin-top: 20px;
     display: flex;
@@ -144,7 +132,6 @@ img:hover {
     color: white;
 }
 
-/* Estilos de impresión */
 @media print {
     body * {
         visibility: hidden;

@@ -184,22 +184,17 @@ export const deleteOrdenTrabajo = async (req, res) => {
   const { id } = req.params;
 
   try {
-    console.log(`Intentando eliminar la orden con ID: ${id}`); // Log antes de la consulta
-
-    // Ejecuta la consulta para eliminar la orden de trabajo
+    console.log(`Intentando eliminar la orden con ID: ${id}`); 
     const [result] = await pool.query(
       "DELETE FROM orden_trabajo WHERE id_orden_trabajo = ?",
       [id]
     );
 
-    console.log("Resultado de la consulta:", result); // Log después de la consulta
-
-    // Si no se encuentra ninguna fila afectada, envía un error 404
+    console.log("Resultado de la consulta:", result); 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: "Orden de trabajo no encontrada" });
     }
 
-    // Envío de respuesta exitosa
     res.status(200).json({ message: "Orden de trabajo eliminada exitosamente" });
   } catch (err) {
     console.error("Error al eliminar la orden de trabajo:", err);
@@ -236,7 +231,6 @@ export const getConcatenacionIds = async (req, res) => {
       return res.status(404).json({ message: "Orden de trabajo no encontrada" });
     }
 
-    // Obtener los valores de los IDs y mostrar cada uno en la consola
     const { id_usuario, id_edificio, piso_nivel, id_sector, id_activo } = rows[0];
     console.log("ID Usuario:", id_usuario);
     console.log("ID Edificio:", id_edificio);
@@ -244,7 +238,6 @@ export const getConcatenacionIds = async (req, res) => {
     console.log("ID Sector:", id_sector);
     console.log("ID Activo:", id_activo);
 
-    // Concatenar los IDs en el formato deseado
     const concatenacion = `${id_usuario}-${id_edificio}-${piso_nivel}-${id_sector}-${id_activo}`;
     console.log("Concatenación de IDs:", concatenacion);
 
@@ -257,12 +250,42 @@ export const getConcatenacionIds = async (req, res) => {
 
 export const getTiposOrden = async (req, res) => {
   try {
-    const query = `SELECT * FROM tipo_orden`; // Asegúrate de que la tabla y los campos sean correctos
+    const query = `SELECT * FROM tipo_orden`; 
     const [rows] = await pool.query(query);
-    res.json(rows);  // Devuelve los datos en formato JSON
+    res.json(rows);  
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };
 
+export const actualizarRealizada = async (req, res) => {
+  const { id } = req.params;         
+  let { realizada } = req.body;      
+
+  // Agregar logs para depuración
+  console.log(`ID recibido: ${id}`);
+  console.log(`Valor de 'realizada' recibido: ${realizada}`);
+
+  if (typeof realizada === 'undefined') {
+    return res.status(400).json({ message: 'El campo realizada es obligatorio' });
+  }
+
+  realizada = realizada ? 1 : 0;
+
+  try {
+    const query = 'UPDATE orden_trabajo SET realizada = ? WHERE id_orden_trabajo = ?';
+    const [result] = await pool.query(query, [realizada, id]);
+
+    console.log(`Filas afectadas: ${result.affectedRows}`);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Orden de trabajo no encontrada' });
+    }
+
+    res.status(200).json({ message: 'Orden de trabajo actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar la columna realizada:', error);
+    res.status(500).json({ message: 'Error interno del servidor' });
+  }
+};
