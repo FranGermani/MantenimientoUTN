@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '@services/usuario.service';
-import { User } from '../../../interfaces/body.interface'; // Asegúrate de que la ruta sea correcta
+import { User } from '../../../interfaces/body.interface';
 
 @Component({
   selector: 'app-body',
@@ -22,13 +22,11 @@ export class BodyComponent {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  // Envío del formulario de inicio de sesión
   onSubmit() {
     this.emailError = '';
     this.passwordError = '';
     this.errorMessage = '';
 
-    // Validaciones
     this.validateEmailField();
     this.validatePasswordField();
 
@@ -36,7 +34,7 @@ export class BodyComponent {
       return;
     }
 
-    const user: User = { // Tipado con la interfaz User
+    const user: User = {
       email: this.email,
       password: this.password,
     };
@@ -46,7 +44,6 @@ export class BodyComponent {
         if (response.token) {
           const userRole = this.usersService.getUserRole();
 
-          // Redirige al panel de administrador o usuario según el rol
           if (userRole === 'admin') {
             this.router.navigate(['/adminTutorial']);
           } else if (userRole === 'user') {

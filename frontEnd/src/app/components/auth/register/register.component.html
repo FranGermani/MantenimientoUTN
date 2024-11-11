@@ -4,7 +4,6 @@
     <h2>Registrarse</h2>
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
       
-      <!-- Campo Nombre -->
       <div class="input-group">
         <label for="nombre">Nombre</label>
         <input
@@ -18,7 +17,6 @@
         <small [class.valid]="isNameValid" class="requirement">El nombre es obligatorio</small>
       </div>
 
-      <!-- Campo Email -->
       <label for="email" class="mail">Correo Electrónico:</label>
       <div class="email-input">
         <input
@@ -41,7 +39,6 @@
       </div>
       <small [class.valid]="isEmailValid" class="requirement">Debe ser un email válido y sin espacios</small>
 
-      <!-- Campo Contraseña -->
       <div class="input-group">
         <label for="password">Contraseña</label>
         <div class="password-wrapper">
@@ -68,7 +65,6 @@
       <button type="submit" class="register-button">Registrarse</button>
     </form>
 
-    <!-- Mensaje de error si el email ya existe o hay algún otro problema -->
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
 
     <p><a href="/login" class="forgot-password">¿Ya tenés cuenta? Iniciar Sesión</a></p>

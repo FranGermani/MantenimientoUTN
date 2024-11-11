@@ -11,6 +11,6 @@ export class Err404Component {
   constructor(private router: Router) {}
 
   goHome(): void {
-    this.router.navigate(['/']); // Redirige a la página de inicio
+    this.router.navigate(['/']);
   }
 }

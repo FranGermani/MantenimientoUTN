@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../../../interfaces/register.interface'; // Asegúrate de que la ruta sea correcta
+import { User } from '../../../interfaces/register.interface';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ import { User } from '../../../interfaces/register.interface'; // Asegúrate de 
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  user: User = {  // Tipado con la interfaz User
+  user: User = { 
     nombre: '',
     email: {
       username: '',
@@ -20,7 +20,6 @@ export class RegisterComponent {
   errorMessage: string = '';
   isPasswordVisible: boolean = false;
 
-  // Propiedades de validación en tiempo real para nombre, email y contraseña
   isNameValid: boolean = false;
   isEmailValid: boolean = false;
   isPasswordLengthValid: boolean = false;
@@ -34,19 +33,16 @@ export class RegisterComponent {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  // Validación en tiempo real del nombre
   validateNameRealTime(): void {
-    this.isNameValid = this.user.nombre.trim().length > 0; // Verifica que no esté vacío
+    this.isNameValid = this.user.nombre.trim().length > 0;
   }
 
-  // Validación en tiempo real del email
   validateEmailRealTime(): void {
     const emailPattern = /^[a-zA-Z0-9._%+-]+$/; 
     const domainPattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
     this.isEmailValid = emailPattern.test(this.user.email.username) && domainPattern.test(this.user.email.domain) && !/\s/.test(this.user.email.username) && !/\s/.test(this.user.email.domain);
   }
 
-  // Validación en tiempo real de los requisitos de la contraseña
   validatePasswordRealTime(): void {
     const password = this.user.password;
     this.isPasswordLengthValid = password.length >= 6 && password.length <= 16;
@@ -59,9 +55,8 @@ export class RegisterComponent {
     const username = this.user.email.username;
     const domain = this.user.email.domain;
 
-    this.errorMessage = ''; // Reinicia el mensaje de error antes de cada intento
+    this.errorMessage = '';
 
-    // Validación final antes del envío
     if (!this.isNameValid) {
       this.errorMessage = 'El nombre es obligatorio.';
       return;
@@ -76,9 +71,9 @@ export class RegisterComponent {
     }
 
     const email = `${username}@${domain}`;
-    const registrationData: User = {  // Tipado con la interfaz User
+    const registrationData: User = {
       nombre: this.user.nombre,
-      email: { username, domain }, // Usando la estructura de la interfaz
+      email: { username, domain },
       password: this.user.password
     };
 

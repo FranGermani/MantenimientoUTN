@@ -10,13 +10,13 @@ import { Activo } from '../../../interfaces/activos-from.interface';
   })
 
 export class ActivosFromComponent implements OnInit {
-  activos: Activo[] = []; ; // Lista de activos
+  activos: Activo[] = [];
   nombre: string = '';
   tagDiminutivo: string = 'ILUM';
   disponibilidad: number = 1;
-  message: string = ''; // Mensaje de respuesta
-  editMode: boolean = false; // Modo edición
-  editId: number | null = null; // ID del activo en edición
+  message: string = '';
+  editMode: boolean = false;
+  editId: number | null = null;
 
   constructor(private activoService: ActivoService) {}
 
@@ -24,7 +24,6 @@ export class ActivosFromComponent implements OnInit {
     this.loadActivos();
   }
 
-  // Cargar todos los activos
   loadActivos(): void {
     this.activoService.getActivos().subscribe({
       next: (data) => {
@@ -36,7 +35,6 @@ export class ActivosFromComponent implements OnInit {
     });
   }
 
-  // Enviar el formulario para crear o actualizar un activo
   onSubmit(): void {
     const data: Activo = {
       nombre: this.nombre,
@@ -45,7 +43,6 @@ export class ActivosFromComponent implements OnInit {
     };
 
     if (this.editMode && this.editId !== null) {
-      // Actualizar el activo existente
       this.activoService.updateActivo(this.editId, data).subscribe({
         next: () => {
           this.message = 'Activo actualizado exitosamente';
@@ -58,7 +55,6 @@ export class ActivosFromComponent implements OnInit {
         },
       });
     } else {
-      // Crear un nuevo activo
       this.activoService.createActivo(data).subscribe({
         next: () => {
           this.message = 'Activo registrado exitosamente';
@@ -73,7 +69,6 @@ export class ActivosFromComponent implements OnInit {
     }
   }
 
-  // Editar un activo
   editActivo(activo: Activo): void {
     this.nombre = activo.nombre;
     this.tagDiminutivo = activo.tag_diminutivo;
@@ -81,7 +76,6 @@ export class ActivosFromComponent implements OnInit {
     this.editMode = true;
   }
 
-  // Eliminar un activo
   deleteActivo(id: number): void {
     this.activoService.deleteActivo(id).subscribe({
       next: () => {
@@ -95,7 +89,6 @@ export class ActivosFromComponent implements OnInit {
     });
   }
 
-  // Restablecer el formulario y salir del modo edición
   resetForm(): void {
     this.nombre = '';
     this.tagDiminutivo = 'ILUM';

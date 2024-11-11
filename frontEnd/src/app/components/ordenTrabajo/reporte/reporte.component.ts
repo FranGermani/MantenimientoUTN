@@ -1,4 +1,3 @@
-// reporte.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
@@ -9,7 +8,7 @@ import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
   styleUrls: ['./reporte.component.css']
 })
 export class ReporteComponent implements OnInit {
-  orden: any; // Variable para almacenar los datos de la orden
+  orden: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -17,11 +16,9 @@ export class ReporteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Obtener el ID de la orden de la ruta
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id')); 
 
-      // Obtener los datos de la orden
       this.ordenTrabajoService.getOrdenDetalle(id).subscribe({
         next: (orden) => {
           this.orden = orden;

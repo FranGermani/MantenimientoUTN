@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EdificioService } from '../../../services/edificio.service';
 import { Edificio } from '../../../interfaces/edificio-form.interface'; 
-import { Observable } from 'rxjs'; // Asegúrate de importar Observable
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edificio-form',
@@ -14,7 +14,7 @@ export class EdificioFormComponent {
   activo: number = 1; 
   labeltag: string = ''; 
   estado: string = 'disponible';
-  isEditing: boolean = false; // Estado de modo edición
+  isEditing: boolean = false;
 
   constructor(private edificioService: EdificioService) {}
 
@@ -37,7 +37,6 @@ export class EdificioFormComponent {
             }).subscribe(() => {
                 console.log('Edificio creado y labeltag actualizado:', newLabelTag);
 
-                // Restablecer el formulario después de crear el edificio
                 this.resetForm();
             });
         }, 1000);
@@ -48,7 +47,6 @@ export class EdificioFormComponent {
     return String(id).padStart(3, '0');
   }
 
-  // Método para restablecer el formulario y salir del modo de edición
   resetForm() {
     this.nombre = '';
     this.direccion = '';

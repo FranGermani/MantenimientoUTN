@@ -166,7 +166,6 @@ img:hover {
         width: 100%;
     }
 }
-/* Estilos globales ya existentes */
 
 .welcome-section {
     text-align: center;
@@ -216,7 +215,6 @@ img:hover {
     color: #555;
 }
 
-/* Responsividad para pantallas más pequeñas */
 @media (max-width: 768px) {
     .card-container {
         grid-template-columns: 1fr;

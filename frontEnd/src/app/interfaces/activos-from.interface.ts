@@ -1,5 +1,5 @@
 export interface Activo {
-  id_activo?: number;  // Opcional, ya que puede no existir al crear uno nuevo
+  id_activo?: number;
   nombre: string;
   tag_diminutivo: string;
   disponibilidad: number;

@@ -17,22 +17,15 @@ import { Err404Component } from '@components/err404/err404.component';
 
 import { AuthGuard } from './guards/NUEVOauthGuard.guard';
 
-// import { AdminGuard } from './guards/admin-guard.guard';
-// import { UserGuard } from './guards/user-guard.guard';
-// import { AuthGuard } from './guards/auth.guard';
-
 const routes: Routes = [
   { path: '', component: LandingBodyComponent },
 
-  // Rutas de login y registro protegidas para usuarios no autenticados
   { path: 'register', component: RegisterComponent, /*canActivate: [AuthGuard]*/ },
   { path: 'login', component: BodyComponent, /*canActivate: [AuthGuard]*/ },
 
-  // Rutas de usuario regular protegidas por UserGuard
   { 
     path: 'user', 
     component: UserPanelTutorial, 
-    // canActivate: [UserGuard],
     canActivate: [AuthGuard],
     children: [
       { path: 'userTA', component: UserTAComponent },
@@ -41,11 +34,9 @@ const routes: Routes = [
     ] 
   },
 
-  // Rutas de administrador protegidas por AdminGuard
   { 
     path: 'adminTutorial', 
     component: TutorialComponent,
-    // canActivate: [AdminGuard],
     canActivate: [AuthGuard],
     children: [ 
       { path: '', component: PanelComponent },
@@ -55,10 +46,8 @@ const routes: Routes = [
     ]
   },
 
-  // Ruta para cámara accesible solo a usuarios autenticados (ajustable si se requiere)
   { path: 'camara', component: CameraComponent,/* canActivate: [UserGuard, AdminGuard]*/ },
 
-  // Ruta de error 404
   { path: '**', component: Err404Component }
 ];
 

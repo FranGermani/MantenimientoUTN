@@ -263,7 +263,6 @@ export const actualizarRealizada = async (req, res) => {
   const { id } = req.params;         
   let { realizada } = req.body;      
 
-  // Agregar logs para depuración
   console.log(`ID recibido: ${id}`);
   console.log(`Valor de 'realizada' recibido: ${realizada}`);
 

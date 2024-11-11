@@ -16,7 +16,7 @@ import edificioRoutes from './routes/edificios.routes.js';
 import ordenTrabajoRoutes from'./routes/ordenTrabajo.routes.js';
 import edificioPisosRoutes from './routes/edificiopisos.routes.js';
 import activoRoutes from './routes/activo.routes.js';
-import tipoOrdenRoutes from './routes/tipoOrden.routes.js';  // Asegúrate de que la ruta sea correcta
+import tipoOrdenRoutes from './routes/tipoOrden.routes.js';
 
 
 

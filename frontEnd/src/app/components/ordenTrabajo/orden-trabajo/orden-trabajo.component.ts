@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajoService } from '../../../services/orden-trabajo.service';
-import { OrdenTrabajo } from '../../../interfaces/orden-trabajo.interface'; // Asegúrate de que la ruta sea correcta
+import { OrdenTrabajo } from '../../../interfaces/orden-trabajo.interface';
 import { MatDialog } from '@angular/material/dialog';
-import { OrdenGeneradaDialogComponent } from './orden-generada-dialog/orden-generada-dialog.component'; // Asegúrate de que la ruta sea correcta
+import { OrdenGeneradaDialogComponent } from './orden-generada-dialog/orden-generada-dialog.component';
 @Component({
   selector: 'app-orden-trabajo',
   templateUrl: './orden-trabajo.component.html',
@@ -26,7 +26,7 @@ export class OrdenTrabajoComponent implements OnInit {
 
   constructor(
     private ordenTrabajoService: OrdenTrabajoService,
-    public dialog: MatDialog // Inyecta MatDialog
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -60,7 +60,7 @@ export class OrdenTrabajoComponent implements OnInit {
   cargarTiposOrden(): void {
     this.ordenTrabajoService.getTiposOrden().subscribe(
       (data: any[]) => {
-        this.tiposOrden = data; // Asignamos los tipos de orden a la propiedad tiposOrden
+        this.tiposOrden = data;
       },
       (error) => {
         console.error('Error al obtener los tipos de orden:', error);
@@ -95,11 +95,10 @@ export class OrdenTrabajoComponent implements OnInit {
       observacion: this.observacion
     };
   
-    // Validar campos obligatorios
     if (!this.fechaImpresion || !this.operarioSeleccionado || !this.edificioSeleccionado || 
         !this.pisoSeleccionado || !this.sectorSeleccionado || !this.activoSeleccionado || !this.tipoOrdenSeleccionado) {
       console.error('Error: Todos los campos, excepto "Observación", son obligatorios.');
-      return; // No generar la orden si falta algún campo
+      return;
     }
   
     this.ordenTrabajoService.crearOrdenTrabajo(ordenTrabajoData).subscribe({
@@ -116,7 +115,7 @@ export class OrdenTrabajoComponent implements OnInit {
 
   abrirDialogoOrdenGenerada(): void {
     this.dialog.open(OrdenGeneradaDialogComponent, {
-      width: '300px', // Ajusta el ancho según tus necesidades
+      width: '300px',
     });
   }
 
