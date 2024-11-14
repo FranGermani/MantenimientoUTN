@@ -1,0 +1,377 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">front-end documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LandingBodyComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/landing-page/landing-body/landing-body.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-landing-body</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./landing-body.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./landing-body.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-landing-body&#x27;,
+  templateUrl: &#x27;./landing-body.component.html&#x27;,
+  styleUrl: &#x27;./landing-body.component.css&#x27;
+})
+export class LandingBodyComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">   &lt;div class&#x3D;&quot;body&quot;&gt;
+   &lt;section class&#x3D;&quot;hero&quot;&gt;
+        &lt;div class&#x3D;&quot;hero-content&quot;&gt;
+            &lt;div class&#x3D;&quot;icono&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/syp.png&quot; alt&#x3D;&quot;Icono Soporte y Mantenimiento&quot;&gt;
+                &lt;h1&gt;Soporte y Mantenimiento&lt;/h1&gt;
+                &lt;p&gt;¿Listo para trabajar?&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;header-buttons&quot; &gt;
+                &lt;button class&#x3D;&quot;login-button&quot; routerLink&#x3D;&quot;login&quot;&gt;Iniciar Sesión&lt;/button&gt;
+                &lt;button class&#x3D;&quot;signup-button&quot; routerLink&#x3D;&quot;/register&quot;&gt;Registrarse&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        
+    &lt;/section&gt;
+
+    &lt;section class&#x3D;&quot;services&quot;&gt;
+        &lt;h2&gt;Te Brindamos un Sistema de Gestión de Mantenimiento Integral para la UTN&lt;/h2&gt;
+        &lt;p&gt; Nuestro objetivo es garantizar el funcionamiento continuo y eficiente de las instalaciones y equipos de la facultad. Con nuestro sistema, podrás llevar un control ordenado y preciso de los trabajos de mantenimiento, asegurando una planificación adecuada y un soporte preventivo que te permita enfocarte en las actividades académicas y operativas, mientras nos encargamos de la gestión y el seguimiento del mantenimiento.&lt;/p&gt;
+
+        &lt;div class&#x3D;&quot;service-items&quot;&gt;
+            &lt;div class&#x3D;&quot;service-item&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/1.png&quot; alt&#x3D;&quot;Icono de Planificación Preventiva&quot;&gt;
+                &lt;h3&gt;Mantenimiento Preventivo&lt;/h3&gt;
+                &lt;p&gt;Establecemos un cronograma de mantenimiento para evitar fallos en los equipos e instalaciones, asegurando un funcionamiento continuo y eficiente.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;service-item&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/2.png&quot; alt&#x3D;&quot;Icono de Seguimiento de Trabajos&quot;&gt;
+                &lt;h3&gt;Control de Mantenimiento&lt;/h3&gt;
+                &lt;p&gt;Gestionamos y registramos todas las solicitudes de trabajo, brindando seguimiento detallado de las reparaciones y mejoras realizadas en tiempo real.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;service-item&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/3.png&quot; alt&#x3D;&quot;Icono de Informes Detallados&quot;&gt;
+                &lt;h3&gt;Generación de Informes&lt;/h3&gt;
+                &lt;p&gt;El sistema proporciona informes detallados sobre el estado de los equipos, permitiendo análisis precisos para optimizar las actividades de mantenimiento.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;service-item&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/4.png&quot; alt&#x3D;&quot;Icono de Prioridades&quot;&gt;
+                &lt;h3&gt;Gestión de Prioridades&lt;/h3&gt;
+                &lt;p&gt;Clasificamos y priorizamos las tareas de mantenimiento según su urgencia y criticidad, asegurando que los problemas más importantes se resuelvan rápidamente.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;service-item&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/5.png&quot; alt&#x3D;&quot;Icono de Inventario de Equipos&quot;&gt;
+                &lt;h3&gt;Gestión de Inventario&lt;/h3&gt;
+                &lt;p&gt;Llevamos un control detallado del inventario de equipos y herramientas, asegurando que siempre se disponga de los recursos necesarios para realizar las tareas de mantenimiento de manera eficiente.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;service-item&quot;&gt;
+                &lt;img src&#x3D;&quot;../../../../assets/image/6.png&quot; alt&#x3D;&quot;Icono de Soporte Técnico&quot;&gt;
+                &lt;h3&gt;Asistencia Técnica 24/7&lt;/h3&gt;
+                &lt;p&gt;Nuestro equipo está disponible para resolver cualquier inconveniente en las instalaciones y equipos en cualquier momento, brindando soporte continuo.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+
+
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>   <div class="body">   <section class="hero">        <div class="hero-content">            <div class="icono">                <img src="../../../../assets/image/syp.png" alt="Icono Soporte y Mantenimiento">                <h1>Soporte y Mantenimiento</h1>                <p>¿Listo para trabajar?</p>            </div>            <div class="header-buttons" >                <button class="login-button" routerLink="login">Iniciar Sesión</button>                <button class="signup-button" routerLink="/register">Registrarse</button>              </div>            </div>            </section>    <section class="services">        <h2>Te Brindamos un Sistema de Gestión de Mantenimiento Integral para la UTN</h2>        <p> Nuestro objetivo es garantizar el funcionamiento continuo y eficiente de las instalaciones y equipos de la facultad. Con nuestro sistema, podrás llevar un control ordenado y preciso de los trabajos de mantenimiento, asegurando una planificación adecuada y un soporte preventivo que te permita enfocarte en las actividades académicas y operativas, mientras nos encargamos de la gestión y el seguimiento del mantenimiento.</p>        <div class="service-items">            <div class="service-item">                <img src="../../../../assets/image/1.png" alt="Icono de Planificación Preventiva">                <h3>Mantenimiento Preventivo</h3>                <p>Establecemos un cronograma de mantenimiento para evitar fallos en los equipos e instalaciones, asegurando un funcionamiento continuo y eficiente.</p>            </div>            <div class="service-item">                <img src="../../../../assets/image/2.png" alt="Icono de Seguimiento de Trabajos">                <h3>Control de Mantenimiento</h3>                <p>Gestionamos y registramos todas las solicitudes de trabajo, brindando seguimiento detallado de las reparaciones y mejoras realizadas en tiempo real.</p>            </div>            <div class="service-item">                <img src="../../../../assets/image/3.png" alt="Icono de Informes Detallados">                <h3>Generación de Informes</h3>                <p>El sistema proporciona informes detallados sobre el estado de los equipos, permitiendo análisis precisos para optimizar las actividades de mantenimiento.</p>            </div>            <div class="service-item">                <img src="../../../../assets/image/4.png" alt="Icono de Prioridades">                <h3>Gestión de Prioridades</h3>                <p>Clasificamos y priorizamos las tareas de mantenimiento según su urgencia y criticidad, asegurando que los problemas más importantes se resuelvan rápidamente.</p>            </div>            <div class="service-item">                <img src="../../../../assets/image/5.png" alt="Icono de Inventario de Equipos">                <h3>Gestión de Inventario</h3>                <p>Llevamos un control detallado del inventario de equipos y herramientas, asegurando que siempre se disponga de los recursos necesarios para realizar las tareas de mantenimiento de manera eficiente.</p>            </div>            <div class="service-item">                <img src="../../../../assets/image/6.png" alt="Icono de Soporte Técnico">                <h3>Asistencia Técnica 24/7</h3>                <p>Nuestro equipo está disponible para resolver cualquier inconveniente en las instalaciones y equipos en cualquier momento, brindando soporte continuo.</p>            </div>        </div>    </section></div></div>'
+    var COMPONENTS = [{'name': 'ActivosFromComponent', 'selector': 'app-activos-from'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BodyComponent', 'selector': 'app-body'},{'name': 'BorrarOrdenDialogComponent', 'selector': 'app-borrar-orden-dialog'},{'name': 'CameraComponent', 'selector': 'app-camera'},{'name': 'EdificioFormComponent', 'selector': 'app-edificio-form'},{'name': 'Err404Component', 'selector': 'app-err404'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingBodyComponent', 'selector': 'app-landing-body'},{'name': 'OrdenDetalleDialogComponent', 'selector': 'app-orden-detalle-dialog'},{'name': 'OrdenGeneradaDialogComponent', 'selector': 'app-orden-generada-dialog'},{'name': 'OrdenTrabajoComponent', 'selector': 'app-orden-trabajo'},{'name': 'PanelComponent', 'selector': 'app-panel'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ReporteComponent', 'selector': 'app-reporte'},{'name': 'TutorialComponent', 'selector': 'app-tutorial'},{'name': 'UserOtComponent', 'selector': 'app-user-ot'},{'name': 'UserPanelTutorial', 'selector': 'app-user-tutorial'},{'name': 'UserTAComponent', 'selector': 'app-user-ta'},{'name': 'UserTTComponent', 'selector': 'app-user-tt'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LandingBodyComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LandingBodyComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

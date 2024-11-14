@@ -1,0 +1,733 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">front-end documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ReporteComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/ordenTrabajo/reporte/reporte.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-reporte</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./reporte.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./reporte.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#orden" >orden</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, ordenTrabajoService: <a href="../injectables/OrdenTrabajoService.html" target="_self">OrdenTrabajoService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/ordenTrabajo/reporte/reporte.component.ts:11</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ordenTrabajoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OrdenTrabajoService.html" target="_self" >OrdenTrabajoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/components/ordenTrabajo/reporte/reporte.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orden"></a>
+                    <span class="name">
+                        <span ><b>orden</b></span>
+                        <a href="#orden"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/ordenTrabajo/reporte/reporte.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { OrdenTrabajoService } from &#x27;../../../services/orden-trabajo.service&#x27;;
+
+@Component({
+  selector: &#x27;app-reporte&#x27;,
+  templateUrl: &#x27;./reporte.component.html&#x27;,
+  styleUrls: [&#x27;./reporte.component.css&#x27;]
+})
+export class ReporteComponent implements OnInit {
+  orden: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private ordenTrabajoService: OrdenTrabajoService
+  ) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params &#x3D;&gt; {
+      const id &#x3D; Number(params.get(&#x27;id&#x27;)); 
+
+      this.ordenTrabajoService.getOrdenDetalle(id).subscribe({
+        next: (orden) &#x3D;&gt; {
+          this.orden &#x3D; orden;
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error al obtener los detalles de la orden:&#x27;, error);
+        }
+      });
+    });
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;fondo&quot;&gt;
+  &lt;div class&#x3D;&quot;reporte-container&quot;&gt;
+    &lt;h1&gt;Orden de Trabajo de Mantenimiento Planificado&lt;/h1&gt;
+    &lt;p&gt;
+      &lt;strong&gt;Orden de Trabajo Nº:&lt;/strong&gt; {{ orden.concatenacionIds }}
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;strong&gt;Código Único de Identificación:&lt;/strong&gt; {{ orden.concatenacionIds }}
+    &lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Edificio:&lt;/strong&gt; {{ orden.nombre_edificio }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Piso:&lt;/strong&gt; {{ orden.nombre_piso }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Sector:&lt;/strong&gt; {{ orden.nombre_sector }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Tipo de Activo:&lt;/strong&gt; {{ orden.nombre_activo }}&lt;/p&gt;
+    &lt;p&gt;
+      &lt;strong&gt;Tipo de Mantenimiento:&lt;/strong&gt; Mantenimiento Preventivo
+      Planificado
+    &lt;/p&gt;
+
+    &lt;h2&gt;Instrucciones para la tarea:&lt;/h2&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Señalice el área de Trabajo.&lt;/li&gt;
+      &lt;li&gt;Verifique estado general.&lt;/li&gt;
+      &lt;li&gt;Verifique y lubrique bisagras y/o correderas&lt;/li&gt;
+      &lt;li&gt;Verifique y lubrique cerraduras.&lt;/li&gt;
+      &lt;li&gt;Verifique correcta sujección de vidrios.&lt;/li&gt;
+      &lt;li&gt;Realizar limpieza del equipo.&lt;/li&gt;
+      &lt;li&gt;Realice verificación de correcto funcionamiento.&lt;/li&gt;
+      &lt;li&gt;Complete la documentación de mantenimiento&lt;/li&gt;
+      &lt;li&gt;
+        Al finalizar la actividad deje el área y equipo limpios, ordenados y
+        seguros.
+      &lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;h2&gt;Fechas:&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Fecha de Impresión:&lt;/strong&gt; 26/10/2024&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Fecha de Realización:&lt;/strong&gt; 26/10/2024&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Hora de Realización:&lt;/strong&gt; 19:13:54&lt;/p&gt;
+
+    &lt;h2&gt;Tarea:&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Tarea Realizada por:&lt;/strong&gt; Juan&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Tarea Controlada por:&lt;/strong&gt; Ana&lt;/p&gt;
+
+    &lt;h2&gt;Observaciones, comentarios y repuestos utilizados:&lt;/h2&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, sit mollitia
+      dolorem illo dicta voluptatibus rerum eveniet necessitatibus aperiam
+      voluptas laborum itaque debitis facilis, ipsam quam sint praesentium
+      expedita eius id atque exercitationem, in repellat minima. Laborum placeat
+      harum vero suscipit, cupiditate temporibus quae hic corrupti unde dolores
+      adipisci eius molestiae ex, voluptates quisquam omnis velit perferendis?
+      Non, sequi cumque, consequuntur fugit nisi asperiores voluptatum aliquid
+      praesentium eveniet inventore placeat libero voluptates cupiditate esse.
+    &lt;/p&gt;
+    &lt;div class&#x3D;&quot;boton-container&quot;&gt;
+      &lt;button class&#x3D;&quot;boton-imprimir&quot; onclick&#x3D;&quot;window.print()&quot;&gt;Imprimir&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./reporte.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.reporte-container {
+  width: 50%;
+  margin: 40px auto;
+  background-color: rgba(255, 255, 255, 0.549);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: #333;
+
+}
+
+::marker {
+  font-weight: 600;
+  color: #0d5478;
+  font-size: 1.1rem;
+}
+
+.reporte-container h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0d5478;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reporte-container h2 {
+  font-size: 20px;
+  color: #0d5478;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.reporte-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.reporte-container p strong {
+  color: #333;
+  font-weight: bold;
+}
+
+.reporte-container ol {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.reporte-container ol li {
+  font-size: 16px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.reporte-container p strong {
+  display: inline;
+  width: 220px;
+  font-weight: bold;
+  color: #555;
+}
+
+.reporte-container h2 {
+  margin-top: 30px;
+  color: #0d5478;
+}
+
+.reporte-container ol {
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+.reporte-container ol li {
+  margin-bottom: 10px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .reporte-container,
+  .reporte-container * {
+    visibility: visible; 
+    width: 100%;
+    box-shadow: none;
+  }
+  .reporte-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  button {
+    display: none;
+  }
+}
+
+.boton-container {
+  bottom: 20px; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.boton-imprimir {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff; 
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.boton-imprimir img {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .reporte-container {
+    padding: 20px;
+  }
+
+  .reporte-container h1 {
+    font-size: 24px;
+  }
+
+  .reporte-container h2 {
+    font-size: 18px;
+  }
+
+  .reporte-container p {
+    font-size: 14px;
+  }
+
+  .reporte-container ol li {
+    font-size: 14px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="fondo">  <div class="reporte-container">    <h1>Orden de Trabajo de Mantenimiento Planificado</h1>    <p>      <strong>Orden de Trabajo Nº:</strong> {{ orden.concatenacionIds }}    </p>    <p>      <strong>Código Único de Identificación:</strong> {{ orden.concatenacionIds }}    </p>    <p><strong>Edificio:</strong> {{ orden.nombre_edificio }}</p>    <p><strong>Piso:</strong> {{ orden.nombre_piso }}</p>    <p><strong>Sector:</strong> {{ orden.nombre_sector }}</p>    <p><strong>Tipo de Activo:</strong> {{ orden.nombre_activo }}</p>    <p>      <strong>Tipo de Mantenimiento:</strong> Mantenimiento Preventivo      Planificado    </p>    <h2>Instrucciones para la tarea:</h2>    <ol>      <li>Señalice el área de Trabajo.</li>      <li>Verifique estado general.</li>      <li>Verifique y lubrique bisagras y/o correderas</li>      <li>Verifique y lubrique cerraduras.</li>      <li>Verifique correcta sujección de vidrios.</li>      <li>Realizar limpieza del equipo.</li>      <li>Realice verificación de correcto funcionamiento.</li>      <li>Complete la documentación de mantenimiento</li>      <li>        Al finalizar la actividad deje el área y equipo limpios, ordenados y        seguros.      </li>    </ol>    <h2>Fechas:</h2>    <p><strong>Fecha de Impresión:</strong> 26/10/2024</p>    <p><strong>Fecha de Realización:</strong> 26/10/2024</p>    <p><strong>Hora de Realización:</strong> 19:13:54</p>    <h2>Tarea:</h2>    <p><strong>Tarea Realizada por:</strong> Juan</p>    <p><strong>Tarea Controlada por:</strong> Ana</p>    <h2>Observaciones, comentarios y repuestos utilizados:</h2>    <p>      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, sit mollitia      dolorem illo dicta voluptatibus rerum eveniet necessitatibus aperiam      voluptas laborum itaque debitis facilis, ipsam quam sint praesentium      expedita eius id atque exercitationem, in repellat minima. Laborum placeat      harum vero suscipit, cupiditate temporibus quae hic corrupti unde dolores      adipisci eius molestiae ex, voluptates quisquam omnis velit perferendis?      Non, sequi cumque, consequuntur fugit nisi asperiores voluptatum aliquid      praesentium eveniet inventore placeat libero voluptates cupiditate esse.    </p>    <div class="boton-container">      <button class="boton-imprimir" onclick="window.print()">Imprimir</button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'ActivosFromComponent', 'selector': 'app-activos-from'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BodyComponent', 'selector': 'app-body'},{'name': 'BorrarOrdenDialogComponent', 'selector': 'app-borrar-orden-dialog'},{'name': 'CameraComponent', 'selector': 'app-camera'},{'name': 'EdificioFormComponent', 'selector': 'app-edificio-form'},{'name': 'Err404Component', 'selector': 'app-err404'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingBodyComponent', 'selector': 'app-landing-body'},{'name': 'OrdenDetalleDialogComponent', 'selector': 'app-orden-detalle-dialog'},{'name': 'OrdenGeneradaDialogComponent', 'selector': 'app-orden-generada-dialog'},{'name': 'OrdenTrabajoComponent', 'selector': 'app-orden-trabajo'},{'name': 'PanelComponent', 'selector': 'app-panel'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ReporteComponent', 'selector': 'app-reporte'},{'name': 'TutorialComponent', 'selector': 'app-tutorial'},{'name': 'UserOtComponent', 'selector': 'app-user-ot'},{'name': 'UserPanelTutorial', 'selector': 'app-user-tutorial'},{'name': 'UserTAComponent', 'selector': 'app-user-ta'},{'name': 'UserTTComponent', 'selector': 'app-user-tt'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ReporteComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReporteComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

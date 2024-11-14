@@ -1,0 +1,1068 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">front-end documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EdificioFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/admin-panel/edificio-form/edificio-form.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-edificio-form</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./edificio-form.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./edificio-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activo" >activo</a>
+                            </li>
+                            <li>
+                                <a href="#direccion" >direccion</a>
+                            </li>
+                            <li>
+                                <a href="#estado" >estado</a>
+                            </li>
+                            <li>
+                                <a href="#isEditing" >isEditing</a>
+                            </li>
+                            <li>
+                                <a href="#labeltag" >labeltag</a>
+                            </li>
+                            <li>
+                                <a href="#nombre" >nombre</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#generarLabelTag" >generarLabelTag</a>
+                            </li>
+                            <li>
+                                <a href="#registrarEdificio" >registrarEdificio</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(edificioService: <a href="../injectables/EdificioService.html" target="_self">EdificioService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>edificioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EdificioService.html" target="_self" >EdificioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generarLabelTag"></a>
+                    <span class="name">
+                        <span ><b>generarLabelTag</b></span>
+                        <a href="#generarLabelTag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generarLabelTag(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registrarEdificio"></a>
+                    <span class="name">
+                        <span ><b>registrarEdificio</b></span>
+                        <a href="#registrarEdificio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registrarEdificio()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="21"
+                                    class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activo"></a>
+                    <span class="name">
+                        <span ><b>activo</b></span>
+                        <a href="#activo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="direccion"></a>
+                    <span class="name">
+                        <span ><b>direccion</b></span>
+                        <a href="#direccion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estado"></a>
+                    <span class="name">
+                        <span ><b>estado</b></span>
+                        <a href="#estado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;disponible&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditing"></a>
+                    <span class="name">
+                        <span ><b>isEditing</b></span>
+                        <a href="#isEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labeltag"></a>
+                    <span class="name">
+                        <span ><b>labeltag</b></span>
+                        <a href="#labeltag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nombre"></a>
+                    <span class="name">
+                        <span ><b>nombre</b></span>
+                        <a href="#nombre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/admin-panel/edificio-form/edificio-form.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { EdificioService } from &#x27;../../../services/edificio.service&#x27;;
+import { Edificio } from &#x27;../../../interfaces/edificio-form.interface&#x27;; 
+import { Observable } from &#x27;rxjs&#x27;;
+
+@Component({
+  selector: &#x27;app-edificio-form&#x27;,
+  templateUrl: &#x27;./edificio-form.component.html&#x27;,
+  styleUrls: [&#x27;./edificio-form.component.css&#x27;]
+})
+export class EdificioFormComponent {
+  nombre: string &#x3D; &#x27;&#x27;;
+  direccion: string &#x3D; &#x27;&#x27;;
+  activo: number &#x3D; 1; 
+  labeltag: string &#x3D; &#x27;&#x27;; 
+  estado: string &#x3D; &#x27;disponible&#x27;;
+  isEditing: boolean &#x3D; false;
+
+  constructor(private edificioService: EdificioService) {}
+
+  registrarEdificio() {
+    const edificioData: Omit&lt;Edificio, &#x27;id&#x27;&gt; &#x3D; { 
+        nombre: this.nombre, 
+        direccion: this.direccion, 
+        activo: this.activo 
+    };
+
+    this.edificioService.crearEdificio(edificioData).subscribe((response: any) &#x3D;&gt; {
+        const id &#x3D; response.id;
+
+        setTimeout(() &#x3D;&gt; {
+            const newLabelTag &#x3D; this.generarLabelTag(id);
+
+            this.edificioService.actualizarEdificio(id, { 
+                ...edificioData, 
+                labeltag: newLabelTag 
+            }).subscribe(() &#x3D;&gt; {
+                console.log(&#x27;Edificio creado y labeltag actualizado:&#x27;, newLabelTag);
+
+                this.resetForm();
+            });
+        }, 1000);
+    });
+  }
+
+  generarLabelTag(id: number): string {
+    return String(id).padStart(3, &#x27;0&#x27;);
+  }
+
+  resetForm() {
+    this.nombre &#x3D; &#x27;&#x27;;
+    this.direccion &#x3D; &#x27;&#x27;;
+    this.activo &#x3D; 1;
+    this.labeltag &#x3D; &#x27;&#x27;;
+    this.estado &#x3D; &#x27;disponible&#x27;;
+    this.isEditing &#x3D; false;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;div class&#x3D;&quot;main-content&quot;&gt;
+    &lt;form (ngSubmit)&#x3D;&quot;registrarEdificio()&quot; #edificioForm&#x3D;&quot;ngForm&quot;&gt;
+      &lt;label for&#x3D;&quot;nombre&quot;&gt;Nombre:&lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;text&quot;
+        id&#x3D;&quot;nombre&quot;
+        name&#x3D;&quot;nombre&quot;
+        [(ngModel)]&#x3D;&quot;nombre&quot; 
+        placeholder&#x3D;&quot;Ingrese el nombre del establecimiento&quot;
+        required
+      /&gt;
+
+      &lt;label for&#x3D;&quot;direccion&quot;&gt;Dirección:&lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;text&quot;
+        id&#x3D;&quot;direccion&quot;
+        name&#x3D;&quot;direccion&quot;
+        [(ngModel)]&#x3D;&quot;direccion&quot; 
+        placeholder&#x3D;&quot;Ingrese la dirección del establecimiento&quot;
+        required
+      /&gt;
+
+      &lt;label class&#x3D;&quot;invisible&quot; for&#x3D;&quot;label-tag&quot;&gt;Label Tag:&lt;/label&gt;
+      &lt;input class&#x3D;&quot;invisible&quot;
+        type&#x3D;&quot;text&quot;
+        id&#x3D;&quot;label-tag&quot;
+        name&#x3D;&quot;label-tag&quot;
+        [value]&#x3D;&quot;labeltag&quot; 
+        readonly
+      /&gt;
+
+
+
+      &lt;label for&#x3D;&quot;disponibilidad&quot;&gt;Estado:&lt;/label&gt;
+      &lt;select id&#x3D;&quot;disponibilidad&quot; name&#x3D;&quot;disponibilidad&quot; [(ngModel)]&#x3D;&quot;estado&quot;&gt;
+        &lt;option value&#x3D;&quot;disponible&quot;&gt;Activo&lt;/option&gt;
+        &lt;option value&#x3D;&quot;no-disponible&quot;&gt;Inactivo&lt;/option&gt;
+      &lt;/select&gt;
+
+
+      &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;!edificioForm.valid&quot;&gt;Registrar Edificio&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./edificio-form.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.invisible {
+    display: none;
+}
+
+/*.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    background: linear-gradient(45deg, #76acbc, #ffffff);
+    font-family:&#x27;Roboto&#x27;, Helvetica, Arial, Lucida, sans-serif;
+}*/
+.sidebar {
+    background-color: #ffffffa8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 20px;
+    height: 100vh;
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
+}
+button {
+    
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 16px;
+}
+.menu button {
+    background-color: #11698c;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+}
+.menu button:hover {
+    background-color: #76acbc;
+    color: rgb(0, 0, 0);
+}
+.menu-toggle {
+    display: none;
+}
+.menu-toggle:checked ~ .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0d5478;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #0d5478;
+}
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background-color:#11698c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a1a41;
+    font-weight: bold;
+}
+textarea{
+    font-family:&#x27;Roboto&#x27;, Helvetica, Arial, Lucida, sans-serif;
+    color:  #0d5478;
+    font-weight: bold;
+}
+
+option{
+    font-family:&#x27;Roboto&#x27;, Helvetica, Arial, Lucida, sans-serif;
+    color:  #0d5478;
+    font-weight: 400;
+}
+
+select{
+    font-family:&#x27;Roboto&#x27;, Helvetica, Arial, Lucida, sans-serif;
+    color:  #0d5478;
+    font-weight:400;
+}
+input{
+    font-family:&#x27;Roboto&#x27;, Helvetica, Arial, Lucida, sans-serif;
+    color:  #0d5478;
+    font-weight:bolder;
+}
+::placeholder{
+    font-family:&#x27;Roboto&#x27;, Helvetica, Arial, Lucida, sans-serif;
+    color:  #0d54788d;
+    font-weight:bolder;
+}
+.main-content {
+    width: 50%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.486);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .hamburger {
+        display: block;
+        background-color: #2d2d2d;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu button {
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu button {
+        width: 100%;
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="main-content">    <form (ngSubmit)="registrarEdificio()" #edificioForm="ngForm">      <label for="nombre">Nombre:</label>      <input        type="text"        id="nombre"        name="nombre"        [(ngModel)]="nombre"         placeholder="Ingrese el nombre del establecimiento"        required      />      <label for="direccion">Dirección:</label>      <input        type="text"        id="direccion"        name="direccion"        [(ngModel)]="direccion"         placeholder="Ingrese la dirección del establecimiento"        required      />      <label class="invisible" for="label-tag">Label Tag:</label>      <input class="invisible"        type="text"        id="label-tag"        name="label-tag"        [value]="labeltag"         readonly      />      <label for="disponibilidad">Estado:</label>      <select id="disponibilidad" name="disponibilidad" [(ngModel)]="estado">        <option value="disponible">Activo</option>        <option value="no-disponible">Inactivo</option>      </select>      <button type="submit" [disabled]="!edificioForm.valid">Registrar Edificio</button>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'ActivosFromComponent', 'selector': 'app-activos-from'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BodyComponent', 'selector': 'app-body'},{'name': 'BorrarOrdenDialogComponent', 'selector': 'app-borrar-orden-dialog'},{'name': 'CameraComponent', 'selector': 'app-camera'},{'name': 'EdificioFormComponent', 'selector': 'app-edificio-form'},{'name': 'Err404Component', 'selector': 'app-err404'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingBodyComponent', 'selector': 'app-landing-body'},{'name': 'OrdenDetalleDialogComponent', 'selector': 'app-orden-detalle-dialog'},{'name': 'OrdenGeneradaDialogComponent', 'selector': 'app-orden-generada-dialog'},{'name': 'OrdenTrabajoComponent', 'selector': 'app-orden-trabajo'},{'name': 'PanelComponent', 'selector': 'app-panel'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ReporteComponent', 'selector': 'app-reporte'},{'name': 'TutorialComponent', 'selector': 'app-tutorial'},{'name': 'UserOtComponent', 'selector': 'app-user-ot'},{'name': 'UserPanelTutorial', 'selector': 'app-user-tutorial'},{'name': 'UserTAComponent', 'selector': 'app-user-ta'},{'name': 'UserTTComponent', 'selector': 'app-user-tt'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EdificioFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EdificioFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
