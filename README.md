@@ -1,54 +1,57 @@
-Instrucciones para Subir Cambios a la Rama dev
+Sistema de Gestión de Mantenimiento - Facultad
 
-1)Clona el Repositorio: Si aún no lo han hecho, clonen el repositorio en su máquina local con el siguiente comando:
+Este proyecto es una aplicación web diseñada para gestionar y hacer seguimiento de las tareas de mantenimiento en una institución educativa, específicamente en una facultad. El sistema permite organizar, visualizar y administrar órdenes de trabajo relacionadas con el mantenimiento de edificios, pisos, sectores y activos de la facultad.
 
-bash:
-Copiar código
-git clone https://github.com/FranGermani/MantenimientoUTN.git
+Propósito del Proyecto
+El objetivo principal de este sistema es optimizar la gestión de tareas de mantenimiento en la facultad, asegurando que los trabajos asignados se registren, rastreen y completen de manera eficiente. Además, proporciona un espacio centralizado para que el personal administrativo y los operarios colaboren y sigan de cerca las actividades de mantenimiento.
 
-2)Navega a la Carpeta del Proyecto: Accede a la carpeta del proyecto clonado:
+Características Principales
+Gestión de Órdenes de Mantenimiento
 
-bash:
-Copiar código
-cd MantenimientoUTN
+Registro de nuevas órdenes de trabajo relacionadas con la infraestructura de la facultad.
+Asignación de órdenes a operarios responsables.
+Edición y eliminación de órdenes existentes.
+Actualización del estado de las órdenes como "realizada" o "pendiente".
+Filtrado y Búsqueda Personalizada
 
-3)Crea o Cambia a la Rama dev: Si la rama dev ya existe, pueden cambiar a ella con:
+Filtrado de órdenes de trabajo por criterios como:
+Edificio
+Piso o nivel
+Sector
+Activo relacionado
+Usuario asignado
+Estado de la orden (realizada/no realizada)
+Búsqueda dinámica según las opciones seleccionadas.
+Generación de Códigos Únicos
 
-bash:
-Copiar código
-git checkout dev
+Cada orden de trabajo genera un código único en el formato: TAG-XXX-XXX-XXX-XXX-XXX-XXX.
+Este código permite identificar fácilmente las órdenes relacionadas con un activo específico.
+Estado de las Órdenes
 
-4)Si no existe, créenla y cambien a ella:
+Indicador claro del estado de la orden: "Sí" para realizadas y "No" para pendientes.
+Interfaz Intuitiva y Responsiva
 
-bash:
-Copiar código
-git checkout -b dev
+Diseño moderno adaptado a dispositivos de diferentes tamaños.
+Navegación fluida tanto para administradores como para operarios.
+Beneficios del Sistema
+Centralización: Todos los datos de órdenes de trabajo están en un solo lugar y son fácilmente accesibles.
+Optimización: Agiliza la organización y priorización de tareas de mantenimiento.
+Colaboración: Facilita la comunicación entre el personal administrativo y los operarios.
+Seguimiento: Permite un registro detallado del progreso y estado de cada orden de trabajo.
+Escalabilidad: Adaptable a diferentes facultades u organizaciones educativas.
+Tecnologías Utilizadas
+Frontend:
 
-5)Realiza Cambios: Hagan los cambios necesarios en el código.
+Angular para una interfaz de usuario dinámica y moderna.
+Backend:
 
-6)Agrega los Cambios: Después de realizar los cambios, asegúrense de agregar los archivos modificados:
+Node.js y Express para la gestión de datos y lógica del servidor.
+Base de Datos:
 
-bash:
-Copiar código
-git add .
+MySQL para el almacenamiento estructurado de las órdenes y registros de mantenimiento.
+Otros:
 
-7)Confirma los Cambios: Realicen un commit con una descripción clara de lo que han hecho:
+TypeScript para un código seguro y robusto.
 
-bash:
-Copiar código
-git commit -m "Descripción de los cambios"
-
-8)Sube la Rama dev al Repositorio Remoto: Para subir los cambios a la rama dev en el repositorio de GitHub, utilicen:
-
-bash:
-Copiar código
-git push origin dev
-
-8)Verifica los Cambios en GitHub: Después de subir, pueden ir al enlace del repositorio en su navegador para verificar que los cambios se hayan subido correctamente.
-
-Notas Adicionales
-Asegúrense de estar siempre en la rama correcta antes de hacer cambios.
-Si están trabajando en equipo, es recomendable hacer un git pull antes de subir sus cambios para asegurarse de que su rama dev esté actualizada con respecto al repositorio remoto.
-
-made with love
-francisco dimmer, francisco germani,ramiro borello, tute bustamante
+Made with love
+francisco dimmer,francisco germani, ramiro borello,esteban bustamante
