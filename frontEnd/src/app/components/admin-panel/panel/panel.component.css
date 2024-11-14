@@ -1,105 +1,144 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content h1 {
+  font-size: 24px;
+  text-align: center;
+  color: #11698c;
+}
+
 .filter-container {
-    display: inline-flex; 
-    align-items: center;
-    gap: 10px;
-    background-color: #11698c;
-    padding: 5px 10px; 
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #11698c;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  flex: 1 1 auto; 
+  color: white;
+  font-weight: bold;
+  min-width: 100px; 
+}
+
+.filter-container select {
+  flex: 2 1 auto;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  color: #11698c;
+  outline: none;
+  cursor: pointer;
+}
+
+.reset-button {
+  flex: 1 1 auto; 
+  background-color: white;
+  color: #11698c;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.486);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+thead th {
+  background-color: #11698c;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 10px;
+  font-size: 12px;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.botones button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease; 
+}
+
+.botones button img {
+  max-width: 40px; 
+  max-height: 40px;
+  margin: 5px;
+  transition: transform 0.2s ease;
+}
+
+.botones button:hover img {
+  transform: scale(1.1); 
+}
+
+
+@media screen and (max-width: 768px) {
+  .filter-container {
+      flex-direction: column; 
+      gap: 15px;
   }
-  .filter-container label {
-    color: white;
-    font-weight: bold;
-  }
-  
-  .filter-container select {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    font-size: 14px;
-    font-weight: bold;
-    color: #11698c;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .filter-container select:hover {
-    background-color: #e5f6fb;
-  }
-  
-  .reset-button {
-    background-color: white;
-    color: #11698c;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .reset-button:hover {
-    background-color: #76acbc;
-    color: black;
-  }
-  
-  .reset-button:disabled {
-    background-color: #ccc;
-    color: white;
-    cursor: not-allowed;
-  }
-  
+
   table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.486);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+      display: block; 
+      overflow-x: auto;
+      white-space: nowrap; 
   }
-  
+
+  thead, tbody, tr, th, td {
+      display: block; 
+      text-align: left;
+  }
+
+  tr {
+      margin-bottom: 10px;
+  }
+
+  td {
+      border-bottom: 1px solid #ccc;
+      padding: 5px 10px;
+  }
+
   thead th {
-    background-color: #11698c;
-    color: white;
-    padding: 10px;
-    text-align: left;
+      display: none; 
   }
-  
-  tbody td {
-    padding: 10px;
+
+  td:before {
+      content: attr(data-label); 
+      font-weight: bold;
+      color: #11698c;
+      display: block;
+      margin-bottom: 5px;
   }
-  
-  tbody tr:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .botones {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .botones button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #11698c;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .botones button img {
-    max-width: 20px;
-    max-height: 20px;
-  }
-  
-  .botones button:hover {
-    background-color: #76acbc;
-  }
+}

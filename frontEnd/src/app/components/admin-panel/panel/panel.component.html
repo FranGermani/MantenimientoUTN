@@ -39,21 +39,18 @@
       </thead>
       <tbody>
         <tr *ngFor="let orden of ordenesFiltradas">
-          <td>{{ orden.concatenacionIds }}</td>
-          <td>{{ orden.fecha_impresion | date : "dd/MM/yyyy" }}</td>
-          <td>{{ orden.nombre_usuario }}</td>
-          <td>{{ orden.nombre_edificio }}</td>
-          <td>{{ orden.nombre_piso }}</td>
-          <td>{{ orden.nombre_sector }}</td>
-          <td>{{ orden.nombre_activo }}</td>
-          <td>{{ orden.realizada ? "Sí" : "No" }}</td>
-          <td class="botones">
+          <td data-label="Código Único">{{ orden.concatenacionIds }}</td>
+          <td data-label="Fecha de Impresión">{{ orden.fecha_impresion | date : "dd/MM/yyyy" }}</td>
+          <td data-label="Operario">{{ orden.nombre_usuario }}</td>
+          <td data-label="Edificio">{{ orden.nombre_edificio }}</td>
+          <td data-label="Piso">{{ orden.nombre_piso }}</td>
+          <td data-label="Sector">{{ orden.nombre_sector }}</td>
+          <td data-label="Activo">{{ orden.nombre_activo }}</td>
+          <td data-label="Realizado">{{ orden.realizada ? "Sí" : "No" }}</td>
+          <td data-label="Acciones" class="botones">
             <button (click)="verDetalle(orden)">
               <img src="../../assets/image/ver.png" alt="Ver" />
             </button>
-            <!-- <button (click)="editarOrden(orden.id_orden_trabajo)">
-              <img src="../../assets/image/editar.png" alt="Editar" />
-            </button> -->
             <button (click)="eliminarOrden(orden.id_orden_trabajo)">
               <img src="../../assets/image/borrar.png" alt="Borrar" />
             </button>

@@ -1,3 +1,14 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .sidebar {
     background-color: #ffffffa8;
@@ -5,27 +16,27 @@
     width: 200px;
     padding: 20px;
     height: 100vh;
-    flex-shrink: 0;
-    flex-grow: 0;
     position: relative;
 }
 
+
 .main-content {
     padding: 20px;
-    flex-grow: 1;
-    width: calc(100% - 200px);
-    max-width: 1200px; 
+    width: 100%;
+    max-width: 1200px;
     margin: 20px auto;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     color: #0d5478;
     text-align: center;
     margin-bottom: 20px;
 }
+
 
 table {
     width: 100%;
@@ -53,17 +64,11 @@ tbody tr:nth-child(even) {
     background-color: rgba(200, 200, 200, 0.1);
 }
 
-
 tbody tr:hover {
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.botones {
-    display: flex;
-    gap: 5px;
-    flex-direction: row;
-}
 
 td button {
     display: inline-flex;
@@ -73,86 +78,89 @@ td button {
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    padding: 8px 12px; 
-    font-size: 13px; 
+    padding: 8px 12px;
+    font-size: 13px;
     font-weight: bold;
     border: none;
-    background-color: #11698c; 
+    background-color: #11698c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-button.completado {
-    background-color: #11698c; 
-}
-
-button.pendiente {
-    background-color: #11698c;
-}
-
 td button:hover {
-    background-color: #76acbc; 
+    background-color: #76acbc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 td button:active {
     transform: scale(0.95);
 }
-.button img {
-    max-width: 30px;
-    transition: all 0.5s ease-in-out;
-}
 
-img:hover {
-    filter: saturate(200%);
-}
 
-.menu button {
-    background-color: #11698c;
-    color: white;
-    border: none;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    text-align: left;
-    font-weight: bold;
-}
-
-.menu button:hover {
-    background-color: #76acbc;
-    color: rgb(0, 0, 0);
-}
-
-.boton-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.boton-imprimir {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-}
-
-@media print {
-    body * {
-        visibility: hidden;
-    }
-    .main-content,
-    .main-content * {
-        visibility: visible;
-        width: 100%;
-        box-shadow: none;
-    }
+@media (max-width: 1024px) {
     .main-content {
-        position: absolute;
-        left: 0;
-        top: 0;
+        padding: 15px;
+        width: 95%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+        width: 100%;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        border-bottom: none;
+    }
+
+    table tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #11698c;
+    }
+
+    td button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    table tbody tr {
+        padding: 8px;
+    }
+
+    td button {
+        font-size: 11px;
+        padding: 4px 8px;
     }
 }

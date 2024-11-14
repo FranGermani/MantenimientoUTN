@@ -56,7 +56,7 @@
 
   
   
-  /* Animación */
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -68,23 +68,23 @@
     }
   }
   
-  /* Media Queries para Pantallas Pequeñas */
+
   @media (max-width: 768px) {
     .err404-content {
-      max-width: 90%; /* Ajusta el tamaño en pantallas pequeñas */
+      max-width: 90%;
       padding: 15px;
     }
   
     h1 {
-      font-size: 1.5em; /* Reduce el tamaño del título */
+      font-size: 1.5em;
     }
   
     p {
-      font-size: 1em; /* Reduce el tamaño del texto */
+      font-size: 1em;
     }
   
     .go-home-button {
-      width: 100%; /* Botón de ancho completo en pantallas pequeñas */
+      width: 100%;
       font-size: 0.9em;
     }
   }
