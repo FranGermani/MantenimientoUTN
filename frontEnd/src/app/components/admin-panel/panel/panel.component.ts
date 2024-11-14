@@ -48,12 +48,19 @@ export class PanelComponent implements OnInit {
 
   actualizarOpciones() {
     const columna = this.selectedColumn;
-    const valoresUnicos = new Set(
-      this.ordenes.map((orden) => orden[columna]).filter((valor) => valor)
-    );
-    this.opciones = Array.from(valoresUnicos);
-    this.filterValue = '';
+  
+    if (columna === 'realizada') {
+      this.opciones = ['Sí', 'No'];
+    } else {
+      const valoresUnicos = new Set(
+        this.ordenes.map((orden) => orden[columna]).filter((valor) => valor)
+      );
+      this.opciones = Array.from(valoresUnicos);
+    }
+  
+    this.filterValue = ''; 
   }
+  
 
   obtenerConcatenacionIds(orden: Panel & { concatenacionIds?: string }) {
     this.ordenTrabajoService.getActivo(orden.id_activo).subscribe({
@@ -85,14 +92,16 @@ export class PanelComponent implements OnInit {
   filtrarOrdenes() {
     const columna = this.selectedColumn;
     const valor = this.filterValue;
-
-    this.ordenesFiltradas = this.ordenes
-      .filter((orden) => orden[columna] === valor)
-      .map((orden) => {
-        this.obtenerConcatenacionIds(orden);
-        return orden;
-      });
+  
+    if (columna === 'realizada') {
+      const filtroRealizada = valor === 'Sí' ? 1 : 0;
+      this.ordenesFiltradas = this.ordenes.filter(orden => Number(orden.realizada) === filtroRealizada);
+    } else {
+      this.ordenesFiltradas = this.ordenes.filter(orden => orden[columna] === valor);
+    }
   }
+  
+
 
 
   calcularCodigoUnico(orden: Panel): string {
@@ -151,5 +160,5 @@ export class PanelComponent implements OnInit {
     this.filterValue = '';
     this.selectedColumn = 'nombre_edificio';
     this.actualizarOpciones();
-  }
+  }
 }

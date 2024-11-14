@@ -10,12 +10,15 @@
         <option value="nombre_piso">Piso</option>
         <option value="nombre_sector">Sector</option>
         <option value="nombre_activo">Activo</option>
+        <option value="realizada">Realizado</option>
       </select>
     
       <select id="filterValue" [(ngModel)]="filterValue" (change)="filtrarOrdenes()">
-        <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
+        <option *ngFor="let opcion of opciones" [value]="opcion">
+          {{ selectedColumn === 'realizada' ? opcion : opcion }}
+        </option>
       </select>
-    
+      
       <button (click)="reiniciarFiltro()" class="reset-button" [disabled]="!filterValue">Reiniciar Filtro</button>
     </div>
     
